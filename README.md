@@ -1,7 +1,7 @@
 # Týmovačka - Tým. Snadně.
 
 # TÝMOVÁNÍČKO
-![Týmováníčko](uploads/fc7558ab704c385325015b38f549eb1d/Týmováníčko.png)
+![Týmováníčko](https://gitlab.com/FIS-VSE/4IT115/2022ZS/st1100/kafj03/smudlove-tymova-prace/-/wikis/uploads/fc7558ab704c385325015b38f549eb1d/T%C3%BDmov%C3%A1n%C3%AD%C4%8Dko.png)
 ## Tým
 
 - Magdalena Hájková
