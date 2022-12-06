@@ -1,6 +1,7 @@
-# Týmováníčko - Tým. Snadně.
+# TÝMOVÁNÍČKO
 
-![Týmováníčko](https://gitlab.com/FIS-VSE/4IT115/2022ZS/st1100/kafj03/smudlove-tymova-prace/-/wikis/uploads/fc7558ab704c385325015b38f549eb1d/T%C3%BDmov%C3%A1n%C3%AD%C4%8Dko.png)
+![Týmováníčko](uploads/fc7558ab704c385325015b38f549eb1d/T%C3%BDmov%C3%A1n%C3%AD%C4%8Dko.png)
+
 ## Tým
 
 - Magdalena Hájková
@@ -25,14 +26,9 @@ ve formátu user stories
 
 Návrh se skládá z
 
--   UML modelů
-    -   diagram případů užití (včetně slovního popisu dle MMSP)
-    -   diagram tříd na designové úrovni
-    -   další UML modely za každého člena týmu (individuální práce)
--   návrhu úložiště
-    -   soubory? případně v jakém formátu a v jaké struktuře
-    -   databáze? jaký typ a v jaké struktuře
-
+- UML modelů
+    - diagram případů užití (včetně slovního popisu dle MMSP)
+    - další UML modely za každého člena týmu (individuální práce)
 
 ```plantuml
 !theme cerulean
@@ -78,26 +74,67 @@ trainer -[#red,thickness=2]-> createEvent
 trainer -[#red,thickness=2]-> modifyTeamMembers
 trainer -[#red,thickness=2]-> modifyEvent
 trainer -[#red,thickness=2]-> delegateCaptain
-trainer -[#red,thickness=2]-> delegateCaptain
 ```
 
-## [](#prototyp-aplikace)Prototyp aplikace
+- diagram tříd na designové úrovni
 
-Prototyp se může vytvořit online na [https://www.invisionapp.com/](https://www.invisionapp.com/), [https://www.figma.com/](https://www.figma.com/), nebo v desktopové aplikaci Axure RP.
+```plantuml
+
+class "Člen týmu" {
+ +jméno
++email
+-heslo
+ void prihlaseni()
+void potvrdit()
+void komunikovat()
+}
+class "Trenér týmu"{
+  +jméno
++email
+-heslo
+void spravovat_tym()
+ void sdilet()
+ void prihlaseni()
+void potvrdit()
+}
+class "Kapitán týmu"{
+    +jméno
++email
+-heslo
+   void prihlaseni()
+void potvrdit()
+}
+```
+
+- návrhu úložiště
+    - soubory? případně v jakém formátu a v jaké struktuře
+    - databáze? jaký typ a v jaké struktuře
+
+Pro naši aplikaci budem využívat strukturu souborů s JSON soubory. Budeme mít jednotlivé JSON soubory, kde každý bude obsahovat všechny informace k danému tématu.
+
+- Uživatel (obsahuje všechny základní údaje všech registrovaných uživatelů)
+- Tým (obsahuje základní data o všech týmech)
+- Událost (obsahuje základní data všech vytvořených událostí)
+
+## Prototyp aplikace
+
+[mobile](https://www.figma.com/proto/SsDWKeWOHXFL7TailRt2EH/T%C3%9DMOV%C3%81N%C3%8D%C4%8CKO?node-id=17%3A663&scaling=scale-down&page-id=0%3A1&starting-point-node-id=0%3A3) [desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/desktop?node-id=4%3A15&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2)
+
+Prototyp se může vytvořit online na https://www.invisionapp.com/, https://www.figma.com/, nebo v desktopové aplikaci Axure RP.
 
 Uveďte sem
 
--   odkaz na prototyp online, nebo wiki stránku s obrázky
--   popis výsledků testování prototypu
+- odkaz na prototyp online, nebo wiki stránku s obrázky
+- popis výsledků testování prototypu
 
-## [](#testovac%C3%ADch-p%C5%99%C3%ADpady)Testovací případy
+## Testovací případy
 
-alespoň 5 testovacích případů
+![Testovací\_případy](uploads/0efb767dee9a96ca4041e3c729f998e1/Testovac%C3%AD_p%C5%99%C3%ADpady.png)
 
-## [](#projektov%C3%BD-board-a-workflow)Projektový board a workflow
+## Projektový board a workflow
 
--   odkaz na projektový issue board se vytvořenými issue
-    -   issue jsou označené štítky podle typu, rozpracovanosti a dalších...
-    -   každé issue má přiřazenou odpovědnou osobu
--   popis stadií rozpracovanosti, kterému odpovídají štítky
--   strategie pro větvení
+- odkaz na projektový issue board se vytvořenými issue
+    - issue jsou označené štítky podle typu, rozpracovanosti a dalších...
+    - každé issue má přiřazenou odpovědnou osobu
+- popis stadií rozpracovanosti, kterému odpovídají štítky
+- strategie pro větvení
