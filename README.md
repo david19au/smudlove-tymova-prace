@@ -129,7 +129,7 @@ Uveďte sem
 
 ## Testovací případy
 
-![Testovací\_případy](uploads/0efb767dee9a96ca4041e3c729f998e1/Testovac%C3%AD_p%C5%99%C3%ADpady.png)
+![Testovací\_případy](https://gitlab.com/FIS-VSE/4IT115/2022ZS/st1100/kafj03/smudlove-tymova-prace/-/wikis/uploads/0efb767dee9a96ca4041e3c729f998e1/Testovac%C3%AD_p%C5%99%C3%ADpady.png)
 
 ## Projektový board a workflow
 
