@@ -39,34 +39,47 @@ Návrh se skládá z
 !theme cerulean
 
 left to right direction
-:Člen týmu: as clenTymu
-:Trenér: as trener
-:Kapitán: as kapitan
+:Nový uživatel: as newUser
+:Člen týmu: as teamMember
+:Kapitán: as captain
+:Trenér: as trainer
 
 
-usecase "Registrace/Přihlašování" as login
-usecase "Účast na událostech" as rsvp
-usecase "Komunikace - fotky a videa" as comms
-usecase "Docházka" as dochazka
-usecase "Posílat zprávy" as chat
+usecase "Registrace" as register
+usecase "Vytvoření nového týmu" as createTeam
+usecase "Přidání se k existujícímu týmu" as joinTeam
+usecase "Přihlášení se do aplikace" as login
+usecase "Zadávání reakce na událost" as rsvp
+usecase "Posílání zpráv v chatu týmu nebo události" as chat
+usecase "Vytvoření události" as createEvent
+usecase "Upravení týmu" as modifyTeamMembers
+usecase "Upravení události" as modifyEvent
+usecase "Jmenování člena týmu kapitánem" as delegateCaptain
 
+newUser -[#black,thickness=2]-> register
+newUser -[#black,thickness=2]-> createTeam
+newUser -[#black,thickness=2]-> joinTeam
+newUser -[#black,thickness=2]-> login
 
-clenTymu --> login
-clenTymu --> chat
-clenTymu --> rsvp
-clenTymu --> dochazka : zadat
+teamMember --> login
+teamMember --> rsvp
+teamMember --> chat
 
-kapitan -[#green,thickness=2]-> rsvp : organizace
-kapitan -[#green,thickness=2]-> dochazka
-kapitan -[#green,thickness=2]-> comms
-kapitan -[#green,thickness=2]-> chat
-kapitan -[#green,thickness=2]-> login
+captain -[#green,thickness=2]-> login
+captain -[#green,thickness=2]-> rsvp
+captain -[#green,thickness=2]-> chat
+captain -[#green,thickness=2]-> createEvent
+captain -[#green,thickness=2]-> modifyTeamMembers
+captain -[#green,thickness=2]-> modifyEvent
 
-trener -[#red,thickness=2]-> rsvp : organizace
-trener -[#red,thickness=2]-> dochazka : spravovat
-trener -[#red,thickness=2]-> comms
-trener -[#red,thickness=2]-> chat
-trener -[#red,thickness=2]-> login
+trainer -[#red,thickness=2]-> login
+trainer -[#red,thickness=2]-> rsvp
+trainer -[#red,thickness=2]-> chat
+trainer -[#red,thickness=2]-> createEvent
+trainer -[#red,thickness=2]-> modifyTeamMembers
+trainer -[#red,thickness=2]-> modifyEvent
+trainer -[#red,thickness=2]-> delegateCaptain
+trainer -[#red,thickness=2]-> delegateCaptain
 ```
 
 ## [](#prototyp-aplikace)Prototyp aplikace
