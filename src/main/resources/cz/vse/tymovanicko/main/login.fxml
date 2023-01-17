@@ -47,7 +47,7 @@
    <top>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../../OneDrive - Vysoká škola ekonomická v Praze/Dokumenty/4IT115 Softwarové inženýrství/Týmováníčko/Logo/login.png" />
+            <Image url="@login.png" />
          </image>
       </ImageView>
    </top>
