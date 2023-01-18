@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Třída  LoginController je hlavní třídou okna,
@@ -36,7 +37,7 @@ public class LoginController {
 
     @FXML
     private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("register.fxml")));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

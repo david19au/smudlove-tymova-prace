@@ -12,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 /**
  * Třída  ChangePasswordController je hlavní třídou okna,
  * které představuje obrazovku pro změnu hesla
@@ -35,7 +37,7 @@ public class ChangePasswordController {
 
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("profile_settings.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
         stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
