@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.LoginController">
    <center>
       <GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" vgap="10.0">
         <columnConstraints>
@@ -33,7 +33,7 @@
             <TextField prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz" GridPane.columnIndex="1" />
             <Label text="Heslo:" GridPane.rowIndex="1" />
             <PasswordField promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Přihlásit se" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="prihlasit" onAction="#zpracujPrihlaseni" mnemonicParsing="false" text="Přihlásit se" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets bottom="10.0" left="56.0" right="56.0" top="10.0" />
                </padding>
@@ -55,7 +55,7 @@
       <HBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="25.0" text="Nemáte založený účet?" />
-            <Button mnemonicParsing="false" text="Zaregistrujte se">
+            <Button fx:id="zaregistrovat" onAction="#zpracujZaregistrovani" mnemonicParsing="false" text="Zaregistrujte se">
                <padding>
                   <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
                </padding>
