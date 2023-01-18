@@ -26,10 +26,8 @@ public class LoginController {
     private Button prihlasit;
     @FXML
     private Button zaregistrovat;
-
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     private void zpracujPrihlaseni(ActionEvent actionEvent) {
