@@ -1,5 +1,6 @@
 package cz.vse.tymovanicko.main;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -19,12 +20,12 @@ public class LoginController {
     private Button zaregistrovat;
 
     @FXML
-    private void zpracujPrihlaseni() {
+    private void zpracujPrihlaseni(ActionEvent actionEvent) {
 
     }
 
     @FXML
-    private void zpracujZaregistrovani() {
+    private void zpracujZaregistrovani(ActionEvent actionEvent) {
 
     }
 }

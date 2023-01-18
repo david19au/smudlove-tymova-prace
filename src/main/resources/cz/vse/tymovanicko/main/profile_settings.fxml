@@ -55,28 +55,28 @@
       </PasswordField>
       <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="28.0">
          <children>
-            <Button mnemonicParsing="false" text="Uložit">
+            <Button fx:id="uloz" onAction="#zpracujUlozeni" mnemonicParsing="false" text="Uložit">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding></Button>
-            <Button mnemonicParsing="false" text="Odhlásit se">
+            <Button fx:id="odhlas" onAction="#zpracujOdhlaseni" mnemonicParsing="false" text="Odhlásit se">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding></Button>
-            <Button mnemonicParsing="false" text="Změna hesla">
+            <Button fx:id="zmenHeslo" onAction="#zpracujNaZmenuHesla" mnemonicParsing="false" text="Změna hesla">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding></Button>
-            <Button mnemonicParsing="false" text="Změna týmu">
+            <Button fx:id="zmenTym" onAction="#zpracujNaZmenuTymu" mnemonicParsing="false" text="Změna týmu">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
