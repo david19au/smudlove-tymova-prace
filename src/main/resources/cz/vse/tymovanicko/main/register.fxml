@@ -18,7 +18,7 @@
    <children>
       <HBox>
          <children>
-            <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="zpet" onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@arrow_white.png" />
                </image>
