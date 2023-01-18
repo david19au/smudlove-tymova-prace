@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
  */
 public class ChangePasswordController {
 
+    // datové atributy
     @FXML
     private Button zmenHeslo;
 

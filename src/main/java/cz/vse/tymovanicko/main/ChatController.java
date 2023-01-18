@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
  */
 public class ChatController {
 
+    // datové atributy
     @FXML
     private Button posli;
 

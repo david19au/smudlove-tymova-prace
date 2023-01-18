@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
  */
 public class ProfileSettingsController {
 
+    // datové atributy
     @FXML
     private Button zmenTym;
     @FXML
