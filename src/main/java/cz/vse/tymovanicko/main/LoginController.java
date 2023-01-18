@@ -25,7 +25,7 @@ public class LoginController {
     }
 
     @FXML
-    private void zpracujZaregistrovani(ActionEvent actionEvent) {
+    private void zpracujNaZaregistrovani(ActionEvent actionEvent) {
 
     }
 }
