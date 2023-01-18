@@ -31,7 +31,7 @@ public class LoginController {
     }
 
     @FXML
-    private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws IOException {
+    private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws Exception {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("register.fxml"));
