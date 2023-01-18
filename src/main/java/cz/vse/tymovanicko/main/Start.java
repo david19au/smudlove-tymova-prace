@@ -3,6 +3,7 @@ package cz.vse.tymovanicko.main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -37,6 +38,7 @@ public class Start extends Application {
         Scene scene = new Scene(loader.getRoot());
         stage.setScene(scene);
         stage.setTitle("Týmováníčko");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("logo.jpg")));
         stage.show();
     }
 }
