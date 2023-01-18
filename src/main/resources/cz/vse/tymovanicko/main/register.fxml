@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.RegisterController">
    <children>
       <Label text="Registrace" textFill="WHITE">
          <font>
