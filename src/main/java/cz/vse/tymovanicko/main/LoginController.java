@@ -3,6 +3,8 @@ package cz.vse.tymovanicko.main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -25,6 +27,10 @@ public class LoginController {
     @FXML
     private Button zaregistrovat;
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     private void zpracujPrihlaseni(ActionEvent actionEvent) {
 
@@ -32,14 +38,10 @@ public class LoginController {
 
     @FXML
     private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws Exception {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("register.fxml"));
-        loader.load();
-        Scene scene = new Scene(loader.getRoot());
+        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Týmováníčko");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("logo.jpg")));
         stage.show();
     }
 }
