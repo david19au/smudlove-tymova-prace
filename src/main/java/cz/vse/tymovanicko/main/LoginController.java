@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 
 /**
  * Třída  LoginController je hlavní třídou okna,
- * který představuje přihlašovací obrazovku
+ * které představuje přihlašovací obrazovku
  *
  * @author    ?
  * @version   ?

@@ -4,6 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Třída  ProfileSettingsController je hlavní třídou okna,
+ * které představuje obrazovku pro úpravu profilu
+ *
+ * @author    ?
+ * @version   ?
+ */
 public class ProfileSettingsController {
 
     @FXML
