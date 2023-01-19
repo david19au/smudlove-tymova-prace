@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" spacing="30.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" spacing="30.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.HomeController">
    <children>
       <Label text="Týmováníčko" textFill="WHITE">
          <font>
@@ -19,17 +19,17 @@
          <children>
             <VBox spacing="50.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="kalendar" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@calendar_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="chat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@chat_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="nastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@setting_white.png" />
                      </image>
