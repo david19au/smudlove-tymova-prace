@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox prefHeight="500.0" prefWidth="600.0" spacing="30.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.ProfileSettingsController">
    <children>
       <Label text="Týmováníčko" textFill="WHITE">
@@ -24,12 +23,12 @@
          <children>
             <VBox spacing="50.0">
                <children>
-                  <ImageView fx:id="kalendar" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="kalendar" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@calendar_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="chat" onMouseClicked="#zpracujNaChat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@chat_white.png" />
                      </image>
@@ -38,6 +37,14 @@
                      <image>
                         <Image url="@setting_white.png" />
                      </image>
+                  </ImageView>
+                  <ImageView fx:id="zpet" fitHeight="45.0" fitWidth="50.0" onMouseClicked="#zpracujZpatky" onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@arrow_white.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="8.0" />
+                     </VBox.margin>
                   </ImageView>
                </children>
                <padding>
