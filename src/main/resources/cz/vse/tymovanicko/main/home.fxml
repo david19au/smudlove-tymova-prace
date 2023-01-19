@@ -19,17 +19,17 @@
          <children>
             <VBox spacing="50.0">
                <children>
-                  <ImageView fx:id="kalendar" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="kalendar" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@calendar_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="chat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@chat_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="nastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" onMouseClicked="#zpracujNaNastaveni" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@setting_white.png" />
                      </image>
@@ -52,7 +52,7 @@
             <Insets />
          </VBox.margin>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" />
          </padding>
       </HBox>
    </children>
