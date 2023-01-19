@@ -34,12 +34,12 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <TextField prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz" GridPane.columnIndex="1" />
+            <TextField fx:id="username" prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz" GridPane.columnIndex="1" />
             <Label text="Heslo:" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <PasswordField promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="password" promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="prihlasit" mnemonicParsing="false" onAction="#zpracujPrihlaseni" text="Přihlásit se" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
