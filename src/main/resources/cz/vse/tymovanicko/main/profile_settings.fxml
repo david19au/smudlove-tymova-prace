@@ -24,12 +24,12 @@
          <children>
             <VBox spacing="50.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="kalendar" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@calendar_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="chat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@chat_white.png" />
                      </image>
