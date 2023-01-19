@@ -29,7 +29,7 @@
                         <Image url="@chat_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="nastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="nastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" onMouseClicked="#zpracujNaNastaveni" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@setting_white.png" />
                      </image>
