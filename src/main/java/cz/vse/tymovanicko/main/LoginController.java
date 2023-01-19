@@ -31,8 +31,13 @@ public class LoginController {
     private Scene scene;
 
     @FXML
-    private void zpracujPrihlaseni(ActionEvent actionEvent) {
-
+    private void zpracujPrihlaseni(ActionEvent actionEvent) throws Exception {
+        // tady to hodit do ifu
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
