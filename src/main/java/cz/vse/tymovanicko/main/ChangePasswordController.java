@@ -30,6 +30,10 @@ public class ChangePasswordController {
     private ImageView zpet;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private ImageView kalendar;
+    @FXML
+    private ImageView chat;
 
     @FXML
     private void zpracujZmenuHesla(ActionEvent actionEvent) {
@@ -56,5 +60,33 @@ public class ChangePasswordController {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
         zpet.setEffect(zesvetleni);
+    }
+
+    @FXML
+    private void ztmavniKalendar(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        kalendar.setEffect(ztmavnuti);
+    }
+
+    @FXML
+    private void zesvetlejKalendar(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        kalendar.setEffect(zesvetleni);
+    }
+
+    @FXML
+    private void ztmavniChat(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        chat.setEffect(ztmavnuti);
+    }
+
+    @FXML
+    private void zesvetlejChat(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        chat.setEffect(zesvetleni);
     }
 }
