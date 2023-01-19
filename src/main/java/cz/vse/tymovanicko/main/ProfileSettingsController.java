@@ -24,6 +24,7 @@ import java.util.Objects;
  */
 public class ProfileSettingsController {
 
+
     // datové atributy
     @FXML
     private Button zmenTym;
@@ -39,6 +40,8 @@ public class ProfileSettingsController {
     private ImageView chat;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private ImageView zpet;
 
     @FXML
     private void zpracujUlozeni(ActionEvent actionEvent) {
@@ -101,5 +104,28 @@ public class ProfileSettingsController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void ztmavni(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        zpet.setEffect(ztmavnuti);
+    }
+
+    @FXML
+    public void zesvetlej(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        zpet.setEffect(zesvetleni);
     }
 }
