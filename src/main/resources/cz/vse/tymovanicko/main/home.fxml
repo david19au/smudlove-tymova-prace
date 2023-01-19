@@ -24,7 +24,7 @@
                         <Image url="@calendar_white.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@chat_white.png" />
                      </image>

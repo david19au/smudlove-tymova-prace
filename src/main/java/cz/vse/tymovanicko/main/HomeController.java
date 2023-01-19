@@ -75,4 +75,13 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
+        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
