@@ -12,8 +12,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.LoginController">
    <center>
       <GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" vgap="10.0">
         <columnConstraints>
@@ -26,20 +27,29 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <padding>
-            <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+            <Insets bottom="10.0" top="25.0" />
          </padding>
          <children>
-            <Label text="Přihlašovací jméno/email:" />
+            <Label text="Přihlašovací jméno/email:" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
             <TextField prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz" GridPane.columnIndex="1" />
-            <Label text="Heslo:" GridPane.rowIndex="1" />
+            <Label text="Heslo:" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
             <PasswordField promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="prihlasit" onAction="#zpracujPrihlaseni" mnemonicParsing="false" text="Přihlásit se" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="prihlasit" mnemonicParsing="false" onAction="#zpracujPrihlaseni" text="Přihlásit se" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <padding>
-                  <Insets bottom="10.0" left="56.0" right="56.0" top="10.0" />
+                  <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
                <GridPane.margin>
-                  <Insets />
+                  <Insets top="20.0" />
                </GridPane.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
          </children>
       </GridPane>
@@ -47,15 +57,15 @@
    <top>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@login.png" />
+            <Image url="@tymovanicko.jpg" />
          </image>
       </ImageView>
    </top>
    <bottom>
       <HBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="25.0" text="Nemáte založený účet?" />
-            <Button fx:id="zaregistrovat" onAction="#zpracujNaZaregistrovani" mnemonicParsing="false" text="Zaregistrujte se">
+            <Label prefHeight="25.0" text="Nemáte založený účet?" textFill="WHITE" />
+            <Button fx:id="zaregistrovat" mnemonicParsing="false" onAction="#zpracujNaZaregistrovani" text="Zaregistrujte se">
                <padding>
                   <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
                </padding>
