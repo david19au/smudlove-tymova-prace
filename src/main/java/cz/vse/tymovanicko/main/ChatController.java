@@ -25,6 +25,7 @@ import java.util.Objects;
 public class ChatController {
 
 
+
     // datové atributy
     @FXML
     private Button posli;
@@ -34,6 +35,8 @@ public class ChatController {
     private ImageView nastaveni;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private ImageView zpet;
 
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) {
@@ -74,5 +77,28 @@ public class ChatController {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
         nastaveni.setEffect(zesvetleni);
+    }
+
+    @FXML
+    private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void ztmavni(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        zpet.setEffect(ztmavnuti);
+    }
+
+    @FXML
+    private void zesvetlej(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        zpet.setEffect(zesvetleni);
     }
 }
