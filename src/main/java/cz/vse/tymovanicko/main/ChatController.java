@@ -62,7 +62,7 @@ public class ChatController {
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
         String zprava = vstupZprava.getText();
-        if(zprava.isBlank())
+        if (zprava.isBlank())
             return;
         jsonChat.pridatZpravu(zprava);
         zpravyChatu.appendText(zprava + "\n");
