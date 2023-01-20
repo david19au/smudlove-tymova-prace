@@ -39,6 +39,12 @@ public class ChangePasswordController {
     private void zpracujZmenuHesla(ActionEvent actionEvent) {
     }
 
+    /**
+     * Metoda, která vrací obrazovku zpět na profilové nastavení
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
@@ -48,6 +54,11 @@ public class ChangePasswordController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout šipku, když na ní najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavni(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -55,6 +66,11 @@ public class ChangePasswordController {
         zpet.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat šipku, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlej(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -62,6 +78,11 @@ public class ChangePasswordController {
         zpet.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která nechá ztmavnout kalendář, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniKalendar(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -69,6 +90,11 @@ public class ChangePasswordController {
         kalendar.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat kalendář, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejKalendar(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -76,6 +102,11 @@ public class ChangePasswordController {
         kalendar.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která nechá ztmavnout chat, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniChat(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -83,10 +114,30 @@ public class ChangePasswordController {
         chat.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat chat, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejChat(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
         chat.setEffect(zesvetleni);
+    }
+
+    /**
+     * Metoda, která změní obrazovku na chat
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
+    @FXML
+    private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
