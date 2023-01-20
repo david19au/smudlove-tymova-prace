@@ -19,7 +19,7 @@ public class JsonTym {
         seznamClenu.add(clen);
     }
 
-    public List<JsonUzivatel> getSeznamClenu () {
+    public List<JsonUzivatel> getSeznamClenu() {
         return seznamClenu;
     }
 
