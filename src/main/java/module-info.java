@@ -6,4 +6,6 @@ module cz.vse.tymovanicko {
 
     opens cz.vse.tymovanicko.main to javafx.fxml, com.google.gson;
     exports cz.vse.tymovanicko.main;
+    exports cz.vse.tymovanicko.main.logic;
+    opens cz.vse.tymovanicko.main.logic to com.google.gson, javafx.fxml;
 }

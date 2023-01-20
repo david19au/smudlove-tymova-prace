@@ -6,19 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 /**
  * Třída  LoginController je hlavní třídou okna,
  * které představuje přihlašovací obrazovku
  *
- * @author    ?
- * @version   ?
+ * @author ?
+ * @version ?
  */
 public class LoginController {
 
@@ -34,7 +32,7 @@ public class LoginController {
     private void zpracujPrihlaseni(ActionEvent actionEvent) throws Exception {
         // tady to hodit do ifu
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -43,7 +41,7 @@ public class LoginController {
     @FXML
     private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("register.fxml")));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

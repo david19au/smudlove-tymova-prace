@@ -1,5 +1,8 @@
-package cz.vse.tymovanicko.main;
-import java.util.*;
+package cz.vse.tymovanicko.main.logic;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class JsonUdalost {
 
@@ -14,7 +17,7 @@ public class JsonUdalost {
         this.mistoKonani = mistoKonani;
     }
 
-    public void pridejUcasntika (JsonUzivatel ucastnik) {
+    public void pridejUcasntika(JsonUzivatel ucastnik) {
         seznamUcastniku.add(ucastnik);
     }
 
@@ -22,6 +25,7 @@ public class JsonUdalost {
     public List<JsonUzivatel> getSeznamUcastniku() {
         return seznamUcastniku;
     }
+
     public String getSeznamUcastnikuVypis() {
         String vypis = "";
         for (JsonUzivatel uzivatelDemo : seznamUcastniku) {

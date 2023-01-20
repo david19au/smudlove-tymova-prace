@@ -18,8 +18,8 @@ import java.util.Objects;
  * Třída  ChangePasswordController je hlavní třídou okna,
  * které představuje obrazovku pro změnu hesla
  *
- * @author    ?
- * @version   ?
+ * @author ?
+ * @version ?
  */
 public class ChangePasswordController {
 
@@ -42,7 +42,7 @@ public class ChangePasswordController {
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
-        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
