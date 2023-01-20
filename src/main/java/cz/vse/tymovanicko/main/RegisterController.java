@@ -45,7 +45,7 @@ public class RegisterController {
 
     @FXML
     private void zpracujZaregistrovani(ActionEvent actionEvent) {
-        String regexJmeno = "^[A-ZŠČŘŽ][a-zěščřžýáíéúů]+(.[A-ZŠČŘŽ][a-zěščřžýáíéúů]+)+$";
+        String regexJmeno = ".+";
         Pattern patternJmeno = Pattern.compile(regexJmeno);
         String stringJmeno = jmeno.getCharacters().toString();
         Matcher jeValidniJmeno = patternJmeno.matcher(stringJmeno);
