@@ -4,6 +4,6 @@ module cz.vse.tymovanicko {
     requires com.google.gson;
 
 
-    opens cz.vse.tymovanicko.main to javafx.fxml;
+    opens cz.vse.tymovanicko.main to javafx.fxml, com.google.gson;
     exports cz.vse.tymovanicko.main;
 }
