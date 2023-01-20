@@ -12,15 +12,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 /**
  * Třída  ProfileSettingsController je hlavní třídou okna,
  * které představuje obrazovku pro úpravu profilu
  *
- * @author    ?
- * @version   ?
+ * @author ?
+ * @version ?
  */
 public class ProfileSettingsController {
 
@@ -50,7 +49,7 @@ public class ProfileSettingsController {
     @FXML
     private void zpracujOdhlaseni(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -59,7 +58,7 @@ public class ProfileSettingsController {
     @FXML
     private void zpracujNaZmenuHesla(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("change_password.fxml")));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -100,7 +99,7 @@ public class ProfileSettingsController {
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
-        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -109,7 +108,7 @@ public class ProfileSettingsController {
     @FXML
     public void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
-        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

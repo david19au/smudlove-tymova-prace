@@ -12,8 +12,8 @@ import java.util.Objects;
  * Třída  Start je hlavní třídou projektu,
  * který představuje správu týmů
  *
- * @author    ?
- * @version   ?
+ * @author ?
+ * @version ?
  */
 public class Start extends Application {
 

@@ -12,41 +12,53 @@
 
 ## Anotace aplikace
 
-Aplikace **TÝMOVÁNÍČKO** slouží pro správu a organizaci sportovního týmu. Členové týmu mají přístup například k týmové nástěnce, týmovému chatu, jednotlivým událostem. V chatech se mohou domlouvat na všem, co se jejich týmu nebo konkrétní události týká, na událostech mohou vyjadřovat svou ne/účast.
+Aplikace **TÝMOVÁNÍČKO** slouží pro správu a organizaci sportovního týmu. Členové týmu mají přístup například k týmové
+nástěnce, týmovému chatu, jednotlivým událostem. V chatech se mohou domlouvat na všem, co se jejich týmu nebo konkrétní
+události týká, na událostech mohou vyjadřovat svou ne/účast.
 
 ## Seznam úkolů a jejich přiřazení členům týmu
+
 * **Funkcionalita:**
-  * 🪲 Jakub Kafka (kafj03)
-  * 🐧 Adam Schindler (scha28)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐧 Adam Schindler (scha28)
 * **Use Case diagram:**
-  * 🐻 Trong Dat Luu (luut02)
+    * 🐻 Trong Dat Luu (luut02)
 * **Class Diagram:**
-  * 🐼 Hana Žahourová (zahh00)
+    * 🐼 Hana Žahourová (zahh00)
 * **Specifikace případů užití:**
-  * 🐧 Adam Schindler (scha28)
+    * 🐧 Adam Schindler (scha28)
 * **Prototyp aplikace:**
-  * 🐸 Magdalena Hájková (hajm17)
+    * 🐸 Magdalena Hájková (hajm17)
 * **Návrh uložiště:**
-  * 🐸 Magdalena Hájková (hajm17)
-  * 🐻 Trong Dat Luu (luut02)
-  * 🪲 Jakub Kafka (kafj03)
-  * 🐧 Adam Schindler (scha28)
-  * 🐼 Hana Žahourová (zahh00)
+    * 🐸 Magdalena Hájková (hajm17)
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐧 Adam Schindler (scha28)
+    * 🐼 Hana Žahourová (zahh00)
 * **Testovací případy:**
-  * 🪲 Jakub Kafka (kafj03)
+    * 🪲 Jakub Kafka (kafj03)
 
 ## Funkcionalita
 
-- Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla viditelná týmová docházka a týmová komunikace. Zároveň chci mít možnost s týmem sdílet různé soubory, fotky, obrázky, odkazy a ankety_.
-- Jako **_kapitán týmu_** chci _organizovat tým_, abych _se mohl starat o konkrétní, mě přiřazenou, skupinu. Dohlížet na to že v týmu komunikace funguje a všichni členi se jí účastní_.
-- Jako **_člen týmu_** se chci _účastnit komunikace v týmu_, abych _měl přehled o všem, co se v týmu děje. Mohl komunikovat s ostatními členy, kapitány i trenéry, abych mohl vyjadřovat svou ne/účast na jednotlivých událostech a zdůvodňovat ji_.
+- Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla
+  viditelná týmová docházka a týmová komunikace. Zároveň chci mít možnost s týmem sdílet různé soubory, fotky, obrázky,
+  odkazy a ankety_.
+- Jako **_kapitán týmu_** chci _organizovat tým_, abych _se mohl starat o konkrétní, mě přiřazenou, skupinu. Dohlížet na
+  to že v týmu komunikace funguje a všichni členi se jí účastní_.
+- Jako **_člen týmu_** se chci _účastnit komunikace v týmu_, abych _měl přehled o všem, co se v týmu děje. Mohl
+  komunikovat s ostatními členy, kapitány i trenéry, abych mohl vyjadřovat svou ne/účast na jednotlivých událostech a
+  zdůvodňovat ji_.
 
 ## Návrh aplikace
+
 ### Specifikace případů užití
+
 [Specifikace_případů_užití.xlsx](https://gitlab.com/FIS-VSE/4IT115/2022ZS/st1100/kafj03/smudlove-tymova-prace/-/wikis/uploads/944150c28beb93705385cd4c8b04a191/Specifikace_p%C5%99%C3%ADpad%C5%AF_u%C5%BEit%C3%AD.xlsx)
 
 ### UML modely:
+
 - diagram případů užití
+
 ```plantuml
 !theme cerulean
 
@@ -97,8 +109,10 @@ trainer -[#red,thickness=2]-> modifyTeamMembers
 trainer -[#red,thickness=2]-> modifyEvent
 trainer -[#red,thickness=2]-> delegateCaptain
 ```
+
 - další UML modely za každého člena týmu (individuální práce)
 - diagram tříd na designové úrovni
+
 ```plantuml
 package "Logika" {
 Uzivatel<|-- SeznamUzivatelu : obsahuje
@@ -168,80 +182,105 @@ class  "Nastaveni" <<ui>> {}
 ```
 
 ### Návrh úložiště
+
 - pro naši aplikaci budem využívat strukturu souborů s JSON soubory
 - budeme mít jednotlivé JSON soubory, kde každý bude obsahovat všechny informace k danému tématu
-  - Uživatel (obsahuje všechny základní údaje všech registrovaných uživatelů)
-  - Tým (obsahuje základní data o všech týmech)
-  - Událost (obsahuje základní data všech vytvořených událostí)
+    - Uživatel (obsahuje všechny základní údaje všech registrovaných uživatelů)
+    - Tým (obsahuje základní data o všech týmech)
+    - Událost (obsahuje základní data všech vytvořených událostí)
 
 ## Prototyp aplikace
-Odkaz na prototyp online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/desktop?node-id=33%3A190&scaling=scale-down&page-id=0%3A1&starting-point-node-id=22%3A13)
+
+Odkaz na prototyp
+online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/desktop?node-id=33%3A190&scaling=scale-down&page-id=0%3A1&starting-point-node-id=22%3A13)
 
 ## Testovací případy
-### 1. testovací případ
-* **Název testovacího případu:** Účast na událostech
-* **Popis:** Tento případ testuje zaznamenání účasti, kdy očekávaným výsledkem je, že se do databáze přidá nový záznam a aplikace zobrazí výsledek této operace.
-* **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
-* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému zaznamenání účasti na události. Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a aplikace se pokusí o zaznamenání účasti.
 
-| **Kroky** | **Akce testera** | **Reakce systému** | **Výsledek (OK/error)** |
-|--------------------|------------------------------------------------------------|------------------------------------------|-----------------------|
-| **1.** | U dané události kliknu na zúčastním se/nezúčastním se/nevím. | Proběhne zaznamenání účasti | - |
-| **2.** | Žádná. | Uživatel se zobrazí u daného stavu účasti. | - |
-| **Celkový výsledek** | - |  |  |
+### 1. testovací případ
+
+* **Název testovacího případu:** Účast na událostech
+* **Popis:** Tento případ testuje zaznamenání účasti, kdy očekávaným výsledkem je, že se do databáze přidá nový záznam a
+  aplikace zobrazí výsledek této operace.
+* **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
+* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému zaznamenání účasti na události.
+  Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
+  zadané údaje a aplikace se pokusí o zaznamenání účasti.
+
+| **Kroky**            | **Akce testera**                                             | **Reakce systému**                         | **Výsledek (OK/error)** |
+|----------------------|--------------------------------------------------------------|--------------------------------------------|-------------------------|
+| **1.**               | U dané události kliknu na zúčastním se/nezúčastním se/nevím. | Proběhne zaznamenání účasti                | -                       |
+| **2.**               | Žádná.                                                       | Uživatel se zobrazí u daného stavu účasti. | -                       |
+| **Celkový výsledek** | -                                                            |                                            |                         |
 
 ### 2. testovací případ
-* **Název testovacího případu:** Registrace
-* **Popis:** Tento případ testuje registrování nového uživatele, kdy očekávaným výsledkem je, že se do databáze přidá nový záznam a aplikace zobrazí výsledek této operace.
-* **Vstupní podmínky:** Spuštěná aplikace, uživatel nesmí existovat.
-* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měli vést k úspěšnému registrování uživatele. Dané akce zahrnují zobrazení okna pro založení záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a aplikace se pokusí o přidání nového uživatele.
 
-| **Kroky** | **Akce testera** | **Reakce systému** | **Výsledek (OK/error)** |
-|--------------------|------------------------------------------------------------|------------------------------------------|-----------------------|
-| **1.** | Kliknu na tlačítko "Registrace". | Proběhne přesměrování na registrační formulář. | - |
-| **2.** | Vyplním registrační formulář. | Žádná. | - |
-| **3.** | Odešlu formulář pomocí tlačítka "Registrovat". | Uživatel dostane potvrzení o registraci. | - |
-| **4.** | Žádná. | Uživatel se bude moci přihlásit do aplikaci pomocí emailu a hesla, které zadal při registraci. | - |
-| **Celkový výsledek** | - |  |  |
+* **Název testovacího případu:** Registrace
+* **Popis:** Tento případ testuje registrování nového uživatele, kdy očekávaným výsledkem je, že se do databáze přidá
+  nový záznam a aplikace zobrazí výsledek této operace.
+* **Vstupní podmínky:** Spuštěná aplikace, uživatel nesmí existovat.
+* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měli vést k úspěšnému registrování uživatele. Dané akce
+  zahrnují zobrazení okna pro založení záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a
+  aplikace se pokusí o přidání nového uživatele.
+
+| **Kroky**            | **Akce testera**                               | **Reakce systému**                                                                             | **Výsledek (OK/error)** |
+|----------------------|------------------------------------------------|------------------------------------------------------------------------------------------------|-------------------------|
+| **1.**               | Kliknu na tlačítko "Registrace".               | Proběhne přesměrování na registrační formulář.                                                 | -                       |
+| **2.**               | Vyplním registrační formulář.                  | Žádná.                                                                                         | -                       |
+| **3.**               | Odešlu formulář pomocí tlačítka "Registrovat". | Uživatel dostane potvrzení o registraci.                                                       | -                       |
+| **4.**               | Žádná.                                         | Uživatel se bude moci přihlásit do aplikaci pomocí emailu a hesla, které zadal při registraci. | -                       |
+| **Celkový výsledek** | -                                              |                                                                                                |                         |
 
 ### 3. testovací případ
-* **Název testovacího případu:** Přihlášení
-* **Popis:** Tento případ testuje přihlášení uživatele, kdy očekávaným výsledkem je, že se v databázi zkontroluje záznam a aplikace zobrazí výsledek této operace.
-* **Vstupní podmínky:** Spuštěná aplikace, uživatel musí existovat.
-* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měli vést k úspěšnému přihlášení uživatele. Dané akce zahrnují zobrazení okna pro zkontrolování záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a aplikace se pokusí o přihlášení uživatele.
 
-| **Kroky** | **Akce testera** | **Reakce systému** | **Výsledek (OK/error)** |
-|--------------------|------------------------------------------------------------|------------------------------------------|-----------------------|
-| **1.** | Vyplním přihlašovací formulář. | Žádná. | - |
-| **2.** | Kliknu na tlačítko "Přihlásit se". | Uživatel dostane potvrzení o přihlášení. | - |
-| **3.** | Žádná. | Uživateli se zpřístupní funkce aplikace. | - |
-| **Celkový výsledek** | - |  |  |
+* **Název testovacího případu:** Přihlášení
+* **Popis:** Tento případ testuje přihlášení uživatele, kdy očekávaným výsledkem je, že se v databázi zkontroluje záznam
+  a aplikace zobrazí výsledek této operace.
+* **Vstupní podmínky:** Spuštěná aplikace, uživatel musí existovat.
+* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měli vést k úspěšnému přihlášení uživatele. Dané akce
+  zahrnují zobrazení okna pro zkontrolování záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané
+  údaje a aplikace se pokusí o přihlášení uživatele.
+
+| **Kroky**            | **Akce testera**                   | **Reakce systému**                       | **Výsledek (OK/error)** |
+|----------------------|------------------------------------|------------------------------------------|-------------------------|
+| **1.**               | Vyplním přihlašovací formulář.     | Žádná.                                   | -                       |
+| **2.**               | Kliknu na tlačítko "Přihlásit se". | Uživatel dostane potvrzení o přihlášení. | -                       |
+| **3.**               | Žádná.                             | Uživateli se zpřístupní funkce aplikace. | -                       |
+| **Celkový výsledek** | -                                  |                                          |                         |
 
 ### 4. testovací případ
-* **Název testovacího případu:** Poslání zprávy
-* **Popis:** Tento případ testuje poslání zprávy do chatu, kdy očekávaným výsledkem je, že se do chatu přidá nová zpráva a aplikace zobrazí výsledek této operace.
-* **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
-* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému poslání zprávy do chatu týmu. Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a aplikace se pokusí o poslání nové zprávy.
 
-| **Kroky** | **Akce testera** | **Reakce systému** | **Výsledek (OK/error)** |
-|--------------------|------------------------------------------------------------|------------------------------------------|-----------------------|
-| **1.** | V menu kliknu na ikonu chatu. | Uživateli se zobrazí chat. | - |
-| **2.** | Napíši zprávu do textového pole chatu. | Žádná. | - |
-| **3.** | Kliknu na tlačítko "Odeslat". | Zpráva se zobrazí v chatu. | - |
-| **Celkový výsledek** | - |  |  |
+* **Název testovacího případu:** Poslání zprávy
+* **Popis:** Tento případ testuje poslání zprávy do chatu, kdy očekávaným výsledkem je, že se do chatu přidá nová zpráva
+  a aplikace zobrazí výsledek této operace.
+* **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
+* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému poslání zprávy do chatu týmu.
+  Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
+  zadané údaje a aplikace se pokusí o poslání nové zprávy.
+
+| **Kroky**            | **Akce testera**                       | **Reakce systému**         | **Výsledek (OK/error)** |
+|----------------------|----------------------------------------|----------------------------|-------------------------|
+| **1.**               | V menu kliknu na ikonu chatu.          | Uživateli se zobrazí chat. | -                       |
+| **2.**               | Napíši zprávu do textového pole chatu. | Žádná.                     | -                       |
+| **3.**               | Kliknu na tlačítko "Odeslat".          | Zpráva se zobrazí v chatu. | -                       |
+| **Celkový výsledek** | -                                      |                            |                         |
 
 ### 5. testovací případ
-* **Název testovacího případu:** Postnutí - fotky a/nebo videa
-* **Popis:** Tento případ testuje přidání příspěvku na zeď týmu, kdy očekávaným výsledkem je, že se na zeď přidá nový příspěvek a aplikace zobrazí výsledek této operace.
-* **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
-* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému přidání příspěvku na zeď týmu. Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a aplikace se pokusí o přidání nového příspěvku.
 
-| **Kroky** | **Akce testera** | **Reakce systému** | **Výsledek (OK/error)** |
-|--------------------|------------------------------------------------------------|------------------------------------------|-----------------------|
-| **1.** | V menu kliknu na ikonu zdi. | Uživateli se zobrazí zeď. | - |
-| **2.** | Napíši a/nebo přidám přílohu. | Žádná. | - |
-| **3.** | Kliknu na tlačítko "Odeslat". | Příspěvek se objeví na zdi. | - |
-| **Celkový výsledek** | - |  |  |
+* **Název testovacího případu:** Postnutí - fotky a/nebo videa
+* **Popis:** Tento případ testuje přidání příspěvku na zeď týmu, kdy očekávaným výsledkem je, že se na zeď přidá nový
+  příspěvek a aplikace zobrazí výsledek této operace.
+* **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
+* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému přidání příspěvku na zeď týmu.
+  Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
+  zadané údaje a aplikace se pokusí o přidání nového příspěvku.
+
+| **Kroky**            | **Akce testera**              | **Reakce systému**          | **Výsledek (OK/error)** |
+|----------------------|-------------------------------|-----------------------------|-------------------------|
+| **1.**               | V menu kliknu na ikonu zdi.   | Uživateli se zobrazí zeď.   | -                       |
+| **2.**               | Napíši a/nebo přidám přílohu. | Žádná.                      | -                       |
+| **3.**               | Kliknu na tlačítko "Odeslat". | Příspěvek se objeví na zdi. | -                       |
+| **Celkový výsledek** | -                             |                             |                         |
 
 ## Projektový board a workflow
+
 [Odkaz na projektový issue board s vytvořenými issue](https://gitlab.com/FIS-VSE/4IT115/2022ZS/st1100/kafj03/smudlove-tymova-prace/-/boards/5068701)

@@ -1,9 +1,12 @@
-package cz.vse.tymovanicko.main;
+package cz.vse.tymovanicko.main.logic;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
 
 public class JsonMain {
 
@@ -13,7 +16,7 @@ public class JsonMain {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         //Vytváří nového uživatele a vytváří JSON s jeho zadanými hodnotami
-        JsonUzivatel uzivatelDemo1 = new JsonUzivatel(0001,"muz", "Adam","Schindler", 21, "scha28@vse.cz", "silneheslo", "trener");
+        JsonUzivatel uzivatelDemo1 = new JsonUzivatel(0001, "muz", "Adam", "Schindler", 21, "scha28@vse.cz", "silneheslo", "trener");
         try (FileWriter writer = new FileWriter("target/uzivatel" + uzivatelDemo1.getKrestniJmeno().toLowerCase() + ".json")) {
             gson.toJson(uzivatelDemo1, writer);
         } catch (IOException e) {
@@ -31,7 +34,7 @@ public class JsonMain {
         //Vytváří dalšího uživatele a oba přidává do události
         //Dále zapisuje JSON současného stavu události
 
-        JsonUzivatel uzivatelDemo2 = new JsonUzivatel(0002,"zena", "Fany","Vařeková", 21, "fanynka@fanynka.cz", "silneheslo2", "kapitan");
+        JsonUzivatel uzivatelDemo2 = new JsonUzivatel(0002, "zena", "Fany", "Vařeková", 21, "fanynka@fanynka.cz", "silneheslo2", "kapitan");
         udalostDemo.pridejUcasntika(uzivatelDemo1);
         udalostDemo.pridejUcasntika(uzivatelDemo2);
         try (FileWriter writer = new FileWriter("target/02_udalost" + udalostDemo.getNazev() + ".json")) {

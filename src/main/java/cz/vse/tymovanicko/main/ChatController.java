@@ -12,18 +12,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 /**
  * Třída  ChatController je hlavní třídou okna,
  * které představuje chat
  *
- * @author    ?
- * @version   ?
+ * @author ?
+ * @version ?
  */
 public class ChatController {
-
 
 
     // datové atributy
@@ -59,7 +57,7 @@ public class ChatController {
     @FXML
     private void zpracujNaNastaveni(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
-        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -82,7 +80,7 @@ public class ChatController {
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
-        stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

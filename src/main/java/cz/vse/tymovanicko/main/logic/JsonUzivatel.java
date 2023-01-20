@@ -1,4 +1,4 @@
-package cz.vse.tymovanicko.main;
+package cz.vse.tymovanicko.main.logic;
 
 public class JsonUzivatel {
 
