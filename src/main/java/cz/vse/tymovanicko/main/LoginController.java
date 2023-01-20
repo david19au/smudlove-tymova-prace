@@ -38,6 +38,12 @@ public class LoginController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na registrační formulář
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("register.fxml")));

@@ -55,6 +55,12 @@ public class ProfileSettingsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na změnu hesla
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaZmenuHesla(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("change_password.fxml")));
@@ -68,6 +74,11 @@ public class ProfileSettingsController {
     private void zpracujNaZmenuTymu(ActionEvent actionEvent) {
     }
 
+    /**
+     * Metoda, která nechá ztmavnout kalendář, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniKalendar(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -75,6 +86,11 @@ public class ProfileSettingsController {
         kalendar.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat kalendář, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejKalendar(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -82,6 +98,11 @@ public class ProfileSettingsController {
         kalendar.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která nechá ztmavnout chat, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniChat(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -96,6 +117,11 @@ public class ProfileSettingsController {
         chat.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat chat, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
@@ -105,6 +131,12 @@ public class ProfileSettingsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která se vrací na domovskou obrazovku
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     public void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
@@ -114,6 +146,11 @@ public class ProfileSettingsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout šipku, když na ní najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     public void ztmavni(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -121,6 +158,11 @@ public class ProfileSettingsController {
         zpet.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat šipku, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     public void zesvetlej(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();

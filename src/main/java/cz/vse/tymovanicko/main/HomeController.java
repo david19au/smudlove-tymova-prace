@@ -12,6 +12,13 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+/**
+ * Třída  HomeController je hlavní třídou okna,
+ * které představuje domovskou obrazovku
+ *
+ * @author ?
+ * @version ?
+ */
 public class HomeController {
 
     // datové atributy
@@ -24,6 +31,11 @@ public class HomeController {
     private Stage stage;
     private Scene scene;
 
+    /**
+     * Metoda, která nechá ztmavnout kalendář, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniKalendar(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -31,6 +43,11 @@ public class HomeController {
         kalendar.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat kalendář, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejKalendar(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -38,6 +55,11 @@ public class HomeController {
         kalendar.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která nechá ztmavnout chat, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniChat(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -45,6 +67,11 @@ public class HomeController {
         chat.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat chat, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejChat(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -52,6 +79,11 @@ public class HomeController {
         chat.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která nechá ztmavnout nastavení, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniNastaveni(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -59,6 +91,11 @@ public class HomeController {
         nastaveni.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat nastavení, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejNastaveni(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -66,6 +103,12 @@ public class HomeController {
         nastaveni.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která změní obrazovku na nastavení profilu
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaNastaveni(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
@@ -75,6 +118,12 @@ public class HomeController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na chat
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));

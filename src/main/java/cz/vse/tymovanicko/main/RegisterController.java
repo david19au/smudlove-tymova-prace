@@ -71,6 +71,11 @@ public class RegisterController {
         } else System.out.println("Není validní jméno");
     }
 
+    /**
+     * Metoda, která nechá ztmavnout šipku, když na ní najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavni(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -78,6 +83,11 @@ public class RegisterController {
         zpet.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat šipku, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlej(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -85,6 +95,12 @@ public class RegisterController {
         zpet.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která vrací obrazovku zpět na přihlašovací formulář
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));

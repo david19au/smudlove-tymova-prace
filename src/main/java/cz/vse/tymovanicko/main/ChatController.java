@@ -40,6 +40,11 @@ public class ChatController {
     private void zpracujPoslani(ActionEvent actionEvent) {
     }
 
+    /**
+     * Metoda, která nechá ztmavnout kalendář, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniKalendar(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -47,6 +52,11 @@ public class ChatController {
         kalendar.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat kalendář, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejKalendar(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -54,6 +64,12 @@ public class ChatController {
         kalendar.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která změní obrazovku na nastavení profilu
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaNastaveni(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
@@ -63,6 +79,11 @@ public class ChatController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout nastavení, když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniNastaveni(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -70,6 +91,11 @@ public class ChatController {
         nastaveni.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat nastavení, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejNastaveni(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -77,6 +103,12 @@ public class ChatController {
         nastaveni.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která se vrací na domovskou obrazovku
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
@@ -86,6 +118,11 @@ public class ChatController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout šipku, když na ní najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavni(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -93,6 +130,11 @@ public class ChatController {
         zpet.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat šipku, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlej(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
