@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18"
+<VBox prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label text="Kalendář" textFill="WHITE">
