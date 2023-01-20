@@ -1,4 +1,4 @@
-package cz.vse.tymovanicko.main.logic;
+package cz.vse.tymovanicko.logic;
 
 import java.util.ArrayList;
 import java.util.List;

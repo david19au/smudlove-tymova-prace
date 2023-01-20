@@ -1,4 +1,4 @@
-package cz.vse.tymovanicko.main.logic;
+package cz.vse.tymovanicko.logic;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
