@@ -1,5 +1,6 @@
 package cz.vse.tymovanicko.main;
 
+import cz.vse.tymovanicko.logika.JsonChat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,11 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -23,10 +27,18 @@ import java.util.Objects;
  */
 public class ChatController {
 
+    JsonChat jsonChat = new JsonChat();
+
 
     // datové atributy
     @FXML
     private Button posli;
+
+    @FXML
+    private TextField vstupZprava;
+
+    @FXML
+    private TextArea zpravyChatu;
     @FXML
     private ImageView kalendar;
     @FXML
@@ -36,8 +48,23 @@ public class ChatController {
     @FXML
     private ImageView zpet;
 
+    public ChatController() throws IOException {
+    }
+
+/*    public void nactiStareZpravy() {
+        ArrayList<String> zpravy = jsonChat.vratZpravy();
+        for (String zprava : zpravy) {
+            zpravyChatu.appendText(zprava + "\n");
+        }
+    }*/
+
+
     @FXML
-    private void zpracujPoslani(ActionEvent actionEvent) {
+    private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
+        String zprava = vstupZprava.getText();
+        jsonChat.pridatZpravu(zprava);
+        zpravyChatu.appendText(zprava + "\n");
+        vstupZprava.setText("");
     }
 
     /**
