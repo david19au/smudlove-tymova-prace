@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 
-public class JsonMain {
+public class JsonHandler {
 
     public static void main(String[] args) {
 
