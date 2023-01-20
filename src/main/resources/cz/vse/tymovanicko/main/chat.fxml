@@ -88,10 +88,11 @@
                                         <Insets left="10.0"/>
                                     </padding>
                                 </Label>
-                                <TextArea prefHeight="440.0" prefWidth="100.0"/>
+                                <TextArea fx:id="zpravyChatu" prefHeight="440.0" prefWidth="100.0" editable="false"/>
                                 <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                     <children>
-                                        <TextField promptText="Napište zprávu..." HBox.hgrow="ALWAYS">
+                                        <TextField fx:id="vstupZprava" onAction="#zpracujPoslani" promptText="Napište zprávu..."
+                                                   HBox.hgrow="ALWAYS">
                                             <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                             </padding>
