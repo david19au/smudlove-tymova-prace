@@ -1,8 +1,10 @@
 package cz.vse.tymovanicko.main;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,8 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -65,10 +72,106 @@ public class RegisterController {
                 if (jeValidniHeslo.matches() == true) {
                     if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
                         System.out.println("Vse je validni");
-                    } else System.out.println("Hesla se neshodují");
-                } else System.out.println("Není validní heslo");
-            } else System.out.println("Není validní email");
-        } else System.out.println("Není validní jméno");
+                    } else {
+                        final Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        dialog.initOwner(stage);
+                        VBox dialogVbox = new VBox(20);
+                        dialogVbox.setAlignment(Pos.CENTER);
+                        dialogVbox.setStyle("-fx-background: #37598e;");
+                        final Text text = new Text("Hesla se neshodují");
+                        text.setStyle("-fx-font: 14 arial;");
+                        text.setFill(Color.WHITE);
+                        Button button = new Button("OK");
+                        button.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                dialog.close();
+                            }
+                        });
+                        dialogVbox.getChildren().add(text);
+                        dialogVbox.getChildren().add(button);
+                        Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                        dialog.setScene(dialogScene);
+                        dialog.setTitle("Týmováníčko");
+                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                        dialog.show();
+                    }
+                } else {
+                    final Stage dialog = new Stage();
+                    dialog.initModality(Modality.APPLICATION_MODAL);
+                    dialog.initOwner(stage);
+                    VBox dialogVbox = new VBox(20);
+                    dialogVbox.setAlignment(Pos.CENTER);
+                    dialogVbox.setStyle("-fx-background: #37598e;");
+                    final Text text = new Text("Není validní heslo");
+                    text.setStyle("-fx-font: 14 arial;");
+                    text.setFill(Color.WHITE);
+                    Button button = new Button("OK");
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            dialog.close();
+                        }
+                    });
+                    dialogVbox.getChildren().add(text);
+                    dialogVbox.getChildren().add(button);
+                    Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                    dialog.setScene(dialogScene);
+                    dialog.setTitle("Týmováníčko");
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                    dialog.show();
+                }
+            } else {
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(stage);
+                VBox dialogVbox = new VBox(20);
+                dialogVbox.setAlignment(Pos.CENTER);
+                dialogVbox.setStyle("-fx-background: #37598e;");
+                final Text text = new Text("Není validní email");
+                text.setStyle("-fx-font: 14 arial;");
+                text.setFill(Color.WHITE);
+                Button button = new Button("OK");
+                button.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        dialog.close();
+                    }
+                });
+                dialogVbox.getChildren().add(text);
+                dialogVbox.getChildren().add(button);
+                Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                dialog.setScene(dialogScene);
+                dialog.setTitle("Týmováníčko");
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.show();
+            }
+        } else {
+            final Stage dialog = new Stage();
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(stage);
+            VBox dialogVbox = new VBox(20);
+            dialogVbox.setAlignment(Pos.CENTER);
+            dialogVbox.setStyle("-fx-background: #37598e;");
+            final Text text = new Text("Není validní jméno");
+            text.setStyle("-fx-font: 14 arial;");
+            text.setFill(Color.WHITE);
+            Button button = new Button("OK");
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    dialog.close();
+                }
+            });
+            dialogVbox.getChildren().add(text);
+            dialogVbox.getChildren().add(button);
+            Scene dialogScene = new Scene(dialogVbox, 200, 100);
+            dialog.setScene(dialogScene);
+            dialog.setTitle("Týmováníčko");
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+            dialog.show();
+        }
     }
 
     /**
