@@ -8,7 +8,8 @@
       prefWidth="600.0" spacing="5.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.SelectTeamController">
     <children>
-        <Label alignment="CENTER" text="Do kterého týmu se chcete zaregistrovat?" textAlignment="CENTER" textFill="WHITE">
+        <Label alignment="CENTER" text="Do kterého týmu se chcete zaregistrovat?" textAlignment="CENTER"
+               textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0"/>
             </font>
