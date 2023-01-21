@@ -34,9 +34,6 @@ public class ChatController {
 
     // datové atributy
     @FXML
-    private Button posli;
-
-    @FXML
     private TextField vstupZprava;
 
     @FXML
