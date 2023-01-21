@@ -94,47 +94,42 @@ public class RegisterController {
                         if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
                             Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, stringHeslo);
-                            try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
-                                JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
-                                String jsonInString = gson.toJson(jsonElement);
-                                if (jsonInString.contains(stringEmail)) {
-                                    final Stage dialog = new Stage();
-                                    dialog.initModality(Modality.APPLICATION_MODAL);
-                                    dialog.initOwner(stage);
-                                    VBox dialogVbox = new VBox(20);
-                                    dialogVbox.setAlignment(Pos.CENTER);
-                                    dialogVbox.setStyle("-fx-background: #37598e;");
-                                    final Text text = new Text("Tento email je již zaregistrovaný");
-                                    text.setStyle("-fx-font: 14 arial;");
-                                    text.setFill(Color.WHITE);
-                                    Button button = new Button("OK");
-                                    button.setOnAction(new EventHandler<ActionEvent>() {
-                                        @Override
-                                        public void handle(ActionEvent actionEvent) {
-                                            dialog.close();
-                                        }
-                                    });
-                                    dialogVbox.getChildren().add(text);
-                                    dialogVbox.getChildren().add(button);
-                                    Scene dialogScene = new Scene(dialogVbox, 250, 100);
-                                    dialog.setScene(dialogScene);
-                                    dialog.setTitle("Týmováníčko");
-                                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
-                                    dialog.show();
-                                } else {
-                                    tymovanicko.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
-                                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
-                                        String json = gson.toJson(tymovanicko.getSeznamUzivatelu());
-                                        bufferedWriter.write(json);
-                                        bufferedWriter.newLine();
-                                        bufferedWriter.flush();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
+                            String emaily = tymovanicko.getSeznamUzivatelu().emailyUzivatelu();
+                            if (emaily.contains("," + stringEmail + ",")) {
+                                final Stage dialog = new Stage();
+                                dialog.initModality(Modality.APPLICATION_MODAL);
+                                dialog.initOwner(stage);
+                                VBox dialogVbox = new VBox(20);
+                                dialogVbox.setAlignment(Pos.CENTER);
+                                dialogVbox.setStyle("-fx-background: #37598e;");
+                                final Text text = new Text("Tento email je již zaregistrovaný");
+                                text.setStyle("-fx-font: 14 arial;");
+                                text.setFill(Color.WHITE);
+                                Button button = new Button("OK");
+                                button.setOnAction(new EventHandler<ActionEvent>() {
+                                    @Override
+                                    public void handle(ActionEvent actionEvent) {
+                                        dialog.close();
                                     }
-                                    System.out.println("Vse je validni");
+                                });
+                                dialogVbox.getChildren().add(text);
+                                dialogVbox.getChildren().add(button);
+                                Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                                dialog.setScene(dialogScene);
+                                dialog.setTitle("Týmováníčko");
+                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                                dialog.show();
+                            } else {
+                                tymovanicko.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
+                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
+                                    String json = gson.toJson(tymovanicko.getSeznamUzivatelu());
+                                    bufferedWriter.write(json);
+                                    bufferedWriter.newLine();
+                                    bufferedWriter.flush();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                                System.out.println("Vse je validni");
                             }
                         } else {
                             final Stage dialog = new Stage();

@@ -13,4 +13,12 @@ public class SeznamUzivatelu {
     public void vlozUzivateleDoSeznamu(Uzivatel uzivatel) {
         uzivatele.add(uzivatel);
     }
+
+    public String emailyUzivatelu() {
+        String emaily = ",";
+        for (Uzivatel uzivatel : uzivatele) {
+            emaily += uzivatel.getEmail() + ",";
+        }
+        return emaily;
+    }
 }
