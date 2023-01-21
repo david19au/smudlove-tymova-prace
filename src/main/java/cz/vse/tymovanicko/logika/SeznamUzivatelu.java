@@ -32,4 +32,7 @@ public class SeznamUzivatelu {
         return heslo;
     }
 
+    public ArrayList<Uzivatel> getUzivatele() {
+        return uzivatele;
+    }
 }

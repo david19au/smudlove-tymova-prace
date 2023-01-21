@@ -14,6 +14,7 @@ public class Tymovanicko {
     private Uzivatel uzivatel;
     private Chat chat;
     private ChatLog chatLog;
+    private String id;
 
     public Tymovanicko() {
         zalozTymovanicko();
@@ -70,5 +71,13 @@ public class Tymovanicko {
 
     public void setChatLog(ChatLog chatLog) {
         this.chatLog = chatLog;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

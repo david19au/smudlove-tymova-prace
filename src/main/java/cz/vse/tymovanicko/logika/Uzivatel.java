@@ -29,5 +29,9 @@ public class Uzivatel {
     public String getHeslo() {
         return heslo;
     }
+
+    public void setHeslo(String heslo) {
+        this.heslo = heslo;
+    }
 }
 

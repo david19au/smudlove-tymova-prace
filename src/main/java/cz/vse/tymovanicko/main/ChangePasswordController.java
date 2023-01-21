@@ -1,18 +1,35 @@
 package cz.vse.tymovanicko.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import cz.vse.tymovanicko.logika.Tymovanicko;
+import cz.vse.tymovanicko.logika.Uzivatel;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Třída  ChangePasswordController je hlavní třídou okna,
@@ -34,9 +51,118 @@ public class ChangePasswordController {
     private ImageView kalendar;
     @FXML
     private ImageView chat;
+    @FXML
+    private PasswordField stareHeslo;
+    @FXML
+    private PasswordField noveHeslo;
+    @FXML
+    private PasswordField noveHesloZnovu;
+    private Tymovanicko tymovanicko = new Tymovanicko();
+
+    public ChangePasswordController() throws IOException {
+    }
 
     @FXML
     private void zpracujZmenuHesla(ActionEvent actionEvent) {
+        String stare = stareHeslo.getCharacters().toString();
+        String nove = noveHeslo.getCharacters().toString();
+        String noveZnovu = noveHesloZnovu.getCharacters().toString();
+        System.out.println(tymovanicko.getId());
+        if (stare.equals(tymovanicko.getSeznamUzivatelu().hesloUzivatele(tymovanicko.getId()))) {
+            String regexHeslo = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+            Pattern patternHeslo = Pattern.compile(regexHeslo);
+            Matcher jeValidniHeslo = patternHeslo.matcher(nove);
+            if (jeValidniHeslo.matches() == true) {
+                if (nove.equals(noveZnovu)) {
+                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                    for (Uzivatel uzivatel : tymovanicko.getSeznamUzivatelu().getUzivatele()) {
+                        if (uzivatel.getEmail().equals(tymovanicko.getId())) {
+                            uzivatel.setHeslo(nove);
+                        }
+                    }
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
+                        String json = gson.toJson(tymovanicko.getSeznamUzivatelu());
+                        bufferedWriter.write(json);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                    } catch (IOException e) {
+                            e.printStackTrace();
+                    }
+                } else {
+                    final Stage dialog = new Stage();
+                    dialog.initModality(Modality.APPLICATION_MODAL);
+                    dialog.initOwner(stage);
+                    VBox dialogVbox = new VBox(20);
+                    dialogVbox.setAlignment(Pos.CENTER);
+                    dialogVbox.setStyle("-fx-background: #37598e;");
+                    final Text text = new Text("Hesla se neshodují");
+                    text.setStyle("-fx-font: 14 arial;");
+                    text.setFill(Color.WHITE);
+                    Button button = new Button("OK");
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            dialog.close();
+                        }
+                    });
+                    dialogVbox.getChildren().add(text);
+                    dialogVbox.getChildren().add(button);
+                    Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                    dialog.setScene(dialogScene);
+                    dialog.setTitle("Týmováníčko");
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                    dialog.show();
+                }
+            } else {
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(stage);
+                VBox dialogVbox = new VBox(20);
+                dialogVbox.setAlignment(Pos.CENTER);
+                dialogVbox.setStyle("-fx-background: #37598e;");
+                final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno, jedno číslo a minimálně osm znaků");
+                text.setStyle("-fx-font: 14 arial;");
+                text.setFill(Color.WHITE);
+                Button button = new Button("OK");
+                button.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        dialog.close();
+                    }
+                });
+                dialogVbox.getChildren().add(text);
+                dialogVbox.getChildren().add(button);
+                Scene dialogScene = new Scene(dialogVbox, 580, 100);
+                dialog.setScene(dialogScene);
+                dialog.setTitle("Týmováníčko");
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.show();
+            }
+        } else {
+            final Stage dialog = new Stage();
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(stage);
+            VBox dialogVbox = new VBox(20);
+            dialogVbox.setAlignment(Pos.CENTER);
+            dialogVbox.setStyle("-fx-background: #37598e;");
+            final Text text = new Text("Staré heslo se neshoduje");
+            text.setStyle("-fx-font: 14 arial;");
+            text.setFill(Color.WHITE);
+            Button button = new Button("OK");
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    dialog.close();
+                }
+            });
+            dialogVbox.getChildren().add(text);
+            dialogVbox.getChildren().add(button);
+            Scene dialogScene = new Scene(dialogVbox, 250, 100);
+            dialog.setScene(dialogScene);
+            dialog.setTitle("Týmováníčko");
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+            dialog.show();
+        }
     }
 
     /**
