@@ -21,4 +21,15 @@ public class SeznamUzivatelu {
         }
         return emaily;
     }
+
+    public String hesloUzivatele(String email) {
+        String heslo = null;
+        for (Uzivatel uzivatel : uzivatele) {
+            if (uzivatel.getEmail().equals(email)) {
+                heslo = uzivatel.getHeslo();
+            }
+        }
+        return heslo;
+    }
+
 }

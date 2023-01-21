@@ -54,12 +54,39 @@ public class LoginController {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String emaily = tymovanicko.getSeznamUzivatelu().emailyUzivatelu();
         String stringEmail = email.getCharacters().toString();
+        String stringHeslo = password.getCharacters().toString();
         if (emaily.contains("," + stringEmail + ",")) {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
-            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            if (stringHeslo.equals(tymovanicko.getSeznamUzivatelu().hesloUzivatele(stringEmail))) {
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+                stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(stage);
+                VBox dialogVbox = new VBox(20);
+                dialogVbox.setAlignment(Pos.CENTER);
+                dialogVbox.setStyle("-fx-background: #37598e;");
+                final Text text = new Text("Heslo není správně");
+                text.setStyle("-fx-font: 14 arial;");
+                text.setFill(Color.WHITE);
+                Button button = new Button("OK");
+                button.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        dialog.close();
+                    }
+                });
+                dialogVbox.getChildren().add(text);
+                dialogVbox.getChildren().add(button);
+                Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                dialog.setScene(dialogScene);
+                dialog.setTitle("Týmováníčko");
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.show();
+            }
         } else {
             final Stage dialog = new Stage();
             dialog.initModality(Modality.APPLICATION_MODAL);
@@ -79,7 +106,7 @@ public class LoginController {
             });
             dialogVbox.getChildren().add(text);
             dialogVbox.getChildren().add(button);
-            Scene dialogScene = new Scene(dialogVbox, 250, 100);
+            Scene dialogScene = new Scene(dialogVbox, 280, 100);
             dialog.setScene(dialogScene);
             dialog.setTitle("Týmováníčko");
             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
