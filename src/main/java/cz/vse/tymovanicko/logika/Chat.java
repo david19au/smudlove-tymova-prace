@@ -13,7 +13,7 @@ public class Chat {
 
     private ChatLog chatLog;
 
-    public Chat() throws IOException {
+    public Chat() {
         chatLog = new ChatLog();
         nactiZpravyZJSON();
     }
@@ -33,7 +33,7 @@ public class Chat {
         bw.close();
     }
 
-    public void nactiZpravyZJSON() throws IOException {
+    public void nactiZpravyZJSON() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader("target/chat" + "chat" + ".json")) {
             chatLog = gson.fromJson(reader, ChatLog.class);
