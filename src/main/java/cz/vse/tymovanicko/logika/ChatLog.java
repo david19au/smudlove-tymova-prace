@@ -2,10 +2,10 @@ package cz.vse.tymovanicko.logika;
 
 import java.util.ArrayList;
 
-public class JsonChatLog {
+public class ChatLog {
     ArrayList<String> zpravy;
 
-    JsonChatLog() {
+    ChatLog() {
         zpravy = new ArrayList<>();
     }
 }

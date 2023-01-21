@@ -1,6 +1,6 @@
 package cz.vse.tymovanicko.main;
 
-import cz.vse.tymovanicko.logika.JsonChat;
+import cz.vse.tymovanicko.logika.Chat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +27,7 @@ import java.util.Objects;
  */
 public class ChatController {
 
-    JsonChat jsonChat = new JsonChat();
+    Chat chat = new Chat();
 
 
     // datové atributy
@@ -64,7 +64,7 @@ public class ChatController {
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;
-        jsonChat.pridatZpravu(zprava);
+        chat.pridatZpravu(zprava);
         zpravyChatu.appendText(zprava + "\n");
         vstupZprava.setText("");
     }

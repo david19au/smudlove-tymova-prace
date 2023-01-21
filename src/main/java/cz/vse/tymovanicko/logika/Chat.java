@@ -9,23 +9,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class JsonChat {
+public class Chat {
 
-    private JsonChatLog jsonChatLog;
+    private ChatLog chatLog;
 
-    public JsonChat() throws IOException {
-        jsonChatLog = new JsonChatLog();
+    public Chat() throws IOException {
+        chatLog = new ChatLog();
         nactiZpravyZJSON();
     }
 
     public void pridatZpravu(String zprava) throws IOException {
-        jsonChatLog.zpravy.add(zprava);
+        chatLog.zpravy.add(zprava);
         ulozitZpravyDoJSON();
     }
 
     private void ulozitZpravyDoJSON() throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(jsonChatLog);
+        String json = gson.toJson(chatLog);
         BufferedWriter bw = new BufferedWriter(new FileWriter("target/chat" + "chat" + ".json"));
         bw.write(json);
         bw.newLine();
@@ -36,13 +36,13 @@ public class JsonChat {
     public void nactiZpravyZJSON() throws IOException {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader("target/chat" + "chat" + ".json")) {
-            jsonChatLog = gson.fromJson(reader, JsonChatLog.class);
+            chatLog = gson.fromJson(reader, ChatLog.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public ArrayList<String> vratZpravy() {
-        return this.jsonChatLog.zpravy;
+        return this.chatLog.zpravy;
     }
 }
