@@ -64,8 +64,8 @@ public class ChatController {
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;
-        Tymovanicko.TYMOVANICKO.getChat().pridatZpravu(zprava);
-        zpravyChatu.appendText(zprava + "\n");
+        Tymovanicko.TYMOVANICKO.getChat().pridatZpravu(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()) + ": " + zprava);
+        zpravyChatu.appendText(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()) + ": " + zprava + "\n");
         vstupZprava.setText("");
     }
 

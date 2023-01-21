@@ -81,4 +81,14 @@ public enum Tymovanicko {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getJmeno(String stringEmailu) {
+        String getJmeno = null;
+        for (Uzivatel uzivatel : TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(stringEmailu)) {
+                getJmeno = uzivatel.getKrestniJmeno() + " " + uzivatel.getPrijmeni();
+            }
+        }
+        return getJmeno;
+    }
 }
