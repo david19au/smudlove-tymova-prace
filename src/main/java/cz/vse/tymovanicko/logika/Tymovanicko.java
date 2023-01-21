@@ -15,11 +15,11 @@ public class Tymovanicko {
     private Chat chat;
     private ChatLog chatLog;
 
-    public Tymovanicko() throws IOException {
+    public Tymovanicko() {
         zalozTymovanicko();
     }
 
-    private void zalozTymovanicko() throws IOException {
+    private void zalozTymovanicko() {
         seznamUzivatelu = new SeznamUzivatelu();
         chat = new Chat();
         chatLog = new ChatLog();
