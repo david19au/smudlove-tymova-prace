@@ -65,7 +65,6 @@ public class ChatController {
 
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
-        /*        nactiStareZpravy();*/
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;
