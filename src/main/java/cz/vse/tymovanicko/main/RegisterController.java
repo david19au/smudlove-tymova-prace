@@ -164,7 +164,7 @@ public class RegisterController {
                         VBox dialogVbox = new VBox(20);
                         dialogVbox.setAlignment(Pos.CENTER);
                         dialogVbox.setStyle("-fx-background: #37598e;");
-                        final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno a jedno číslo");
+                        final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno, jedno číslo a minimálně osm znaků");
                         text.setStyle("-fx-font: 14 arial;");
                         text.setFill(Color.WHITE);
                         Button button = new Button("OK");
