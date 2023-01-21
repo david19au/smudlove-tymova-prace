@@ -61,6 +61,7 @@ public class LoginController {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+                tymovanicko.setId(stringEmail);
             } else {
                 final Stage dialog = new Stage();
                 dialog.initModality(Modality.APPLICATION_MODAL);
