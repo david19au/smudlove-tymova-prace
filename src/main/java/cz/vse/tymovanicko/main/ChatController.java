@@ -50,7 +50,7 @@ public class ChatController {
     @FXML
     private ImageView zpet;
 
-    public ChatController() throws IOException {
+    public ChatController() {
         Platform.runLater(this::nactiStareZpravy);
     }
 
