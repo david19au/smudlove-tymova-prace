@@ -17,7 +17,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -46,6 +49,10 @@ public class ChatController {
     @FXML
     private ImageView zpet;
 
+    private static final SimpleDateFormat datumCas = new SimpleDateFormat("dd.MM.yyyy, HH:mm");
+
+    Date date = new Date();
+
     public ChatController() {
         Platform.runLater(this::nactiStareZpravy);
     }
@@ -64,8 +71,8 @@ public class ChatController {
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;
-        Tymovanicko.TYMOVANICKO.getChat().pridatZpravu(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()) + ": " + zprava);
-        zpravyChatu.appendText(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()) + ": " + zprava + "\n");
+        Tymovanicko.TYMOVANICKO.getChat().pridatZpravu( "[" + datumCas.format(date) + "] " + Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()) + ": " + zprava);
+        zpravyChatu.appendText("[" + datumCas.format(date) + "] " + Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()) + ": " + zprava + "\n");
         vstupZprava.setText("");
     }
 
