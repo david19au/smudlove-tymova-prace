@@ -175,7 +175,7 @@ public class RegisterController {
                         });
                         dialogVbox.getChildren().add(text);
                         dialogVbox.getChildren().add(button);
-                        Scene dialogScene = new Scene(dialogVbox, 400, 100);
+                        Scene dialogScene = new Scene(dialogVbox, 580, 100);
                         dialog.setScene(dialogScene);
                         dialog.setTitle("Týmováníčko");
                         dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
