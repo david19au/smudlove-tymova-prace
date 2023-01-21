@@ -62,6 +62,9 @@ public class RegisterController {
     private TextField prijmeni;
     private Tymovanicko tymovanicko = new Tymovanicko();
 
+    public RegisterController() throws IOException {
+    }
+
     @FXML
     private void zpracujZaregistrovani(ActionEvent actionEvent) throws IOException {
         String regexJmeno = ".+";
