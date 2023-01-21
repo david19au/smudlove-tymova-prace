@@ -28,6 +28,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -93,6 +94,7 @@ public class RegisterController {
                             try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
                                 JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
                                 String jsonInString = gson.toJson(jsonElement);
+                                tymovanicko.setSeznamUzivatelu(gson.fromJson(jsonInString, SeznamUzivatelu.class));
                                 if (jsonInString.contains(stringEmail)) {
                                     final Stage dialog = new Stage();
                                     dialog.initModality(Modality.APPLICATION_MODAL);

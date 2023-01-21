@@ -16,4 +16,8 @@ public class Tymovanicko {
     public SeznamUzivatelu getSeznamUzivatelu() {
         return seznamUzivatelu;
     }
+
+    public void setSeznamUzivatelu(SeznamUzivatelu seznamUzivatelu) {
+        this.seznamUzivatelu = seznamUzivatelu;
+    }
 }
