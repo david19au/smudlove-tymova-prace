@@ -51,7 +51,6 @@ public class LoginController {
 
     @FXML
     private void zpracujPrihlaseni(ActionEvent actionEvent) throws Exception {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String emaily = tymovanicko.getSeznamUzivatelu().emailyUzivatelu();
         String stringEmail = email.getCharacters().toString();
         String stringHeslo = password.getCharacters().toString();
