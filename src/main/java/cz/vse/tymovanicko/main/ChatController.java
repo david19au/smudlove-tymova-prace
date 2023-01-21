@@ -1,7 +1,5 @@
 package cz.vse.tymovanicko.main;
 
-import cz.vse.tymovanicko.logika.Chat;
-import cz.vse.tymovanicko.logika.ChatLog;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -31,7 +29,7 @@ import java.util.Objects;
  */
 public class ChatController {
 
-private Tymovanicko tymovanicko = new Tymovanicko();
+    private Tymovanicko tymovanicko = new Tymovanicko();
 
 
     // datové atributy
@@ -67,7 +65,7 @@ private Tymovanicko tymovanicko = new Tymovanicko();
 
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
-/*        nactiStareZpravy();*/
+        /*        nactiStareZpravy();*/
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;

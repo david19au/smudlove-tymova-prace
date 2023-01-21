@@ -3,20 +3,10 @@ package cz.vse.tymovanicko.logika;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-import java.io.*;
-import java.util.Objects;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 
 public class Tymovanicko {
 

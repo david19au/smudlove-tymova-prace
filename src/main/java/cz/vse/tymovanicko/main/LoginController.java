@@ -1,7 +1,5 @@
 package cz.vse.tymovanicko.main;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
