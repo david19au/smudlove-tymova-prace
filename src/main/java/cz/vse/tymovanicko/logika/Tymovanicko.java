@@ -1,6 +1,22 @@
 package cz.vse.tymovanicko.logika;
 
-import java.io.IOException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.Objects;
 
 public class Tymovanicko {
 
@@ -17,6 +33,14 @@ public class Tymovanicko {
         seznamUzivatelu = new SeznamUzivatelu();
         chat = new Chat();
         chatLog = new ChatLog();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            setSeznamUzivatelu(gson.fromJson(jsonInString, SeznamUzivatelu.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public SeznamUzivatelu getSeznamUzivatelu() {
