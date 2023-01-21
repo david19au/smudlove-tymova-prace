@@ -29,7 +29,6 @@ import java.util.Objects;
  */
 public class ChatController {
 
-    private Tymovanicko tymovanicko = new Tymovanicko();
 
 
     // datové atributy
@@ -53,7 +52,7 @@ public class ChatController {
 
     public void nactiStareZpravy() {
 
-        ArrayList<String> zpravy = tymovanicko.getChatLog().getZpravy();
+        ArrayList<String> zpravy = Tymovanicko.TYMOVANICKO.getChatLog().getZpravy();
         for (String zprava : zpravy) {
             zpravyChatu.appendText(zprava + "\n");
         }
@@ -65,7 +64,7 @@ public class ChatController {
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;
-        tymovanicko.getChat().pridatZpravu(zprava);
+        Tymovanicko.TYMOVANICKO.getChat().pridatZpravu(zprava);
         zpravyChatu.appendText(zprava + "\n");
         vstupZprava.setText("");
     }

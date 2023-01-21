@@ -42,24 +42,23 @@ public class LoginController {
     private TextField email;
     @FXML
     private PasswordField password;
-    private Tymovanicko tymovanicko = new Tymovanicko();
 
-    public LoginController() throws IOException {
+    public LoginController() {
     }
 
     @FXML
     private void zpracujPrihlaseni(ActionEvent actionEvent) throws Exception {
-        String emaily = tymovanicko.getSeznamUzivatelu().emailyUzivatelu();
+        String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
         String stringEmail = email.getCharacters().toString();
         String stringHeslo = password.getCharacters().toString();
         if (emaily.contains("," + stringEmail + ",")) {
-            if (stringHeslo.equals(tymovanicko.getSeznamUzivatelu().hesloUzivatele(stringEmail))) {
+            if (stringHeslo.equals(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(stringEmail))) {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-                tymovanicko.setId(stringEmail);
+                Tymovanicko.TYMOVANICKO.setId(stringEmail);
             } else {
                 final Stage dialog = new Stage();
                 dialog.initModality(Modality.APPLICATION_MODAL);

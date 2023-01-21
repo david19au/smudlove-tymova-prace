@@ -8,7 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
-public class Tymovanicko {
+public enum Tymovanicko {
+    TYMOVANICKO;
 
     private SeznamUzivatelu seznamUzivatelu;
     private Uzivatel uzivatel;
@@ -16,7 +17,7 @@ public class Tymovanicko {
     private ChatLog chatLog;
     private String id;
 
-    public Tymovanicko() {
+    Tymovanicko() {
         zalozTymovanicko();
     }
 

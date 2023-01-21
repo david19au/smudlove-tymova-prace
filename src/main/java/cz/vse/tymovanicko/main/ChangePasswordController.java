@@ -57,9 +57,9 @@ public class ChangePasswordController {
     private PasswordField noveHeslo;
     @FXML
     private PasswordField noveHesloZnovu;
-    private Tymovanicko tymovanicko = new Tymovanicko();
 
-    public ChangePasswordController() throws IOException {
+
+    public ChangePasswordController() {
     }
 
     @FXML
@@ -67,21 +67,20 @@ public class ChangePasswordController {
         String stare = stareHeslo.getCharacters().toString();
         String nove = noveHeslo.getCharacters().toString();
         String noveZnovu = noveHesloZnovu.getCharacters().toString();
-        System.out.println(tymovanicko.getId());
-        if (stare.equals(tymovanicko.getSeznamUzivatelu().hesloUzivatele(tymovanicko.getId()))) {
+        if (stare.equals(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(Tymovanicko.TYMOVANICKO.getId()))) {
             String regexHeslo = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
             Pattern patternHeslo = Pattern.compile(regexHeslo);
             Matcher jeValidniHeslo = patternHeslo.matcher(nove);
             if (jeValidniHeslo.matches() == true) {
                 if (nove.equals(noveZnovu)) {
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                    for (Uzivatel uzivatel : tymovanicko.getSeznamUzivatelu().getUzivatele()) {
-                        if (uzivatel.getEmail().equals(tymovanicko.getId())) {
+                    for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+                        if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
                             uzivatel.setHeslo(nove);
                         }
                     }
                     try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
-                        String json = gson.toJson(tymovanicko.getSeznamUzivatelu());
+                        String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                         bufferedWriter.write(json);
                         bufferedWriter.newLine();
                         bufferedWriter.flush();

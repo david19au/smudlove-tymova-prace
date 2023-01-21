@@ -59,7 +59,6 @@ public class RegisterController {
     private PasswordField potvrzeniHesla;
     @FXML
     private TextField prijmeni;
-    private Tymovanicko tymovanicko = new Tymovanicko();
 
     public RegisterController() throws IOException {
     }
@@ -93,7 +92,7 @@ public class RegisterController {
                         if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
                             Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, stringHeslo);
-                            String emaily = tymovanicko.getSeznamUzivatelu().emailyUzivatelu();
+                            String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
                             if (emaily.contains("," + stringEmail + ",")) {
                                 final Stage dialog = new Stage();
                                 dialog.initModality(Modality.APPLICATION_MODAL);
@@ -119,9 +118,9 @@ public class RegisterController {
                                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
                                 dialog.show();
                             } else {
-                                tymovanicko.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
+                                Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
                                 try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
-                                    String json = gson.toJson(tymovanicko.getSeznamUzivatelu());
+                                    String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                                     bufferedWriter.write(json);
                                     bufferedWriter.newLine();
                                     bufferedWriter.flush();
