@@ -3,14 +3,14 @@ package cz.vse.tymovanicko.logika;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonUdalost {
+public class Udalost {
 
     private String nazev;
     private String datumKonani;
     private String mistoKonani;
     private List<Uzivatel> seznamUcastniku = new ArrayList<>();
 
-    public JsonUdalost(String nazev, String datumKonani, String mistoKonani) {
+    public Udalost(String nazev, String datumKonani, String mistoKonani) {
         this.nazev = nazev;
         this.datumKonani = datumKonani;
         this.mistoKonani = mistoKonani;

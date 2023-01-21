@@ -3,14 +3,14 @@ package cz.vse.tymovanicko.logika;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonTym {
+public class Tym {
 
     private String jmenoTymu;
     private String ucelTymu;
     private List<Uzivatel> seznamClenu = new ArrayList<>();
-    private List<JsonUdalost> seznamUdalosti = new ArrayList<>();
+    private List<Udalost> seznamUdalosti = new ArrayList<>();
 
-    public JsonTym(String jmenoTymu, String ucelTymu) {
+    public Tym(String jmenoTymu, String ucelTymu) {
         this.jmenoTymu = jmenoTymu;
         this.ucelTymu = ucelTymu;
     }
@@ -23,7 +23,7 @@ public class JsonTym {
         return seznamClenu;
     }
 
-    public List<JsonUdalost> getSeznamUdalosti() {
+    public List<Udalost> getSeznamUdalosti() {
         return seznamUdalosti;
     }
 }
