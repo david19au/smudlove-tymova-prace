@@ -15,11 +15,11 @@ public class SeznamUzivatelu {
     }
 
     public String emailyUzivatelu() {
-        String emaily = ",";
+        StringBuilder emaily = new StringBuilder(",");
         for (Uzivatel uzivatel : uzivatele) {
-            emaily += uzivatel.getEmail() + ",";
+            emaily.append(uzivatel.getEmail()).append(",");
         }
-        return emaily;
+        return emaily.toString();
     }
 
     public String hesloUzivatele(String email) {
