@@ -2,14 +2,13 @@ package cz.vse.tymovanicko.logika;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class JsonUdalost {
 
     private String nazev;
     private String datumKonani;
     private String mistoKonani;
-    private List<JsonUzivatel> seznamUcastniku = new ArrayList<>();
+    private List<Uzivatel> seznamUcastniku = new ArrayList<>();
 
     public JsonUdalost(String nazev, String datumKonani, String mistoKonani) {
         this.nazev = nazev;
@@ -17,23 +16,24 @@ public class JsonUdalost {
         this.mistoKonani = mistoKonani;
     }
 
-    public void pridejUcasntika(JsonUzivatel ucastnik) {
+    public void pridejUcasntika(Uzivatel ucastnik) {
         seznamUcastniku.add(ucastnik);
     }
 
 
-    public List<JsonUzivatel> getSeznamUcastniku() {
+    public List<Uzivatel> getSeznamUcastniku() {
         return seznamUcastniku;
     }
 
     public String getSeznamUcastnikuVypis() {
         String vypis = "";
-        for (JsonUzivatel uzivatelDemo : seznamUcastniku) {
+        for (Uzivatel uzivatelDemo : seznamUcastniku) {
             vypis += uzivatelDemo.getKrestniJmeno() + ", ";
         }
         return vypis;
     }
 
+    /**
     public int idUcastnika(String ucastnik) {
         for (JsonUzivatel uzivatelDemo : seznamUcastniku) {
             if (Objects.equals(uzivatelDemo.getKrestniJmeno(), ucastnik)) {
@@ -42,6 +42,7 @@ public class JsonUdalost {
         }
         return 0;
     }
+     */
 
     public String getNazev() {
         return nazev;

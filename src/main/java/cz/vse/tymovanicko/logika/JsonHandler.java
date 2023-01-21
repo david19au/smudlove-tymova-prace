@@ -12,6 +12,7 @@ public class JsonHandler {
 
     public static void main(String[] args) {
 
+        /**
         //Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -51,7 +52,7 @@ public class JsonHandler {
 
             // print staff object
             System.out.println(uzivatelDemo1v2.getKrestniJmeno() + " " + uzivatelDemo1v2.getPrijmeni());
-            System.out.println(uzivatelDemo1v2.getVek());
+            //System.out.println(uzivatelDemo1v2.getVek());
 
 
         } catch (IOException e) {
@@ -64,10 +65,10 @@ public class JsonHandler {
             JsonUdalost udalostDemo1v2 = gson.fromJson(reader, JsonUdalost.class);
 
             System.out.println("------------");
-            System.out.println(udalostDemo1v2.idUcastnika("Adam"));
-            System.out.println(udalostDemo1v2.idUcastnika("Fany"));
-            System.out.println(udalostDemo1v2.idUcastnika("Fanyy"));
-            System.out.println(udalostDemo1v2.idUcastnika("fdgdf"));
+            //System.out.println(udalostDemo1v2.idUcastnika("Adam"));
+            //System.out.println(udalostDemo1v2.idUcastnika("Fany"));
+            //System.out.println(udalostDemo1v2.idUcastnika("Fanyy"));
+            //System.out.println(udalostDemo1v2.idUcastnika("fdgdf"));
             System.out.println("------------");
 
             System.out.println(udalostDemo1v2.getNazev() + " (" + udalostDemo1v2.getDatumKonani() + ")");
@@ -77,6 +78,7 @@ public class JsonHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+         */
     }
 }
 

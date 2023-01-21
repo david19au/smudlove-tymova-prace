@@ -7,7 +7,7 @@ public class JsonTym {
 
     private String jmenoTymu;
     private String ucelTymu;
-    private List<JsonUzivatel> seznamClenu = new ArrayList<>();
+    private List<Uzivatel> seznamClenu = new ArrayList<>();
     private List<JsonUdalost> seznamUdalosti = new ArrayList<>();
 
     public JsonTym(String jmenoTymu, String ucelTymu) {
@@ -15,11 +15,11 @@ public class JsonTym {
         this.ucelTymu = ucelTymu;
     }
 
-    public void pridejClena(JsonUzivatel clen) {
+    public void pridejClena(Uzivatel clen) {
         seznamClenu.add(clen);
     }
 
-    public List<JsonUzivatel> getSeznamClenu() {
+    public List<Uzivatel> getSeznamClenu() {
         return seznamClenu;
     }
 

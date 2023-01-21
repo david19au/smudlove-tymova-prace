@@ -1,5 +1,11 @@
 package cz.vse.tymovanicko.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import cz.vse.tymovanicko.logika.SeznamUzivatelu;
+import cz.vse.tymovanicko.logika.Tymovanicko;
+import cz.vse.tymovanicko.logika.Uzivatel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,6 +27,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.*;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -52,9 +59,10 @@ public class RegisterController {
     private PasswordField potvrzeniHesla;
     @FXML
     private TextField prijmeni;
+    private Tymovanicko tymovanicko = new Tymovanicko();
 
     @FXML
-    private void zpracujZaregistrovani(ActionEvent actionEvent) {
+    private void zpracujZaregistrovani(ActionEvent actionEvent) throws IOException {
         String regexJmeno = ".+";
         Pattern patternJmeno = Pattern.compile(regexJmeno);
         String stringJmeno = jmeno.getCharacters().toString();
@@ -80,7 +88,50 @@ public class RegisterController {
 
                     if (jeValidniHeslo.matches() == true) {
                         if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
-                            System.out.println("Vse je validni");
+                            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                            Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, stringHeslo);
+                            try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
+                                JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+                                String jsonInString = gson.toJson(jsonElement);
+                                if (jsonInString.contains(stringEmail)) {
+                                    final Stage dialog = new Stage();
+                                    dialog.initModality(Modality.APPLICATION_MODAL);
+                                    dialog.initOwner(stage);
+                                    VBox dialogVbox = new VBox(20);
+                                    dialogVbox.setAlignment(Pos.CENTER);
+                                    dialogVbox.setStyle("-fx-background: #37598e;");
+                                    final Text text = new Text("Tento email je již zaregistrovaný");
+                                    text.setStyle("-fx-font: 14 arial;");
+                                    text.setFill(Color.WHITE);
+                                    Button button = new Button("OK");
+                                    button.setOnAction(new EventHandler<ActionEvent>() {
+                                        @Override
+                                        public void handle(ActionEvent actionEvent) {
+                                            dialog.close();
+                                        }
+                                    });
+                                    dialogVbox.getChildren().add(text);
+                                    dialogVbox.getChildren().add(button);
+                                    Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                                    dialog.setScene(dialogScene);
+                                    dialog.setTitle("Týmováníčko");
+                                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                                    dialog.show();
+                                } else {
+                                    tymovanicko.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
+                                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
+                                        String json = gson.toJson(tymovanicko.getSeznamUzivatelu());
+                                        bufferedWriter.write(json);
+                                        bufferedWriter.newLine();
+                                        bufferedWriter.flush();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    System.out.println("Vse je validni");
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         } else {
                             final Stage dialog = new Stage();
                             dialog.initModality(Modality.APPLICATION_MODAL);
@@ -125,7 +176,7 @@ public class RegisterController {
                         });
                         dialogVbox.getChildren().add(text);
                         dialogVbox.getChildren().add(button);
-                        Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                        Scene dialogScene = new Scene(dialogVbox, 400, 100);
                         dialog.setScene(dialogScene);
                         dialog.setTitle("Týmováníčko");
                         dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
