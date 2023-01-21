@@ -63,7 +63,7 @@ public class ChangePasswordController {
     }
 
     @FXML
-    private void zpracujZmenuHesla(ActionEvent actionEvent) {
+    private void zpracujZmenuHesla(ActionEvent actionEvent) throws IOException {
         String stare = stareHeslo.getCharacters().toString();
         String nove = noveHeslo.getCharacters().toString();
         String noveZnovu = noveHesloZnovu.getCharacters().toString();
@@ -77,6 +77,34 @@ public class ChangePasswordController {
                     for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
                         if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
                             uzivatel.setHeslo(nove);
+                            final Stage dialog = new Stage();
+                            dialog.initModality(Modality.APPLICATION_MODAL);
+                            dialog.initOwner(stage);
+                            VBox dialogVbox = new VBox(20);
+                            dialogVbox.setAlignment(Pos.CENTER);
+                            dialogVbox.setStyle("-fx-background: #37598e;");
+                            final Text text = new Text("Heslo bylo úspěšně změněno.");
+                            text.setStyle("-fx-font: 14 arial;");
+                            text.setFill(Color.WHITE);
+                            Button button = new Button("OK");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent actionEvent) {
+                                    dialog.close();
+                                }
+                            });
+                            dialogVbox.getChildren().add(text);
+                            dialogVbox.getChildren().add(button);
+                            Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                            dialog.setScene(dialogScene);
+                            dialog.setTitle("Týmováníčko");
+                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                            dialog.show();
+                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_settings.fxml")));
+                            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                            scene = new Scene(root);
+                            stage.setScene(scene);
+                            stage.show();
                         }
                     }
                     try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
