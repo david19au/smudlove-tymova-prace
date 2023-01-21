@@ -41,8 +41,4 @@ public class Chat {
             e.printStackTrace();
         }
     }
-
-    public ArrayList<String> vratZpravy() {
-        return this.chatLog.zpravy;
-    }
 }
