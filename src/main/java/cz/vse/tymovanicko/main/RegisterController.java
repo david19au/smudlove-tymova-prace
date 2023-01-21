@@ -2,8 +2,6 @@ package cz.vse.tymovanicko.main;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import cz.vse.tymovanicko.logika.SeznamUzivatelu;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Uzivatel;
 import javafx.event.ActionEvent;
@@ -27,8 +25,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.*;
-import java.lang.reflect.Type;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
