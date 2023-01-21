@@ -34,6 +34,7 @@ import java.util.regex.Pattern;
  */
 public class RegisterController {
 
+
     // datové atributy
     @FXML
     private Button zaregistruj;
@@ -49,6 +50,8 @@ public class RegisterController {
     private PasswordField heslo;
     @FXML
     private PasswordField potvrzeniHesla;
+    @FXML
+    private TextField prijmeni;
 
     @FXML
     private void zpracujZaregistrovani(ActionEvent actionEvent) {
@@ -58,20 +61,51 @@ public class RegisterController {
         Matcher jeValidniJmeno = patternJmeno.matcher(stringJmeno);
 
         if (jeValidniJmeno.matches() == true) {
-            String regexEmail = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
-            Pattern patternEmail = Pattern.compile(regexEmail);
-            String stringEmail = email.getCharacters().toString();
-            Matcher jeValidniEmail = patternEmail.matcher(stringEmail);
+            String regexPrijmeni = ".+";
+            Pattern patternPrijmeni = Pattern.compile(regexPrijmeni);
+            String stringPrijmeni = prijmeni.getCharacters().toString();
+            Matcher jeValidniPrijmeni = patternPrijmeni.matcher(stringPrijmeni);
 
-            if (jeValidniEmail.matches() == true) {
-                String regexHeslo = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
-                Pattern patternHeslo = Pattern.compile(regexHeslo);
-                String stringHeslo = heslo.getCharacters().toString();
-                Matcher jeValidniHeslo = patternHeslo.matcher(stringHeslo);
+            if (jeValidniPrijmeni.matches() == true) {
+                String regexEmail = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+                Pattern patternEmail = Pattern.compile(regexEmail);
+                String stringEmail = email.getCharacters().toString();
+                Matcher jeValidniEmail = patternEmail.matcher(stringEmail);
 
-                if (jeValidniHeslo.matches() == true) {
-                    if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
-                        System.out.println("Vse je validni");
+                if (jeValidniEmail.matches() == true) {
+                    String regexHeslo = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+                    Pattern patternHeslo = Pattern.compile(regexHeslo);
+                    String stringHeslo = heslo.getCharacters().toString();
+                    Matcher jeValidniHeslo = patternHeslo.matcher(stringHeslo);
+
+                    if (jeValidniHeslo.matches() == true) {
+                        if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
+                            System.out.println("Vse je validni");
+                        } else {
+                            final Stage dialog = new Stage();
+                            dialog.initModality(Modality.APPLICATION_MODAL);
+                            dialog.initOwner(stage);
+                            VBox dialogVbox = new VBox(20);
+                            dialogVbox.setAlignment(Pos.CENTER);
+                            dialogVbox.setStyle("-fx-background: #37598e;");
+                            final Text text = new Text("Hesla se neshodují");
+                            text.setStyle("-fx-font: 14 arial;");
+                            text.setFill(Color.WHITE);
+                            Button button = new Button("OK");
+                            button.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent actionEvent) {
+                                    dialog.close();
+                                }
+                            });
+                            dialogVbox.getChildren().add(text);
+                            dialogVbox.getChildren().add(button);
+                            Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                            dialog.setScene(dialogScene);
+                            dialog.setTitle("Týmováníčko");
+                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                            dialog.show();
+                        }
                     } else {
                         final Stage dialog = new Stage();
                         dialog.initModality(Modality.APPLICATION_MODAL);
@@ -79,7 +113,7 @@ public class RegisterController {
                         VBox dialogVbox = new VBox(20);
                         dialogVbox.setAlignment(Pos.CENTER);
                         dialogVbox.setStyle("-fx-background: #37598e;");
-                        final Text text = new Text("Hesla se neshodují");
+                        final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno a jedno číslo");
                         text.setStyle("-fx-font: 14 arial;");
                         text.setFill(Color.WHITE);
                         Button button = new Button("OK");
@@ -104,7 +138,7 @@ public class RegisterController {
                     VBox dialogVbox = new VBox(20);
                     dialogVbox.setAlignment(Pos.CENTER);
                     dialogVbox.setStyle("-fx-background: #37598e;");
-                    final Text text = new Text("Není validní heslo");
+                    final Text text = new Text("Není validní email");
                     text.setStyle("-fx-font: 14 arial;");
                     text.setFill(Color.WHITE);
                     Button button = new Button("OK");
@@ -129,7 +163,7 @@ public class RegisterController {
                 VBox dialogVbox = new VBox(20);
                 dialogVbox.setAlignment(Pos.CENTER);
                 dialogVbox.setStyle("-fx-background: #37598e;");
-                final Text text = new Text("Není validní email");
+                final Text text = new Text("Není validní příjmení");
                 text.setStyle("-fx-font: 14 arial;");
                 text.setFill(Color.WHITE);
                 Button button = new Button("OK");
