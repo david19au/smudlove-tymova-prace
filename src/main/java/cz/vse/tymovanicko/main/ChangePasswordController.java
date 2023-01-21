@@ -113,7 +113,7 @@ public class ChangePasswordController {
                         bufferedWriter.newLine();
                         bufferedWriter.flush();
                     } catch (IOException e) {
-                            e.printStackTrace();
+                        e.printStackTrace();
                     }
                 } else {
                     final Stage dialog = new Stage();
