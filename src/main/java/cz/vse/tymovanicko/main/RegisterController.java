@@ -60,6 +60,7 @@ public class RegisterController {
     private PasswordField potvrzeniHesla;
     @FXML
     private TextField prijmeni;
+
     private Tymovanicko tymovanicko = new Tymovanicko();
 
     public RegisterController() throws IOException {

@@ -1,6 +1,9 @@
 package cz.vse.tymovanicko.main;
 
 import cz.vse.tymovanicko.logika.Chat;
+import cz.vse.tymovanicko.logika.ChatLog;
+import cz.vse.tymovanicko.logika.Tymovanicko;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -27,7 +31,7 @@ import java.util.Objects;
  */
 public class ChatController {
 
-    Chat chat = new Chat();
+private Tymovanicko tymovanicko = new Tymovanicko();
 
 
     // datové atributy
@@ -49,22 +53,25 @@ public class ChatController {
     private ImageView zpet;
 
     public ChatController() throws IOException {
+        Platform.runLater(this::nactiStareZpravy);
     }
 
-/*    public void nactiStareZpravy() {
-        ArrayList<String> zpravy = jsonChat.vratZpravy();
+    public void nactiStareZpravy() {
+
+        ArrayList<String> zpravy = tymovanicko.getChatLog().getZpravy();
         for (String zprava : zpravy) {
             zpravyChatu.appendText(zprava + "\n");
         }
-    }*/
+    }
 
 
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
+/*        nactiStareZpravy();*/
         String zprava = vstupZprava.getText();
         if (zprava.isBlank())
             return;
-        chat.pridatZpravu(zprava);
+        tymovanicko.getChat().pridatZpravu(zprava);
         zpravyChatu.appendText(zprava + "\n");
         vstupZprava.setText("");
     }

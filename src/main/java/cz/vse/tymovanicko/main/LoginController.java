@@ -1,5 +1,6 @@
 package cz.vse.tymovanicko.main;
 
+import cz.vse.tymovanicko.logika.Tymovanicko;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -27,6 +29,11 @@ public class LoginController {
     private Button zaregistrovat;
     private Stage stage;
     private Scene scene;
+
+    private Tymovanicko tymovanicko = new Tymovanicko();
+
+    public LoginController() throws IOException {
+    }
 
     @FXML
     private void zpracujPrihlaseni(ActionEvent actionEvent) throws Exception {

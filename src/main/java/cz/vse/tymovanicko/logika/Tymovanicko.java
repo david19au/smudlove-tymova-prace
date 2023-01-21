@@ -41,6 +41,13 @@ public class Tymovanicko {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try (Reader reader = new FileReader("target/chat" + "chat" + ".json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            setChatLog(gson.fromJson(jsonInString, ChatLog.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public SeznamUzivatelu getSeznamUzivatelu() {

@@ -8,4 +8,8 @@ public class ChatLog {
     ChatLog() {
         zpravy = new ArrayList<>();
     }
+
+    public ArrayList<String> getZpravy() {
+        return zpravy;
+    }
 }
