@@ -1,130 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="500.0" prefWidth="600.0" spacing="30.0" style="-fx-background-color: #37598e;"
-      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="cz.vse.tymovanicko.main.ChatController">
-    <children>
-        <Label text="Týmováníčko" textFill="WHITE">
+
+
+<BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.ChatController">
+   <center>
+          <HBox style="-fx-background-color: #ffff;">
+              <children>
+                  <VBox>
+                      <children>
+                          <Label text="Zprávy">
+                              <font>
+                                  <Font name="System Bold" size="20.0" />
+                              </font>
+                              <VBox.margin>
+                                  <Insets />
+                              </VBox.margin>
+                              <padding>
+                                  <Insets bottom="5.0" left="5.0" right="10.0" />
+                              </padding>
+                          </Label>
+                          <ListView VBox.vgrow="ALWAYS">
+                              <padding>
+                                  <Insets left="10.0" right="10.0" top="10.0" />
+                              </padding>
+                          </ListView>
+                      </children>
+                      <padding>
+                          <Insets right="10.0" />
+                      </padding>
+                  </VBox>
+                  <VBox prefHeight="400.0" prefWidth="400.0" spacing="10.0" style="-fx-background-color: #37598e;" HBox.hgrow="ALWAYS">
+                      <children>
+                          <Label text="Jméno" textFill="WHITE">
+                              <font>
+                                  <Font name="System Bold" size="18.0" />
+                              </font>
+                              <padding>
+                                  <Insets left="10.0" />
+                              </padding>
+                          </Label>
+                          <TextArea fx:id="zpravyChatu" editable="false" VBox.vgrow="ALWAYS" />
+                          <HBox spacing="10.0" VBox.vgrow="NEVER">
+                              <children>
+                                  <TextField fx:id="vstupZprava" onAction="#zpracujPoslani" promptText="Napište zprávu..." HBox.hgrow="ALWAYS">
+                                      <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                      </padding>
+                                  </TextField>
+                                  <Button fx:id="posli" mnemonicParsing="false" onAction="#zpracujPoslani" text="Pošli">
+                                      <padding>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                      </padding>
+                                  </Button>
+                              </children>
+                              <padding>
+                                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                              </padding>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                      </padding>
+                  </VBox>
+              </children>
+              <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+              </padding>
+          </HBox>
+   </center>
+   <top>
+        <Label text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
             <font>
-                <Font name="System Bold" size="22.0"/>
+                <Font name="System Bold" size="22.0" />
             </font>
+         <padding>
+            <Insets bottom="10.0" left="20.0" top="20.0" />
+         </padding>
         </Label>
-        <HBox spacing="20.0">
-            <children>
-                <VBox spacing="50.0">
-                    <children>
-                        <ImageView fx:id="kalendar" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniKalendar"
-                                   onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@calendar_white.png"/>
-                            </image>
-                        </ImageView>
-                        <ImageView blendMode="SOFT_LIGHT" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true"
-                                   preserveRatio="true">
-                            <image>
-                                <Image url="@chat_white.png"/>
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0"
-                                   onMouseClicked="#zpracujNaNastaveni" onMouseEntered="#ztmavniNastaveni"
-                                   onMouseExited="#zesvetlejNastaveni" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@setting_white.png"/>
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="zpet" fitHeight="45.0" fitWidth="50.0" onMouseClicked="#zpracujZpatky"
-                                   onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true"
-                                   preserveRatio="true">
-                            <image>
-                                <Image url="@arrow_white.png"/>
-                            </image>
-                            <VBox.margin>
-                                <Insets left="8.0"/>
-                            </VBox.margin>
-                        </ImageView>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </VBox>
-                <HBox style="-fx-background-color: #ffff;">
-                    <children>
-                        <VBox>
-                            <children>
-                                <Label text="Zprávy">
-                                    <font>
-                                        <Font name="System Bold" size="20.0"/>
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets/>
-                                    </VBox.margin>
-                                    <padding>
-                                        <Insets bottom="5.0" left="5.0" right="10.0"/>
-                                    </padding>
-                                </Label>
-                                <ListView prefHeight="450.0" prefWidth="200.0">
-                                    <padding>
-                                        <Insets left="10.0" right="10.0" top="10.0"/>
-                                    </padding>
-                                </ListView>
-                            </children>
-                            <padding>
-                                <Insets right="10.0"/>
-                            </padding>
-                        </VBox>
-                        <VBox prefHeight="400.0" prefWidth="400.0" spacing="10.0"
-                              style="-fx-background-color: #37598e;">
-                            <children>
-                                <Label text="Jméno" textFill="WHITE">
-                                    <font>
-                                        <Font name="System Bold" size="18.0"/>
-                                    </font>
-                                    <padding>
-                                        <Insets left="10.0"/>
-                                    </padding>
-                                </Label>
-                                <TextArea fx:id="zpravyChatu" prefHeight="440.0" prefWidth="100.0" editable="false"/>
-                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                                    <children>
-                                        <TextField fx:id="vstupZprava" onAction="#zpracujPoslani" promptText="Napište zprávu..."
-                                                   HBox.hgrow="ALWAYS">
-                                            <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                                            </padding>
-                                        </TextField>
-                                        <Button fx:id="posli" mnemonicParsing="false" onAction="#zpracujPoslani"
-                                                text="Pošli">
-                                            <padding>
-                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
-                                            </padding>
-                                        </Button>
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                                    </padding>
-                                </HBox>
-                            </children>
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                            </padding>
-                        </VBox>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </padding>
-                </HBox>
-            </children>
-            <padding>
-                <Insets left="10.0" right="10.0"/>
-            </padding>
-        </HBox>
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-</VBox>
+   </top>
+   <left>
+          <VBox spacing="50.0" BorderPane.alignment="CENTER">
+              <children>
+                  <ImageView fx:id="kalendar" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@calendar_white.png" />
+                      </image>
+                  </ImageView>
+                  <ImageView blendMode="SOFT_LIGHT" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@chat_white.png" />
+                      </image>
+                  </ImageView>
+                  <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@setting_white.png" />
+                      </image>
+                  </ImageView>
+                  <ImageView fx:id="zpet" fitHeight="45.0" fitWidth="50.0" onMouseClicked="#zpracujZpatky" onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@arrow_white.png" />
+                      </image>
+                      <VBox.margin>
+                          <Insets left="8.0" />
+                      </VBox.margin>
+                  </ImageView>
+              </children>
+              <padding>
+                  <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+              </padding>
+          </VBox>
+   </left>
+</BorderPane>
