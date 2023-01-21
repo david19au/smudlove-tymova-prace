@@ -30,7 +30,7 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="username" prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz"
+                <TextField fx:id="email" prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz"
                            GridPane.columnIndex="1"/>
                 <Label text="Heslo:" textFill="WHITE" GridPane.rowIndex="1">
                     <font>
