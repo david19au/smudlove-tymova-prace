@@ -30,14 +30,16 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="email" prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz" onAction="#zpracujPrihlaseni"
+                <TextField fx:id="email" prefHeight="25.0" prefWidth="206.0" promptText="email@email.cz"
+                           onAction="#zpracujPrihlaseni"
                            GridPane.columnIndex="1"/>
                 <Label text="Heslo:" textFill="WHITE" GridPane.rowIndex="1">
                     <font>
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <PasswordField fx:id="password" promptText=" ● ● ● ● ● ●" onAction="#zpracujPrihlaseni" GridPane.columnIndex="1"
+                <PasswordField fx:id="password" promptText=" ● ● ● ● ● ●" onAction="#zpracujPrihlaseni"
+                               GridPane.columnIndex="1"
                                GridPane.rowIndex="1"/>
                 <Button fx:id="prihlasit" mnemonicParsing="false" onAction="#zpracujPrihlaseni" text="Přihlásit se"
                         GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
