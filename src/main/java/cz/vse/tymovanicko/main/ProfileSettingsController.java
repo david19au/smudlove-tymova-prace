@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Uzivatel;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -76,6 +77,7 @@ public class ProfileSettingsController {
                 email.setText(uzivatel.getEmail());
             }
         }
+        Platform.runLater(() -> uloz.requestFocus());
     }
 
     @FXML
