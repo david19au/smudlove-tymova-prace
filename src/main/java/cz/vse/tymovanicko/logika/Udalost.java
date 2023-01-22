@@ -1,5 +1,6 @@
 package cz.vse.tymovanicko.logika;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,9 +26,9 @@ public class Udalost {
         this.nazev = nazev;
         this.datumKonani = datumKonani;
         this.mistoKonani = mistoKonani;
-        this.seznamUcastnikuPrijdou = seznamUcastnikuPrijdou;
-        this.seznamUcastnikuNeprijdou = seznamUcastnikuNeprijdou;
-        this.seznamUcastnikuNevi = seznamUcastnikuNevi;
+        this.seznamUcastnikuPrijdou = new ArrayList<>();
+        this.seznamUcastnikuNeprijdou = new ArrayList<>();
+        this.seznamUcastnikuNevi = new ArrayList<>();
     }
 
     public void pridatPrijde(Uzivatel uzivatel) {
