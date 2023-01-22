@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Třída ChatLog - představuje obsah chatu.
- *
  * Tato třída je součástí aplikace Týmováníčko.
  *
- * @author     ?
- * @version    ?
+ * @author ?
+ * @version ?
  */
 public class ChatLog {
     ArrayList<String> zpravy;
