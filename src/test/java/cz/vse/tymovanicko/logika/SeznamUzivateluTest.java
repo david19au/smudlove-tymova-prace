@@ -1,8 +1,10 @@
 package cz.vse.tymovanicko.logika;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SeznamUzivateluTest {
 
@@ -12,9 +14,9 @@ public class SeznamUzivateluTest {
     @Before
     public void setUp() {
         seznam = new SeznamUzivatelu();
-        u1 = new Uzivatel("joe@email.com", "Hana", "Žahourová","password1");
-        u2 = new Uzivatel("sara@email.com", "Klára","Otrubová","password2");
-        u3 = new Uzivatel("bob@email.com", "David","Shejbal","password3");
+        u1 = new Uzivatel("joe@email.com", "Hana", "Žahourová", "password1");
+        u2 = new Uzivatel("sara@email.com", "Klára", "Otrubová", "password2");
+        u3 = new Uzivatel("bob@email.com", "David", "Shejbal", "password3");
     }
 
     @Test
@@ -28,8 +30,6 @@ public class SeznamUzivateluTest {
         assertTrue(seznam.getUzivatele().contains(u2));
         assertTrue(seznam.getUzivatele().contains(u3));
     }
-
-
 
 
     @Test

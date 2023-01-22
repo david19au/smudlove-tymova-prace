@@ -1,7 +1,8 @@
 package cz.vse.tymovanicko.logika;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class UzivatelTest {
     Uzivatel u = new Uzivatel("user@email.com", "John", "Doe", "password");

@@ -1,9 +1,8 @@
 package cz.vse.tymovanicko.logika;
 
-import static org.junit.Assert.*;
-
-import cz.vse.tymovanicko.logika.SeznamUzivatelu;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class TymovanickoTest {
 
@@ -14,8 +13,6 @@ public class TymovanickoTest {
         Tymovanicko.TYMOVANICKO.setSeznamUzivatelu(seznam);
         assertEquals(seznam, Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
     }
-
-
 
 
     @Test
