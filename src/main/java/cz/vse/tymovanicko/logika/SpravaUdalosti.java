@@ -9,10 +9,23 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/*******************************************************************************
+ * Třída SpravaUdalosti spravuje události v programu.
+ * Vytváří a zapisuje události, mění RSVP hráčů a zapisuje + načítá události z JSONu
+ *
+ * @author ?
+ * @version ?
+ */
 public class SpravaUdalosti {
     private List<Udalost> udalosti;
     private Gson gson;
 
+    /**
+     * TODO komentář k tomuhle, ArrayListy povolují jenom String, jelikož tam budeme ukládat jména hráčů.
+     * @param jmenoUdalosti
+     * @param datumUdalosti
+     * @param lokaceUdalosti
+     */
     public void vytvorUdalost(String jmenoUdalosti, Date datumUdalosti, String lokaceUdalosti) {
         Udalost udalost = new Udalost(jmenoUdalosti, datumUdalosti, lokaceUdalosti);
         udalost.setSeznamJde(new ArrayList<String>());
@@ -39,10 +52,10 @@ public class SpravaUdalosti {
     public void zmenRSVP(String jmenoUdalosti, String jmenoClena, String status) {
         for (Udalost udalost : udalosti) {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
-                if (status.equals("jde")) {
+                if (status.equals("jdu")) {
                     udalost.getSeznamJde().add(jmenoClena);
                     udalost.getSeznamNeodpovedeli().remove(jmenoClena);
-                } else if (status.equals("nejde")) {
+                } else if (status.equals("nejdu")) {
                     udalost.getSeznamNejde().add(jmenoClena);
                     udalost.getSeznamNeodpovedeli().remove(jmenoClena);
                 } else {
