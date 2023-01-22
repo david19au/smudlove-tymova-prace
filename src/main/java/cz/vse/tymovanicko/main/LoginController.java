@@ -18,6 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Objects;
 
@@ -51,7 +52,8 @@ public class LoginController {
         String stringEmail = email.getCharacters().toString();
         String stringHeslo = password.getCharacters().toString();
         if (emaily.contains("," + stringEmail + ",")) {
-            if (stringHeslo.equals(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(stringEmail))) {
+            String ulozeneHashnuteHeslo = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(stringEmail);
+            if (BCrypt.checkpw(stringHeslo, ulozeneHashnuteHeslo)) {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 scene = new Scene(root);

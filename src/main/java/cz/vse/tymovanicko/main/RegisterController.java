@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * Třída  RegisterController je hlavní třídou okna,
@@ -90,10 +91,11 @@ public class RegisterController {
 
                     if (jeValidniHeslo.matches() == true) {
                         if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
+                            String hasnuteHeslo = BCrypt.hashpw(stringHeslo, BCrypt.gensalt());
                             // Gson builder pro lepší vzhled struktury JSONu
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
                             // Vytváří nového uživatele
-                            Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, stringHeslo);
+                            Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, hasnuteHeslo);
                             String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
                             if (emaily.contains("," + stringEmail + ",")) {
                                 final Stage dialog = new Stage();
