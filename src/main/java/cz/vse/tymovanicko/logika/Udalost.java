@@ -1,6 +1,5 @@
 package cz.vse.tymovanicko.logika;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Udalost {
