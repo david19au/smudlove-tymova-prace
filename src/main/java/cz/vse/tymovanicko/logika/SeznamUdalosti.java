@@ -2,6 +2,14 @@ package cz.vse.tymovanicko.logika;
 
 import java.util.ArrayList;
 
+/**
+ * Třída SeznamUdalosti - představuje seznam událostí.
+ *
+ * Tato třída je součástí aplikace Týmováníčko.
+ *
+ * @author     ?
+ * @version    ?
+ */
 public class SeznamUdalosti {
 
     private ArrayList<Udalost> udalosti;
