@@ -29,6 +29,7 @@ public class SpravaUdalosti {
 
     public void pridatUdalost(Udalost udalost) {
         udalosti.add(udalost);
+        ulozUdalostiDoJSON();
     }
 
     public List<Udalost> getUdalosti() {
