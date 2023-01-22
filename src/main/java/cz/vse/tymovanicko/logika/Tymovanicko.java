@@ -16,6 +16,8 @@ public enum Tymovanicko {
     private Chat chat;
     private ChatLog chatLog;
     private String id;
+    private SeznamUdalosti seznamUdalosti;
+    private Udalost udalost;
 
     Tymovanicko() {
         zalozTymovanicko();
@@ -25,6 +27,7 @@ public enum Tymovanicko {
         seznamUzivatelu = new SeznamUzivatelu();
         chat = new Chat();
         chatLog = new ChatLog();
+        seznamUdalosti = new SeznamUdalosti();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
@@ -37,6 +40,13 @@ public enum Tymovanicko {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setChatLog(gson.fromJson(jsonInString, ChatLog.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (Reader reader = new FileReader("target/udalosti.json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            setSeznamUdalosti(gson.fromJson(jsonInString, SeznamUdalosti.class));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,5 +100,21 @@ public enum Tymovanicko {
             }
         }
         return getJmeno;
+    }
+
+    public SeznamUdalosti getSeznamUdalosti() {
+        return seznamUdalosti;
+    }
+
+    public void setSeznamUdalosti(SeznamUdalosti seznamUdalosti) {
+        this.seznamUdalosti = seznamUdalosti;
+    }
+
+    public Udalost getUdalost() {
+        return udalost;
+    }
+
+    public void setUdalost(Udalost udalost) {
+        this.udalost = udalost;
     }
 }
