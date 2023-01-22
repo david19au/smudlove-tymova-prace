@@ -61,6 +61,7 @@ public class ProfileSettingsController {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Přihlášení");
         stage.show();
     }
 
@@ -76,6 +77,7 @@ public class ProfileSettingsController {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Změna hesla");
         stage.show();
     }
 
@@ -137,6 +139,7 @@ public class ProfileSettingsController {
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Chat");
         stage.show();
     }
 
@@ -152,6 +155,7 @@ public class ProfileSettingsController {
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko");
         stage.show();
     }
 

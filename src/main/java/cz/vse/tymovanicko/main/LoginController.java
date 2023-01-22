@@ -56,6 +56,7 @@ public class LoginController {
                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
+                stage.setTitle("Týmováníčko");
                 stage.show();
                 Tymovanicko.TYMOVANICKO.setId(stringEmail);
             } else {
@@ -122,6 +123,7 @@ public class LoginController {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Registrace");
         stage.show();
     }
 }

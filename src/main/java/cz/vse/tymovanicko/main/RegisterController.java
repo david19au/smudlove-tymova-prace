@@ -319,6 +319,7 @@ public class RegisterController {
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Přihlášení");
         stage.show();
     }
 }
