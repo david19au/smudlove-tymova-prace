@@ -23,6 +23,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -67,7 +68,9 @@ public class ChangePasswordController {
         String stare = stareHeslo.getCharacters().toString();
         String nove = noveHeslo.getCharacters().toString();
         String noveZnovu = noveHesloZnovu.getCharacters().toString();
-        if (stare.equals(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(Tymovanicko.TYMOVANICKO.getId()))) {
+        String ulozeneHashnuteHeslo = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(Tymovanicko.TYMOVANICKO.getId());
+        String noveHasnuteHeslo = BCrypt.hashpw(nove, BCrypt.gensalt());
+        if (BCrypt.checkpw(stare, ulozeneHashnuteHeslo)) {
             String regexHeslo = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
             Pattern patternHeslo = Pattern.compile(regexHeslo);
             Matcher jeValidniHeslo = patternHeslo.matcher(nove);
@@ -77,7 +80,7 @@ public class ChangePasswordController {
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
                     for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
                         if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
-                            uzivatel.setHeslo(nove);
+                            uzivatel.setHeslo(noveHasnuteHeslo);
                             final Stage dialog = new Stage();
                             dialog.initModality(Modality.APPLICATION_MODAL);
                             dialog.initOwner(stage);
