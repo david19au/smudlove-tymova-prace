@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Třída SeznamUzivatelu - představuje seznam uživatelů.
- *
  * Tato třída je součástí aplikace Týmováníčko.
  *
- * @author     ?
- * @version    ?
+ * @author ?
+ * @version ?
  */
 public class SeznamUzivatelu {
 
