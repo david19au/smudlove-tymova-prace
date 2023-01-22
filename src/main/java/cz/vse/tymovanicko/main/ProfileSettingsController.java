@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,7 +24,6 @@ import java.util.Objects;
  * @version ?
  */
 public class ProfileSettingsController {
-
 
     // datové atributy
     @FXML
@@ -41,6 +42,14 @@ public class ProfileSettingsController {
     private Scene scene;
     @FXML
     private ImageView zpet;
+    @FXML
+    private TextField jmeno;
+    @FXML
+    private TextField prijmeni;
+    @FXML
+    private TextField email;
+    @FXML
+    private PasswordField heslo;
 
     @FXML
     private void zpracujUlozeni(ActionEvent actionEvent) {
