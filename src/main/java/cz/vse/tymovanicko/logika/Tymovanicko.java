@@ -8,6 +8,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
+/**
+ * Třída Tymovanicko - představuje stav aplikace.
+ *
+ * Tato třída je součástí aplikace Týmováníčko.
+ *
+ * Tato třída inicializuje prvky ze kterých se aplikace skládá.
+ *
+ * @author     ?
+ * @version    ?
+ */
 public enum Tymovanicko {
     TYMOVANICKO;
 
