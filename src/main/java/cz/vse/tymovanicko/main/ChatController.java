@@ -38,7 +38,7 @@ public class ChatController {
     @FXML
     private TextArea zpravyChatu;
     @FXML
-    private ImageView kalendar;
+    private ImageView udalosti;
     @FXML
     private ImageView nastaveni;
     private Stage stage;
@@ -82,7 +82,7 @@ public class ChatController {
     private void ztmavniKalendar(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
         ztmavnuti.setBrightness(-0.5);
-        kalendar.setEffect(ztmavnuti);
+        udalosti.setEffect(ztmavnuti);
     }
 
     /**
@@ -94,7 +94,7 @@ public class ChatController {
     private void zesvetlejKalendar(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
-        kalendar.setEffect(zesvetleni);
+        udalosti.setEffect(zesvetleni);
     }
 
     /**
@@ -175,5 +175,21 @@ public class ChatController {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
         zpet.setEffect(zesvetleni);
+    }
+
+    /**
+     * Metoda, která změní obrazovku na události
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
+    @FXML
+    private void zpracujNaUdalosti(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("events.fxml")));
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Události");
+        stage.show();
     }
 }

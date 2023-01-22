@@ -32,7 +32,7 @@
     <left>
         <VBox spacing="50.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="kalendar" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniKalendar"
+                <ImageView fx:id="udalosti" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaUdalosti" onMouseEntered="#ztmavniKalendar"
                            onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@calendar_white.png"/>
