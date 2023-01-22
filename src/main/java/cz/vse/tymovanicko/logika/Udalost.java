@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Třída Udalost je třída pro události.
+ */
 public class Udalost {
     private String jmenoUdalosti;
     private String datumUdalosti;
