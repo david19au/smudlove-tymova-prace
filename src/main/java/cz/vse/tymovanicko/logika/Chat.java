@@ -24,7 +24,6 @@ public class Chat {
 
     public Chat() {
         chatLog = new ChatLog();
-        nactiZpravyZJSON();
     }
 
     public void pridatZpravu(String zprava) throws IOException {
