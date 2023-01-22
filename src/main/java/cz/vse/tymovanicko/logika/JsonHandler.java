@@ -13,17 +13,6 @@ public class JsonHandler {
     public static void main(String[] args) {
 
         /**
-        // Gson builder pro lepší vzhled struktury JSONu
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        //Vytváří nového uživatele a vytváří JSON s jeho zadanými hodnotami
-        JsonUzivatel uzivatelDemo1 = new JsonUzivatel(0001, "muz", "Adam", "Schindler", 21, "scha28@vse.cz", "silneheslo", "trener");
-        try (FileWriter writer = new FileWriter("target/uzivatel" + uzivatelDemo1.getKrestniJmeno().toLowerCase() + ".json")) {
-            gson.toJson(uzivatelDemo1, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         //Vytváří novou událost a vytváří JSON s jejími zadanými hodnotami
         JsonUdalost udalostDemo = new JsonUdalost("Setkani", "1.1.2000", "DDM");
         try (FileWriter writer = new FileWriter("target/01_udalost" + udalostDemo.getNazev() + ".json")) {

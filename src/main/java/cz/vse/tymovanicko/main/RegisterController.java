@@ -92,6 +92,7 @@ public class RegisterController {
                         if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
                             // Gson builder pro lepší vzhled struktury JSONu
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                            // Vytváří nového uživatele
                             Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, stringHeslo);
                             String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
                             if (emaily.contains("," + stringEmail + ",")) {
@@ -119,6 +120,7 @@ public class RegisterController {
                                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
                                 dialog.show();
                             } else {
+                                // Vkládá nového uživatele a vytváří JSON s jeho zadanými hodnotami
                                 Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
                                 try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
                                     String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
