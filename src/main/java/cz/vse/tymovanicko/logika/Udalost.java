@@ -5,7 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Třída Udalost je třída pro události.
+ * Třída Udalost - představuje udalost a její stav.
+ *
+ * Tato třída je součástí aplikace Týmováníčko.
+ *
+ * "Udalost" reprezentuje událost v aplikaci.
+ *
+ * @author     ?
+ * @version    ?
  */
 public class Udalost {
     private String jmenoUdalosti;
