@@ -14,9 +14,9 @@ public class SeznamUdalosti {
         udalosti.add(udalost);
     }
 
-public ArrayList<Udalost> getUdalosti() {
-    return udalosti;
-}
+    public ArrayList<Udalost> getUdalosti() {
+        return udalosti;
+    }
 
 
 }

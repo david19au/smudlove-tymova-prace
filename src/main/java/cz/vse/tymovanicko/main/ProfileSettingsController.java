@@ -77,6 +77,7 @@ public class ProfileSettingsController {
             }
         }
     }
+
     @FXML
     private void zpracujUlozeni(ActionEvent actionEvent) {
         String stringJmeno = jmeno.getCharacters().toString();
