@@ -68,6 +68,16 @@ public class ProfileSettingsController {
     private PasswordField heslo;
 
     @FXML
+    private void initialize() {
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                jmeno.setText(uzivatel.getKrestniJmeno());
+                prijmeni.setText(uzivatel.getPrijmeni());
+                email.setText(uzivatel.getEmail());
+            }
+        }
+    }
+    @FXML
     private void zpracujUlozeni(ActionEvent actionEvent) {
         String stringJmeno = jmeno.getCharacters().toString();
         String stringPrijmeni = prijmeni.getCharacters().toString();
