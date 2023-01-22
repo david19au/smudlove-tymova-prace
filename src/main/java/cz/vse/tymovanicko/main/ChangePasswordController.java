@@ -127,6 +127,9 @@ public class ChangePasswordController {
                     text.setStyle("-fx-font: 14 arial;");
                     text.setFill(Color.WHITE);
                     Button button = new Button("OK");
+                    noveHeslo.clear();
+                    noveHesloZnovu.clear();
+                    stareHeslo.clear();
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
@@ -152,6 +155,9 @@ public class ChangePasswordController {
                 text.setStyle("-fx-font: 14 arial;");
                 text.setFill(Color.WHITE);
                 Button button = new Button("OK");
+                noveHeslo.clear();
+                noveHesloZnovu.clear();
+                stareHeslo.clear();
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
@@ -177,6 +183,9 @@ public class ChangePasswordController {
             text.setStyle("-fx-font: 14 arial;");
             text.setFill(Color.WHITE);
             Button button = new Button("OK");
+            stareHeslo.clear();
+            noveHeslo.clear();
+            noveHesloZnovu.clear();
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {

@@ -133,6 +133,8 @@ public class ProfileSettingsController {
                                 text.setStyle("-fx-font: 14 arial;");
                                 text.setFill(Color.WHITE);
                                 Button button = new Button("OK");
+
+
                                 button.setOnAction(new EventHandler<ActionEvent>() {
                                     @Override
                                     public void handle(ActionEvent actionEvent) {
