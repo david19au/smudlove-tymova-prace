@@ -6,9 +6,7 @@ import java.util.List;
 
 /**
  * Třída Udalost - představuje udalost a její stav.
- *
  * Tato třída je součástí aplikace Týmováníčko.
- *
  * "Udalost" reprezentuje událost v aplikaci.
  *
  * @author     ?
