@@ -33,5 +33,17 @@ public class Uzivatel {
     public void setHeslo(String heslo) {
         this.heslo = heslo;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setKrestniJmeno(String krestniJmeno) {
+        this.krestniJmeno = krestniJmeno;
+    }
+
+    public void setPrijmeni(String prijmeni) {
+        this.prijmeni = prijmeni;
+    }
 }
 
