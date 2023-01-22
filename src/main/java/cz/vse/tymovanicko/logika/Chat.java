@@ -4,19 +4,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  * Třída Chat - představuje chat a jeho stav.
- *
  * Tato třída je součástí aplikace Týmováníčko.
- *
  * "Chat" reprezentuje zprávy v aplikaci.
  *
- * @author     ?
- * @version    ?
+ * @author ?
+ * @version ?
  */
 public class Chat {
 
