@@ -104,6 +104,7 @@ public class ChangePasswordController {
                             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                             scene = new Scene(root);
                             stage.setScene(scene);
+                            stage.setTitle("Týmováníčko - Nastavení profilu");
                             stage.show();
                         }
                     }
@@ -204,6 +205,7 @@ public class ChangePasswordController {
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Nastavení profilu");
         stage.show();
     }
 
@@ -291,6 +293,7 @@ public class ChangePasswordController {
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Chat");
         stage.show();
     }
 }
