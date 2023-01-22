@@ -1,13 +1,13 @@
 package cz.vse.tymovanicko.logika;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /*******************************************************************************
  * Třída SpravaUdalosti spravuje události v programu.
@@ -22,6 +22,7 @@ public class SpravaUdalosti {
 
     /**
      * TODO komentář k tomuhle, ArrayListy povolují jenom String, jelikož tam budeme ukládat jména hráčů.
+     *
      * @param jmenoUdalosti
      * @param datumUdalosti
      * @param lokaceUdalosti
@@ -65,6 +66,7 @@ public class SpravaUdalosti {
             }
         }
     }
+
     public void ulozUdalostiDoJSON() {
         String json = gson.toJson(udalosti);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("target/" + "udalosti.json"))) {
