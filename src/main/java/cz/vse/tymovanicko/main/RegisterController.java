@@ -24,6 +24,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -31,7 +32,6 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * Třída  RegisterController je hlavní třídou okna,
