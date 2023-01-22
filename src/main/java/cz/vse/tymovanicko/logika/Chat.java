@@ -42,13 +42,4 @@ public class Chat {
         bw.flush();
         bw.close();
     }
-
-    public void nactiZpravyZJSON() {
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader("target/" + "chat.json")) {
-            chatLog = gson.fromJson(reader, ChatLog.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
