@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.ProfileSettingsController">
+<BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.EventsController">
     <top>
       <BorderPane BorderPane.alignment="TOP_LEFT">
          <left>
@@ -38,7 +38,7 @@
     <left>
         <VBox spacing="50.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="kalendar" fitHeight="150.0" fitWidth="50.0" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
+                <ImageView blendMode="SOFT_LIGHT" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@calendar_white.png" />
                     </image>
@@ -48,7 +48,7 @@
                         <Image url="@chat_white.png" />
                     </image>
                 </ImageView>
-                <ImageView blendMode="SOFT_LIGHT" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="nastaveni" onMouseClicked="#zpracujNaNastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@setting_white.png" />
                     </image>
