@@ -1,5 +1,15 @@
 package cz.vse.tymovanicko.logika;
 
+/**
+ * Třída Uzivatel - představuje uzivatele a jeho stav.
+ *
+ * Tato třída je součástí aplikace Týmováníčko.
+ *
+ * "Uzivatel" reprezentuje uzivatele v aplikaci.
+ *
+ * @author     ?
+ * @version    ?
+ */
 public class Uzivatel {
 
     private String email;
