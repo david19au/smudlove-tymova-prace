@@ -9,8 +9,9 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 /**
- * Třída  Start je hlavní třídou projektu,
- * který představuje správu týmů
+ * Třída Start je hlavní třídou projektu,
+ * který představuje správu týmů.
+ * Třída by default zapíná své grafické rozhraní, textové rozhraní k dispozici není.
  *
  * @author ?
  * @version ?
@@ -18,19 +19,21 @@ import java.util.Objects;
 public class Start extends Application {
 
     /**
-     * Metoda, prostřednictvím níž se spouští celá aplikace.
+     * Pravá metoda main, prostřednictvím níž se spouští celá aplikace.
      *
-     * @param args parametry příkazového řádku
+     * @param args Parametry příkazového řádku / parametry spuštění
      */
     public static void main(String[] args) {
         launch();
     }
 
     /**
-     * Spouštění v okně
+     * Metoda start zapne hru v grafickém prostředí.
+     * Použije se soubor login.fxml, který obsahuje, kde se nachází jaké prvky, v tomto případě prvky pro přihlašování a
+     * odhlašování, vytvoří a nastaví se nová scene, zároveň se nastaví i jméno a ikonka okna.
      *
-     * @param stage
-     * @throws Exception
+     * @param stage stage GUI
+     * @throws Exception vyhodí případné chyby
      */
     @Override
     public void start(Stage stage) throws Exception {
