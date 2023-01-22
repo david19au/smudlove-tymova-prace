@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -105,7 +106,7 @@ public class ProfileSettingsController {
                             aktualniHeslo = uzivatel.getHeslo();
                         }
                     }
-                    if (stringHeslo.equals(aktualniHeslo)) {
+                    if (BCrypt.checkpw(stringHeslo, aktualniHeslo)) {
                         // Gson builder pro lepší vzhled struktury JSONu
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
