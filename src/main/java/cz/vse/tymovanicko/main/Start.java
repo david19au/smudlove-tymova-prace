@@ -28,7 +28,7 @@ public class Start extends Application {
     }
 
     /**
-     * Metoda start zapne hru v grafickém prostředí.
+     * Metoda start zapne program Týmováníčko v grafickém prostředí.
      * Použije se soubor login.fxml, který obsahuje, kde se nachází jaké prvky, v tomto případě prvky pro přihlašování a
      * odhlašování, vytvoří a nastaví se nová scene, zároveň se nastaví i jméno a ikonka okna.
      *
