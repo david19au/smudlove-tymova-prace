@@ -22,14 +22,21 @@ public class Udalost {
 
     public void pridatPrijde(Uzivatel uzivatel) {
         seznamUcastnikuPrijdou.add(uzivatel);
+        seznamUcastnikuNevi.remove(uzivatel);
     }
 
     public void pridatNeprijde(Uzivatel uzivatel) {
         seznamUcastnikuNeprijdou.add(uzivatel);
+        seznamUcastnikuNevi.remove(uzivatel);
     }
 
     public void pridatNevi(Uzivatel uzivatel) {
         seznamUcastnikuNevi.add(uzivatel);
+    }
+
+    public void removeUser(Uzivatel uzivatel) {
+        seznamUcastnikuPrijdou.remove(uzivatel);
+        seznamUcastnikuNeprijdou.remove(uzivatel);
     }
 
     public String getNazev() {

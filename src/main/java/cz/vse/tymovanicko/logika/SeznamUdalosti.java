@@ -14,6 +14,19 @@ public class SeznamUdalosti {
         udalosti.add(udalost);
     }
 
+    public void vlozUcastnikaNevi(Uzivatel uzivatel) {
+        Tymovanicko.TYMOVANICKO.getUdalost().pridatNevi(uzivatel);
+    }
+
+    public void vlozUcastnikaPrijde(Uzivatel uzivatel) {
+        Tymovanicko.TYMOVANICKO.getUdalost().pridatPrijde(uzivatel);
+    }
+
+    public void vlozUcastnikaNeprijde(Uzivatel uzivatel) {
+        Tymovanicko.TYMOVANICKO.getUdalost().pridatNeprijde(uzivatel);
+    }
+
+
     public ArrayList<Udalost> getUdalosti() {
         return udalosti;
     }
