@@ -18,6 +18,7 @@ import java.io.IOException;
 public class Chat {
 
     private ChatLog chatLog;
+
     public ChatLog getChatLog() {
         return chatLog;
     }
