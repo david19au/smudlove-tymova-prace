@@ -25,7 +25,7 @@ public class Chat {
     private void ulozitZpravyDoJSON() throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(chatLog);
-        BufferedWriter bw = new BufferedWriter(new FileWriter("target/chat" + "chat" + ".json"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("target/" + "chat.json"));
         bw.write(json);
         bw.newLine();
         bw.flush();
@@ -34,7 +34,7 @@ public class Chat {
 
     public void nactiZpravyZJSON() {
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader("target/chat" + "chat" + ".json")) {
+        try (FileReader reader = new FileReader("target/" + "chat.json")) {
             chatLog = gson.fromJson(reader, ChatLog.class);
         } catch (IOException e) {
             e.printStackTrace();

@@ -36,7 +36,7 @@ public enum Tymovanicko {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (Reader reader = new FileReader("target/chat" + "chat" + ".json")) {
+        try (Reader reader = new FileReader("target/chat.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setChatLog(gson.fromJson(jsonInString, ChatLog.class));
