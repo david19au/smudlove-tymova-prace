@@ -26,6 +26,8 @@ public enum Tymovanicko {
     private Chat chat;
     private ChatLog chatLog;
     private String id;
+    private SpravaUdalosti spravaUdalosti;
+    private Udalost udalost;
 
 
     Tymovanicko() {
