@@ -9,8 +9,8 @@ import java.util.List;
  * Tato třída je součástí aplikace Týmováníčko.
  * "Udalost" reprezentuje událost v aplikaci.
  *
- * @author     ?
- * @version    ?
+ * @author ?
+ * @version ?
  */
 public class Udalost {
     private String jmenoUdalosti;

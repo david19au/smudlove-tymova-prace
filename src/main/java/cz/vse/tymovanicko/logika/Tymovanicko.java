@@ -28,7 +28,7 @@ public enum Tymovanicko {
     private Udalost udalost;
 
 
-   Tymovanicko() {
+    Tymovanicko() {
         zalozTymovanicko();
     }
 
