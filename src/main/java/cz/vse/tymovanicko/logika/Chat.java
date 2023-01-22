@@ -8,6 +8,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Třída Chat - představuje chat a jeho stav.
+ *
+ * Tato třída je součástí aplikace Týmováníčko.
+ *
+ * "Chat" reprezentuje zprávy v aplikaci.
+ *
+ * @author     ?
+ * @version    ?
+ */
 public class Chat {
 
     private ChatLog chatLog;
