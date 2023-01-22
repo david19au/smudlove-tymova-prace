@@ -2,6 +2,14 @@ package cz.vse.tymovanicko.logika;
 
 import java.util.ArrayList;
 
+/**
+ * Třída SeznamUzivatelu - představuje seznam uživatelů.
+ *
+ * Tato třída je součástí aplikace Týmováníčko.
+ *
+ * @author     ?
+ * @version    ?
+ */
 public class SeznamUzivatelu {
 
     private ArrayList<Uzivatel> uzivatele;
