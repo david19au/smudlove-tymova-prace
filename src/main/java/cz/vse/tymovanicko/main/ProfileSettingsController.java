@@ -104,6 +104,7 @@ public class ProfileSettingsController {
                         }
                     }
                     if (stringHeslo.equals(aktualniHeslo)) {
+                        // Gson builder pro lepší vzhled struktury JSONu
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
                         if (emaily.contains("," + stringEmail + ",")) {

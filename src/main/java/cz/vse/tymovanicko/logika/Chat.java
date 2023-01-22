@@ -23,6 +23,7 @@ public class Chat {
     }
 
     private void ulozitZpravyDoJSON() throws IOException {
+        // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(chatLog);
         BufferedWriter bw = new BufferedWriter(new FileWriter("target/" + "chat.json"));

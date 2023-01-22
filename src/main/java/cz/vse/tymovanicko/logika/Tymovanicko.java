@@ -28,6 +28,7 @@ public enum Tymovanicko {
         chat = new Chat();
         chatLog = new ChatLog();
         seznamUdalosti = new SeznamUdalosti();
+        // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);

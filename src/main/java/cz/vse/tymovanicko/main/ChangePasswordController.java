@@ -73,6 +73,7 @@ public class ChangePasswordController {
             Matcher jeValidniHeslo = patternHeslo.matcher(nove);
             if (jeValidniHeslo.matches() == true) {
                 if (nove.equals(noveZnovu)) {
+                    // Gson builder pro lepší vzhled struktury JSONu
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
                     for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
                         if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {

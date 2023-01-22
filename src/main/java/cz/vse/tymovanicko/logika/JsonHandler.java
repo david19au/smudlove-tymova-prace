@@ -13,7 +13,7 @@ public class JsonHandler {
     public static void main(String[] args) {
 
         /**
-        //Gson builder pro lepší vzhled struktury JSONu
+        // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         //Vytváří nového uživatele a vytváří JSON s jeho zadanými hodnotami

@@ -90,6 +90,7 @@ public class RegisterController {
 
                     if (jeValidniHeslo.matches() == true) {
                         if (stringHeslo.equals(potvrzeniHesla.getCharacters().toString())) {
+                            // Gson builder pro lepší vzhled struktury JSONu
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
                             Uzivatel uzivatel = new Uzivatel(stringEmail, stringJmeno, stringPrijmeni, stringHeslo);
                             String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
