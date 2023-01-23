@@ -50,6 +50,10 @@ public class SpravaUdalosti {
         return udalosti;
     }
 
+    public void setUdalosti(List<Udalost> udalosti) {
+        this.udalosti = udalosti;
+    }
+
     public void zmenRSVP(String jmenoUdalosti, String jmenoClena, String status) {
         for (Udalost udalost : udalosti) {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {

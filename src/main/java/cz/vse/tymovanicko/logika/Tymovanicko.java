@@ -3,10 +3,12 @@ package cz.vse.tymovanicko.logika;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 /**
  * Třída Tymovanicko - představuje stav aplikace.
@@ -26,6 +28,7 @@ public enum Tymovanicko {
     private String id;
     private SpravaUdalosti spravaUdalosti;
     private Udalost udalost;
+    private List<Udalost> udalosti;
 
 
     Tymovanicko() {
@@ -36,6 +39,7 @@ public enum Tymovanicko {
         seznamUzivatelu = new SeznamUzivatelu();
         chat = new Chat();
         chatLog = new ChatLog();
+        spravaUdalosti = new SpravaUdalosti();
         // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
@@ -49,6 +53,14 @@ public enum Tymovanicko {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setChatLog(gson.fromJson(jsonInString, ChatLog.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (Reader reader = new FileReader("target/" + "udalosti.json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            setUdalosti(gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
+            }.getType()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,6 +120,7 @@ public enum Tymovanicko {
         return spravaUdalosti;
     }
 
+
     public void setSpravaUdalosti(SpravaUdalosti spravaUdalosti) {
         this.spravaUdalosti = spravaUdalosti;
     }
@@ -118,5 +131,13 @@ public enum Tymovanicko {
 
     public void setUdalost(Udalost udalost) {
         this.udalost = udalost;
+    }
+
+    public List<Udalost> getUdalosti() {
+        return udalosti;
+    }
+
+    public void setUdalosti(List<Udalost> udalosti) {
+        this.udalosti = udalosti;
     }
 }
