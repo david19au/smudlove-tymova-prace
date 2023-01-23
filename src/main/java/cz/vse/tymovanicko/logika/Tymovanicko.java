@@ -134,6 +134,15 @@ public enum Tymovanicko {
     }
 
     public List<Udalost> getUdalosti() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Reader reader = new FileReader("target/" + "udalosti.json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            setUdalosti(gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
+            }.getType()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return udalosti;
     }
 
