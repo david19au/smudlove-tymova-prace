@@ -1,15 +1,20 @@
 package cz.vse.tymovanicko.main;
 
+import cz.vse.tymovanicko.logika.Tymovanicko;
+import cz.vse.tymovanicko.logika.Udalost;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 
 /**
@@ -22,6 +27,8 @@ import java.util.Objects;
 public class EventsController {
 
     @FXML
+    private ListView<Udalost> panelUdalosti;
+    @FXML
     private ImageView nastaveni;
     @FXML
     private ImageView chat;
@@ -29,6 +36,20 @@ public class EventsController {
     private ImageView zpet;
     private Stage stage;
     private Scene scene;
+
+    @FXML
+    private void initialize() {
+        naplneniPaneluUdalosti();
+    }
+
+    /**
+     * Metoda, která naplňuje panel udalostí
+     */
+    private void naplneniPaneluUdalosti() {
+        panelUdalosti.getItems().clear();
+        Collection<Udalost> udalosti = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getUdalosti();
+        panelUdalosti.getItems().addAll(udalosti);
+    }
 
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
