@@ -3,17 +3,27 @@ package cz.vse.tymovanicko.main;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -192,5 +202,86 @@ public class EventsController {
         stage.setScene(scene);
         stage.setTitle("Týmováníčko - Vytvoření události");
         stage.show();
+    }
+
+    @FXML
+    private void klikPanelUdalosti(MouseEvent mouseEvent) {
+        Udalost cilovaUdalost = panelUdalosti.getSelectionModel().getSelectedItem();
+        if (cilovaUdalost == null) return;
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(stage);
+        VBox dialogVbox = new VBox();
+        dialogVbox.setAlignment(Pos.CENTER);
+        dialogVbox.setStyle("-fx-background: #37598e;");
+        dialogVbox.setPadding(new Insets(10, 20, 20, 20));
+        dialogVbox.setSpacing(10);
+
+        final Text jmeno = new Text(panelUdalosti.getSelectionModel().getSelectedItem().getJmenoUdalosti());
+        jmeno.setStyle("-fx-font: 16 arial;");
+        jmeno.setFill(Color.WHITE);
+        final Text datum = new Text(panelUdalosti.getSelectionModel().getSelectedItem().getDatumUdalosti());
+        datum.setStyle("-fx-font: 14 arial;");
+        datum.setFill(Color.WHITE);
+        final Text lokace = new Text(panelUdalosti.getSelectionModel().getSelectedItem().getLokaceUdalosti());
+        lokace.setStyle("-fx-font: 14 arial;");
+        lokace.setFill(Color.WHITE);
+
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(5);
+
+        VBox vBoxUcastnici = new VBox();
+        vBoxUcastnici.setSpacing(2);
+
+        final Text ucastnici = new Text("Účastnící:");
+        ucastnici.setStyle("-fx-font: 14 arial;");
+        ucastnici.setFill(Color.WHITE);
+
+        ListView panelUcastnici = new ListView();
+
+        VBox vBoxNeucastnici = new VBox();
+        vBoxNeucastnici.setSpacing(2);
+
+        final Text neucastnici = new Text("Neúčastníci:");
+        neucastnici.setStyle("-fx-font: 14 arial;");
+        neucastnici.setFill(Color.WHITE);
+
+        ListView panelNeucastnici = new ListView();
+
+        HBox hBoxTlacitka = new HBox();
+        hBoxTlacitka.setAlignment(Pos.CENTER);
+        hBoxTlacitka.setSpacing(10);
+
+        Button buttonZucastnim = new Button("Zúčastním se");
+        Button buttonNezucastnim = new Button("Nezúčastním se");
+
+        Button buttonSmazat = new Button("Smazat událost");
+
+
+        dialogVbox.getChildren().add(jmeno);
+        dialogVbox.getChildren().add(datum);
+        dialogVbox.getChildren().add(lokace);
+        dialogVbox.getChildren().add(hBox);
+        dialogVbox.getChildren().add(hBoxTlacitka);
+        dialogVbox.getChildren().add(buttonSmazat);
+
+        hBox.getChildren().add(vBoxUcastnici);
+        hBox.getChildren().add(vBoxNeucastnici);
+
+        vBoxUcastnici.getChildren().add(ucastnici);
+        vBoxUcastnici.getChildren().add(panelUcastnici);
+
+        vBoxNeucastnici.getChildren().add(neucastnici);
+        vBoxNeucastnici.getChildren().add(panelNeucastnici);
+
+        hBoxTlacitka.getChildren().add(buttonZucastnim);
+        hBoxTlacitka.getChildren().add(buttonNezucastnim);
+
+        Scene dialogScene = new Scene(dialogVbox);
+        dialog.setScene(dialogScene);
+        dialog.setTitle("Událost - " + panelUdalosti.getSelectionModel().getSelectedItem().getJmenoUdalosti());
+        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+        dialog.show();
     }
 }
