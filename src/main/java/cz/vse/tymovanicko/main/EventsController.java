@@ -7,12 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
@@ -40,6 +42,18 @@ public class EventsController {
     @FXML
     private void initialize() {
         naplneniPaneluUdalosti();
+
+        panelUdalosti.setCellFactory(udalostListView -> new ListCell<>() {
+            @Override
+            protected void updateItem(Udalost udalost, boolean empty) {
+                super.updateItem(udalost, empty);
+                if (!empty) {
+                    setText(udalost.getJmenoUdalosti());
+                } else {
+                    setText(null);
+                }
+            }
+        });
     }
 
     /**
@@ -49,6 +63,7 @@ public class EventsController {
         panelUdalosti.getItems().clear();
         Collection<Udalost> udalosti = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getUdalosti();
         panelUdalosti.getItems().addAll(udalosti);
+
     }
 
     @FXML
