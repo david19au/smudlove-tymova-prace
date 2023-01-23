@@ -61,7 +61,7 @@ public class EventsController {
      */
     private void naplneniPaneluUdalosti() {
         panelUdalosti.getItems().clear();
-        Collection<Udalost> udalosti = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getUdalosti();
+        Collection<Udalost> udalosti = Tymovanicko.TYMOVANICKO.getUdalosti();
         panelUdalosti.getItems().addAll(udalosti);
 
     }
