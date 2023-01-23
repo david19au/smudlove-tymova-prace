@@ -104,4 +104,19 @@ public enum Tymovanicko {
         return getJmeno;
     }
 
+    public SpravaUdalosti getSpravaUdalosti() {
+        return spravaUdalosti;
+    }
+
+    public void setSpravaUdalosti(SpravaUdalosti spravaUdalosti) {
+        this.spravaUdalosti = spravaUdalosti;
+    }
+
+    public Udalost getUdalost() {
+        return udalost;
+    }
+
+    public void setUdalost(Udalost udalost) {
+        this.udalost = udalost;
+    }
 }
