@@ -1,10 +1,13 @@
 package cz.vse.tymovanicko.main;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,6 +17,12 @@ import java.util.Objects;
 
 public class CreateEventController {
 
+    @FXML
+    private TextField jmenoUdalosti;
+    @FXML
+    private DatePicker datumUdalosti;
+    @FXML
+    private TextField lokaceUdalosti;
     @FXML
     private ImageView nastaveni;
     @FXML
@@ -135,5 +144,10 @@ public class CreateEventController {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
         zpet.setEffect(zesvetleni);
+    }
+
+    @FXML
+    private void vytvorUdalost(ActionEvent actionEvent) {
+        String jmeno = jmenoUdalosti.getCharacters().toString();
     }
 }
