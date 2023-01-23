@@ -165,8 +165,8 @@ public class CreateEventController {
         String lokace = lokaceUdalosti.getCharacters().toString();
         LocalDate date = datumUdalosti.getValue();
         Date datumJava = java.sql.Date.valueOf(date);
-        Udalost udalost = new Udalost(jmeno, datumJava, lokace);
-        Tymovanicko.TYMOVANICKO.getSpravaUdalosti().pridatUdalost(udalost);
+        Tymovanicko.TYMOVANICKO.getSpravaUdalosti().vytvorUdalost(jmeno, datumJava, lokace);
+
 
     }
 }
