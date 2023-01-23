@@ -1,39 +1,19 @@
 package cz.vse.tymovanicko.main;
 
-import cz.vse.tymovanicko.logika.Tymovanicko;
-import cz.vse.tymovanicko.logika.Udalost;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Objects;
 
-/**
- * Třída  EventController je hlavní třídou okna,
- * které představuje události
- *
- * @author ?
- * @version ?
- */
-public class EventsController {
+public class CreateEventController {
 
-    @FXML
-    private Button vytvorUdalost;
-    @FXML
-    private ListView<Udalost> panelUdalosti;
     @FXML
     private ImageView nastaveni;
     @FXML
@@ -42,33 +22,6 @@ public class EventsController {
     private ImageView zpet;
     private Stage stage;
     private Scene scene;
-
-    @FXML
-    private void initialize() {
-        naplneniPaneluUdalosti();
-
-        panelUdalosti.setCellFactory(udalostListView -> new ListCell<>() {
-            @Override
-            protected void updateItem(Udalost udalost, boolean empty) {
-                super.updateItem(udalost, empty);
-                if (!empty) {
-                    setText("[" + udalost.getDatumUdalosti() + "] " + udalost.getJmenoUdalosti());
-                } else {
-                    setText(null);
-                }
-            }
-        });
-    }
-
-    /**
-     * Metoda, která naplňuje panel udalostí
-     */
-    private void naplneniPaneluUdalosti() {
-        panelUdalosti.getItems().clear();
-        Collection<Udalost> udalosti = Tymovanicko.TYMOVANICKO.getUdalosti();
-        panelUdalosti.getItems().addAll(udalosti);
-
-    }
 
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
@@ -182,15 +135,5 @@ public class EventsController {
         ColorAdjust zesvetleni = new ColorAdjust();
         zesvetleni.setBrightness(0);
         zpet.setEffect(zesvetleni);
-    }
-
-    @FXML
-    private void zpracujNaVytvoreniUdalosti(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("createEvent.fxml")));
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Týmováníčko - Vytvoření události");
-        stage.show();
     }
 }
