@@ -19,4 +19,6 @@ public class ChatLog {
     public ArrayList<String> getZpravy() {
         return zpravy;
     }
+
+
 }

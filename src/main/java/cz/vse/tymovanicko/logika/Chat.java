@@ -2,10 +2,9 @@ package cz.vse.tymovanicko.logika;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Třída Chat - představuje chat a jeho stav.
@@ -25,6 +24,7 @@ public class Chat {
 
     public Chat() {
         chatLog = new ChatLog();
+        nactiZpravyZJSON();
     }
 
     public void pridatZpravu(String zprava) throws IOException {
@@ -42,4 +42,14 @@ public class Chat {
         bw.flush();
         bw.close();
     }
+
+    public void nactiZpravyZJSON() {
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader("target/" + "chat.json")) {
+            chatLog = gson.fromJson(reader, ChatLog.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
