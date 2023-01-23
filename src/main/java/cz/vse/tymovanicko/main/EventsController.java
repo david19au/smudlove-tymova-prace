@@ -217,13 +217,13 @@ public class EventsController {
         dialogVbox.setPadding(new Insets(10, 20, 20, 20));
         dialogVbox.setSpacing(10);
 
-        final Text jmeno = new Text(panelUdalosti.getSelectionModel().getSelectedItem().getJmenoUdalosti());
+        final Text jmeno = new Text(cilovaUdalost.getJmenoUdalosti());
         jmeno.setStyle("-fx-font: 16 arial;");
         jmeno.setFill(Color.WHITE);
-        final Text datum = new Text(panelUdalosti.getSelectionModel().getSelectedItem().getDatumUdalosti());
+        final Text datum = new Text(cilovaUdalost.getDatumUdalosti());
         datum.setStyle("-fx-font: 14 arial;");
         datum.setFill(Color.WHITE);
-        final Text lokace = new Text(panelUdalosti.getSelectionModel().getSelectedItem().getLokaceUdalosti());
+        final Text lokace = new Text(cilovaUdalost.getLokaceUdalosti());
         lokace.setStyle("-fx-font: 14 arial;");
         lokace.setFill(Color.WHITE);
 
@@ -257,6 +257,15 @@ public class EventsController {
         Button buttonNezucastnim = new Button("Nezúčastním se");
 
         Button buttonSmazat = new Button("Smazat událost");
+        buttonSmazat.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Tymovanicko.TYMOVANICKO.getSpravaUdalosti().smazUdalost(cilovaUdalost.getJmenoUdalosti());
+                naplneniPaneluUdalosti();
+
+                dialog.close();
+            }
+        });
 
 
         dialogVbox.getChildren().add(jmeno);
