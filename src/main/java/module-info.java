@@ -3,6 +3,7 @@ module cz.vse.tymovanicko {
     requires javafx.fxml;
     requires com.google.gson;
     requires jbcrypt;
+    requires java.sql;
 
 
     opens cz.vse.tymovanicko.main to javafx.fxml, com.google.gson;

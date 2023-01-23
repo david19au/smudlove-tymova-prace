@@ -1,5 +1,7 @@
 package cz.vse.tymovanicko.main;
 
+import cz.vse.tymovanicko.logika.Tymovanicko;
+import cz.vse.tymovanicko.logika.Udalost;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +14,12 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Objects;
 
 public class CreateEventController {
@@ -157,6 +162,11 @@ public class CreateEventController {
     @FXML
     private void vytvorUdalost(ActionEvent actionEvent) {
         String jmeno = jmenoUdalosti.getCharacters().toString();
+        String lokace = lokaceUdalosti.getCharacters().toString();
+        LocalDate date = datumUdalosti.getValue();
+        Date datumJava = java.sql.Date.valueOf(date);
+        Udalost udalost = new Udalost(jmeno, datumJava, lokace);
+        Tymovanicko.TYMOVANICKO.getSpravaUdalosti().pridatUdalost(udalost);
 
     }
 }
