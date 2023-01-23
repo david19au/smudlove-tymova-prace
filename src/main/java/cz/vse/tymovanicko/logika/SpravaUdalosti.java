@@ -36,6 +36,11 @@ public class SpravaUdalosti {
         pridatUdalost(udalost);
     }
 
+    public void smazUdalost(Udalost udalost) {
+        udalosti.remove(udalost);
+        ulozUdalostiDoJSON();
+    }
+
 
     public SpravaUdalosti() {
         udalosti = new ArrayList<Udalost>();
