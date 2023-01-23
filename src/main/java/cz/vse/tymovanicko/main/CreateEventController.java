@@ -127,7 +127,7 @@ public class CreateEventController {
      */
     @FXML
     public void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("events.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
