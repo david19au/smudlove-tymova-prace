@@ -77,7 +77,6 @@ public class EventsController {
         panelUdalosti.getItems().clear();
         Collection<Udalost> udalosti = Tymovanicko.TYMOVANICKO.getUdalosti();
         panelUdalosti.getItems().addAll(udalosti);
-
     }
 
     @FXML
@@ -264,6 +263,20 @@ public class EventsController {
                 naplneniPaneluUdalosti();
 
                 dialog.close();
+            }
+        });
+
+        buttonZucastnim.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
+            }
+        });
+
+        buttonNezucastnim.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
             }
         });
 
