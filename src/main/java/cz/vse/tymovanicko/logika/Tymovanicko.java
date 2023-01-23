@@ -42,7 +42,7 @@ public enum Tymovanicko {
         spravaUdalosti = new SpravaUdalosti();
         // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (Reader reader = new FileReader("target/jsonUzivatel.json")) {
+        try (Reader reader = new FileReader("target/uzivatele.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setSeznamUzivatelu(gson.fromJson(jsonInString, SeznamUzivatelu.class));

@@ -112,7 +112,7 @@ public class ChangePasswordController {
                             stage.show();
                         }
                     }
-                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/jsonUzivatel.json"))) {
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
                         String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                         bufferedWriter.write(json);
                         bufferedWriter.newLine();
