@@ -18,7 +18,6 @@ public class Udalost {
     private String lokaceUdalosti;
     private List<String> seznamJde;
     private List<String> seznamNejde;
-    private List<String> seznamNeodpovedeli;
 
     public Udalost(String jmenoUdalosti, Date datumUdalosti, String lokaceUdalosti) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -68,11 +67,4 @@ public class Udalost {
         this.seznamNejde = seznamNejde;
     }
 
-    public List<String> getSeznamNeodpovedeli() {
-        return seznamNeodpovedeli;
-    }
-
-    public void setSeznamNeodpovedeli(List<String> seznamNeodpovedeli) {
-        this.seznamNeodpovedeli = seznamNeodpovedeli;
-    }
 }

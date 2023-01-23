@@ -33,7 +33,6 @@ public class SpravaUdalosti {
         Udalost udalost = new Udalost(jmenoUdalosti, datumUdalosti, lokaceUdalosti);
         udalost.setSeznamJde(new ArrayList<String>());
         udalost.setSeznamNejde(new ArrayList<String>());
-        udalost.setSeznamNeodpovedeli(new ArrayList<String>());
         pridatUdalost(udalost);
     }
 
@@ -68,10 +67,8 @@ public class SpravaUdalosti {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
                 if (status.equals("jdu")) {
                     udalost.getSeznamJde().add(jmenoClena);
-                    udalost.getSeznamNeodpovedeli().remove(jmenoClena);
                 } else if (status.equals("nejdu")) {
                     udalost.getSeznamNejde().add(jmenoClena);
-                    udalost.getSeznamNeodpovedeli().remove(jmenoClena);
                 } else {
                     return;
                 }
