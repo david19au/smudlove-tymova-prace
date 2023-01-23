@@ -2,6 +2,8 @@ package cz.vse.tymovanicko.logika;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -39,6 +41,13 @@ public class SpravaUdalosti {
     public SpravaUdalosti() {
         udalosti = new ArrayList<Udalost>();
         gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Reader reader = new FileReader("target/udalosti.json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            udalosti = gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {}.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void pridatUdalost(Udalost udalost) {
@@ -78,16 +87,5 @@ public class SpravaUdalosti {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public List<Udalost> nactiUdalostiZJSON(String filePath) {
-        List<Udalost> events = new ArrayList<Udalost>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("target/" + "udalosti.json"))) {
-            Udalost[] eventsArray = gson.fromJson(reader, Udalost[].class);
-            events = Arrays.asList(eventsArray);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return events;
     }
 }
