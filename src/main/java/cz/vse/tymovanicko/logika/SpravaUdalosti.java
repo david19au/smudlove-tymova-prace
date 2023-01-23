@@ -36,9 +36,14 @@ public class SpravaUdalosti {
         pridatUdalost(udalost);
     }
 
-    public void smazUdalost(Udalost udalost) {
-        udalosti.remove(udalost);
-        ulozUdalostiDoJSON();
+    public void smazUdalost(String jmenoUdalosti) {
+        for (Udalost udalost : udalosti) {
+            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
+                udalosti.remove(udalost);
+                ulozUdalostiDoJSON();
+                return;
+            }
+        }
     }
 
 
