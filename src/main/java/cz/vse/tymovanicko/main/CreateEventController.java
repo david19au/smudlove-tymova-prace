@@ -12,7 +12,9 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.converter.LocalDateStringConverter;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class CreateEventController {
@@ -32,6 +34,12 @@ public class CreateEventController {
     private Stage stage;
     private Scene scene;
 
+    private String pattern = "dd.MM.yyyy";
+    private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+    @FXML
+    private void initialize() {
+        datumUdalosti.setConverter(new LocalDateStringConverter(dateTimeFormatter, null));
+    }
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
@@ -149,5 +157,6 @@ public class CreateEventController {
     @FXML
     private void vytvorUdalost(ActionEvent actionEvent) {
         String jmeno = jmenoUdalosti.getCharacters().toString();
+
     }
 }
