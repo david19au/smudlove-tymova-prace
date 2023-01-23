@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -131,7 +132,7 @@ public class CreateEventController {
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Týmováníčko");
+        stage.setTitle("Týmováníčko - Události");
         stage.show();
     }
 
@@ -160,13 +161,17 @@ public class CreateEventController {
     }
 
     @FXML
-    private void vytvorUdalost(ActionEvent actionEvent) {
+    private void vytvorUdalost(ActionEvent actionEvent) throws IOException {
         String jmeno = jmenoUdalosti.getCharacters().toString();
         String lokace = lokaceUdalosti.getCharacters().toString();
         LocalDate date = datumUdalosti.getValue();
         Date datumJava = java.sql.Date.valueOf(date);
         Tymovanicko.TYMOVANICKO.getSpravaUdalosti().vytvorUdalost(jmeno, datumJava, lokace);
-
-
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("events.fxml")));
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Události");
+        stage.show();
     }
 }
