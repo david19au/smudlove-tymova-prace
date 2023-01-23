@@ -17,7 +17,7 @@ import java.util.List;
  * @version ?
  */
 public class SpravaUdalosti {
-    private List<Udalost> udalosti;
+    private ArrayList<Udalost> udalosti;
     private Gson gson;
 
     /**
@@ -50,7 +50,7 @@ public class SpravaUdalosti {
         return udalosti;
     }
 
-    public void setUdalosti(List<Udalost> udalosti) {
+    public void setUdalosti(ArrayList<Udalost> udalosti) {
         this.udalosti = udalosti;
     }
 
