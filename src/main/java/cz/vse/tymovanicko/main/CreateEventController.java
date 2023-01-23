@@ -1,7 +1,6 @@
 package cz.vse.tymovanicko.main;
 
 import cz.vse.tymovanicko.logika.Tymovanicko;
-import cz.vse.tymovanicko.logika.Udalost;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,6 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
 
 import java.io.IOException;
@@ -42,10 +40,12 @@ public class CreateEventController {
 
     private String pattern = "dd.MM.yyyy";
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+
     @FXML
     private void initialize() {
         datumUdalosti.setConverter(new LocalDateStringConverter(dateTimeFormatter, null));
     }
+
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
