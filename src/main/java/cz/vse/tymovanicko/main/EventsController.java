@@ -48,7 +48,7 @@ public class EventsController {
             protected void updateItem(Udalost udalost, boolean empty) {
                 super.updateItem(udalost, empty);
                 if (!empty) {
-                    setText(udalost.getJmenoUdalosti());
+                    setText("[" + udalost.getDatumUdalosti() + "] " + udalost.getJmenoUdalosti());
                 } else {
                     setText(null);
                 }
