@@ -41,6 +41,13 @@ public class SpravaUdalosti {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
                 udalosti.remove(udalost);
                 ulozUdalostiDoJSON();
+                try (Reader reader = new FileReader("target/udalosti.json")) {
+                    JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+                    String jsonInString = gson.toJson(jsonElement);
+                    udalosti = gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {}.getType());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 return;
             }
         }
