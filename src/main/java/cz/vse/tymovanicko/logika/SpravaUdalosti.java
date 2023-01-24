@@ -108,7 +108,11 @@ public class SpravaUdalosti {
     public Collection<String> getJde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti.getJmenoUdalosti())) {
-                return udalost.getSeznamJde();
+                if (udalost.getDatumUdalosti().equals(jmenoUdalosti.getDatumUdalosti())) {
+                    if (udalost.getLokaceUdalosti().equals(jmenoUdalosti.getLokaceUdalosti())) {
+                        return udalost.getSeznamJde();
+                    }
+                }
             }
         }
         return new ArrayList<>();
@@ -118,7 +122,11 @@ public class SpravaUdalosti {
     public Collection<String> getNejde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti.getJmenoUdalosti())) {
-                return udalost.getSeznamNejde();
+                if (udalost.getDatumUdalosti().equals(jmenoUdalosti.getDatumUdalosti())) {
+                    if (udalost.getLokaceUdalosti().equals(jmenoUdalosti.getLokaceUdalosti())) {
+                        return udalost.getSeznamNejde();
+                    }
+                }
             }
         }
         return new ArrayList<>();
