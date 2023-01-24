@@ -104,21 +104,17 @@ public class SpravaUdalosti {
         }
     }
 
-    public List<String> getJde(String jmenoUdalosti) {
+    public List<String> getJde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
-            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
-                return udalost.getSeznamJde();
-            }
+            return udalost.getSeznamJde();
         }
         return null;
     }
 
 
-    public List<String> getNejde(String jmenoUdalosti) {
+    public List<String> getNejde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
-            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
-                return udalost.getSeznamNejde();
-            }
+            return udalost.getSeznamNejde();
         }
         return null;
     }
