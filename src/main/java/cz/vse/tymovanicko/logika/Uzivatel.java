@@ -17,10 +17,11 @@ public class Uzivatel {
 
     /**
      * Konstruktor třídy Uzivatel
-     * @param email email uživatele
+     *
+     * @param email        email uživatele
      * @param krestniJmeno křestní jméno uživatele
-     * @param prijmeni příjmení uživatele
-     * @param heslo heslo uživatele
+     * @param prijmeni     příjmení uživatele
+     * @param heslo        heslo uživatele
      */
     public Uzivatel(String email, String krestniJmeno, String prijmeni, String heslo) {
         this.email = email;
@@ -32,6 +33,7 @@ public class Uzivatel {
     /**
      * Tato metoda je getter křestního jména uživatele.
      * Vrací jméno uživatele ve Stringu
+     *
      * @return String jméno uživatele
      */
     public String getKrestniJmeno() {
@@ -41,6 +43,7 @@ public class Uzivatel {
     /**
      * Tato metoda je getter příjmení uživatele.
      * Vrací příjmení uživatele ve Stringu
+     *
      * @return String příjmení uživatele
      */
     public String getPrijmeni() {
@@ -50,6 +53,7 @@ public class Uzivatel {
     /**
      * Tato metoda je getter emailu uživatele.
      * Vrací email uživatele ve Stringu
+     *
      * @return String emailu uživatele
      */
     public String getEmail() {
@@ -59,13 +63,16 @@ public class Uzivatel {
     /**
      * Tato metoda je getter hesla uživatele.
      * Vrací heslo uživatele ve Stringu
+     *
      * @return String hesla uživatele
      */
     public String getHeslo() {
         return heslo;
     }
+
     /**
      * Metoda nastavuje heslo.
+     *
      * @param heslo nastavované heslo
      */
     public void setHeslo(String heslo) {
@@ -74,6 +81,7 @@ public class Uzivatel {
 
     /**
      * Metoda nastavuje email.
+     *
      * @param email nastavovaný email
      */
     public void setEmail(String email) {
@@ -82,13 +90,16 @@ public class Uzivatel {
 
     /**
      * Metoda nastavuje křestní jméno.
+     *
      * @param krestniJmeno nastavované křestní jméno
      */
     public void setKrestniJmeno(String krestniJmeno) {
         this.krestniJmeno = krestniJmeno;
     }
+
     /**
      * Metoda nastavuje příjmení.
+     *
      * @param prijmeni nastavované příjmení
      */
     public void setPrijmeni(String prijmeni) {
