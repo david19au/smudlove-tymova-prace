@@ -27,6 +27,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -236,6 +237,9 @@ public class EventsController {
         ucastnici.setFill(Color.WHITE);
 
         ListView panelUcastnici = new ListView();
+        panelUcastnici.getItems().clear();
+        List<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
+        panelUcastnici.getItems().addAll(jde);
 
         VBox vBoxNeucastnici = new VBox();
         vBoxNeucastnici.setSpacing(2);
@@ -245,6 +249,9 @@ public class EventsController {
         neucastnici.setFill(Color.WHITE);
 
         ListView panelNeucastnici = new ListView();
+        panelNeucastnici.getItems().clear();
+        List<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
+        panelNeucastnici.getItems().addAll(nejde);
 
         HBox hBoxTlacitka = new HBox();
         hBoxTlacitka.setAlignment(Pos.CENTER);
@@ -268,6 +275,9 @@ public class EventsController {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
+                panelUcastnici.getItems().clear();
+                List<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
+                panelUcastnici.getItems().addAll(jde);
             }
         });
 
@@ -275,6 +285,9 @@ public class EventsController {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
+                panelNeucastnici.getItems().clear();
+                List<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
+                panelNeucastnici.getItems().addAll(nejde);
             }
         });
 

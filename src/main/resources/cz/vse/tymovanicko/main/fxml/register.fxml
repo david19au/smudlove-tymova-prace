@@ -33,7 +33,7 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="jmeno" promptText="Jméno" GridPane.columnIndex="1">
+                <TextField fx:id="jmeno" onAction="#zpracujZaregistrovani" promptText="Jméno" GridPane.columnIndex="1">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </padding>
@@ -43,7 +43,7 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="prijmeni" promptText="Příjmení" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="prijmeni" onAction="#zpracujZaregistrovani" promptText="Příjmení" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </padding>
@@ -53,7 +53,7 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="email" promptText="email@email.cz" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField fx:id="email" onAction="#zpracujZaregistrovani" promptText="email@email.cz" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </padding>
@@ -63,7 +63,7 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <PasswordField fx:id="heslo" promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <PasswordField fx:id="heslo" onAction="#zpracujZaregistrovani" promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </padding>
@@ -73,7 +73,7 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <PasswordField fx:id="potvrzeniHesla" promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1"
+                <PasswordField fx:id="potvrzeniHesla" onAction="#zpracujZaregistrovani" promptText=" ● ● ● ● ● ●" GridPane.columnIndex="1"
                                GridPane.rowIndex="4">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
