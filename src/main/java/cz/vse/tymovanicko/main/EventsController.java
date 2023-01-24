@@ -3,6 +3,7 @@ package cz.vse.tymovanicko.main;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
 import cz.vse.tymovanicko.logika.Uzivatel;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -74,6 +75,14 @@ public class EventsController {
                 }
             }
         });
+
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                if (uzivatel.getRole().equals("Člen")) {
+                    vytvorUdalost.setDisable(true);
+                }
+            }
+        }
     }
 
     /**
@@ -213,49 +222,12 @@ public class EventsController {
      */
     @FXML
     private void zpracujNaVytvoreniUdalosti(ActionEvent actionEvent) throws IOException {
-        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()){
-            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
-                if (uzivatel.getRole().equals("Člen")) {
-                    final Stage dialog = new Stage();
-                    dialog.initModality(Modality.APPLICATION_MODAL);
-                    dialog.initOwner(stage);
-                    VBox dialogVbox = new VBox(20);
-                    dialogVbox.setAlignment(Pos.CENTER);
-                    dialogVbox.setStyle("-fx-background: #37598e;");
-                    HBox hBox = new HBox(20);
-                    hBox.setAlignment(Pos.CENTER);
-                    ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
-                    imageView.setFitHeight(50);
-                    imageView.setPreserveRatio(true);
-                    final Text text = new Text("Pro vytvoření události musíš mít roli trenéra nebo kapitána.");
-                    text.setStyle("-fx-font: 14 arial;");
-                    text.setFill(Color.WHITE);
-                    Button button = new Button("OK");
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent actionEvent) {
-                            dialog.close();
-                        }
-                    });
-                    hBox.getChildren().add(imageView);
-                    hBox.getChildren().add(text);
-                    dialogVbox.getChildren().add(hBox);
-                    dialogVbox.getChildren().add(button);
-                    Scene dialogScene = new Scene(dialogVbox, 620, 120);
-                    dialog.setScene(dialogScene);
-                    dialog.setTitle("Upozornění");
-                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
-                    dialog.show();
-                } else {
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/createEvent.fxml")));
-                    stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setTitle("Týmováníčko - Vytvoření události");
-                    stage.show();
-                }
-            }
-        }
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/createEvent.fxml")));
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko - Vytvoření události");
+        stage.show();
     }
 
     /**
@@ -331,6 +303,13 @@ public class EventsController {
                 dialog.close();
             }
         });
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                if (uzivatel.getRole().equals("Člen")) {
+                    buttonSmazat.setDisable(true);
+                }
+            }
+        }
 
         buttonZucastnim.setOnAction(new EventHandler<ActionEvent>() {
             @Override
