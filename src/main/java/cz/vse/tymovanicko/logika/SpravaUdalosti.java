@@ -103,4 +103,24 @@ public class SpravaUdalosti {
             e.printStackTrace();
         }
     }
+
+    public List<String> getJde(String jmenoUdalosti) {
+        for (Udalost udalost : udalosti) {
+            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
+                return udalost.getSeznamJde();
+            }
+        }
+        return null;
+    }
+
+
+    public List<String> getNejde(String jmenoUdalosti) {
+        for (Udalost udalost : udalosti) {
+            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
+                return udalost.getSeznamNejde();
+            }
+        }
+        return null;
+    }
+
 }
