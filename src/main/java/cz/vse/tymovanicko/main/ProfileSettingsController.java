@@ -152,7 +152,7 @@ public class ProfileSettingsController {
                                 dialogVbox.setStyle("-fx-background: #37598e;");
                                 HBox hBox = new HBox(20);
                                 hBox.setAlignment(Pos.CENTER);
-                                ImageView imageView = new ImageView(getClass().getResource("other/checkmark-white.png").toString());
+                                ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/checkmark-white.png")).toString());
                                 imageView.setFitHeight(50);
                                 imageView.setPreserveRatio(true);
                                 final Text text = new Text("Údaje úspěšně změněny!");
@@ -231,7 +231,7 @@ public class ProfileSettingsController {
                             dialogVbox.setStyle("-fx-background: #37598e;");
                             HBox hBox = new HBox(20);
                             hBox.setAlignment(Pos.CENTER);
-                            ImageView imageView = new ImageView(getClass().getResource("other/checkmark-white.png").toString());
+                            ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/checkmark-white.png")).toString());
                             imageView.setFitHeight(50);
                             imageView.setPreserveRatio(true);
                             final Text text = new Text("Údaje úspěšně změněny!");
@@ -263,7 +263,7 @@ public class ProfileSettingsController {
                         dialogVbox.setStyle("-fx-background: #37598e;");
                         HBox hBox = new HBox(20);
                         hBox.setAlignment(Pos.CENTER);
-                        ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                        ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                         imageView.setFitHeight(50);
                         imageView.setPreserveRatio(true);
                         final Text text = new Text("Neplatné heslo.");
@@ -295,7 +295,7 @@ public class ProfileSettingsController {
                     dialogVbox.setStyle("-fx-background: #37598e;");
                     HBox hBox = new HBox(20);
                     hBox.setAlignment(Pos.CENTER);
-                    ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                    ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                     imageView.setFitHeight(50);
                     imageView.setPreserveRatio(true);
                     final Text text = new Text("Není validní email.");
@@ -327,7 +327,7 @@ public class ProfileSettingsController {
                 dialogVbox.setStyle("-fx-background: #37598e;");
                 HBox hBox = new HBox(20);
                 hBox.setAlignment(Pos.CENTER);
-                ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                 imageView.setFitHeight(50);
                 imageView.setPreserveRatio(true);
                 final Text text = new Text("Není validní příjmení.");
@@ -359,7 +359,7 @@ public class ProfileSettingsController {
             dialogVbox.setStyle("-fx-background: #37598e;");
             HBox hBox = new HBox(20);
             hBox.setAlignment(Pos.CENTER);
-            ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+            ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
             imageView.setFitHeight(50);
             imageView.setPreserveRatio(true);
             final Text text = new Text("Není validní jméno.");
