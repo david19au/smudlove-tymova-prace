@@ -59,8 +59,10 @@ public class ChatController {
         Platform.runLater(this::nactiStareZpravy);
     }
 
+    /**
+     * Tato metoda načítá zprávy z JSON souboru chat.json.
+     */
     public void nactiStareZpravy() {
-
         try (Reader reader = new FileReader("target/chat.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
@@ -76,7 +78,13 @@ public class ChatController {
         }
     }
 
-
+    /**
+     * Tato metoda zpracovává poslání zpravy do chatu
+     * s časem poslání této zprávy.
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
         String zprava = vstupZprava.getText();
@@ -207,6 +215,12 @@ public class ChatController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
@@ -217,6 +231,11 @@ public class ChatController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniHome(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -224,6 +243,11 @@ public class ChatController {
         home.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejHome(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
