@@ -31,7 +31,6 @@ public class Chat {
 
     /**
      * Vytvoření nové instance chatu s chatLogem.
-     *
      */
     public Chat() {
         chatLog = new ChatLog();
@@ -40,6 +39,7 @@ public class Chat {
 
     /**
      * Metoda pridatZpravu vezme zprávy napsané ve Stringu a zavolá metodu ulozitZpravyDoJSON
+     *
      * @param zprava zpráva, kterou chce uživatel odeslat
      * @throws IOException
      */
@@ -50,6 +50,7 @@ public class Chat {
 
     /**
      * Metoda ulozitZpravyDoJSON používá knihovnu GSON od Google pro ukládání informací do souborů JSON.
+     *
      * @throws IOException
      */
     private void ulozitZpravyDoJSON() throws IOException {
@@ -65,6 +66,7 @@ public class Chat {
 
     /**
      * Metoda nactiZpravyZJSON používá knihovnu GSON od Google pro čtení informací ze souborů JSON.
+     *
      * @throws IOException
      */
     public void nactiZpravyZJSON() {
