@@ -43,9 +43,20 @@ public class LoginController {
     @FXML
     private PasswordField password;
 
+    /**
+     * Konstruktor
+     */
     public LoginController() {
     }
 
+    /**
+     * Metoda, která zpracovává přihlášení,
+     * když zadané udáje sedí s JSON souborem,
+     * tak se okno přepne na home.
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujPrihlaseni(ActionEvent actionEvent) throws Exception {
         String emaily = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().emailyUzivatelu();
