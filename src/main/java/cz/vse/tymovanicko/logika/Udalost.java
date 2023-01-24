@@ -22,8 +22,9 @@ public class Udalost {
     /**
      * Konstruktor pro třídu Udalost.
      * Vytváří se tu také instance SimpleDateFormat pro nastavení evropského datového formátu dd.MM.yyyy
-     * @param jmenoUdalosti jméno události
-     * @param datumUdalosti datum kdy se událost bude konat v dd.MM.yyyy
+     *
+     * @param jmenoUdalosti  jméno události
+     * @param datumUdalosti  datum kdy se událost bude konat v dd.MM.yyyy
      * @param lokaceUdalosti kde se událost bude konat
      */
     public Udalost(String jmenoUdalosti, Date datumUdalosti, String lokaceUdalosti) {
@@ -32,17 +33,21 @@ public class Udalost {
         this.datumUdalosti = sdf.format(datumUdalosti);
         this.lokaceUdalosti = lokaceUdalosti;
     }
+
     /**
      * Tato metoda je getter jména události.
      * Vrací jméno události ve Stringu
+     *
      * @return String jména události
      */
     public String getJmenoUdalosti() {
         return jmenoUdalosti;
     }
+
     /**
      * Tato metoda je getter datumu dané události - kdy se událost bude konat.
      * Vrací kdy se bude konat událost v datumu ve Stringu
+     *
      * @return String datum konání
      */
     public String getDatumUdalosti() {
@@ -51,15 +56,18 @@ public class Udalost {
 
     /**
      * Setter datumu událostí, kde datum musí být ve formátu dd.MM.yyyy
+     *
      * @param datumUdalosti
      */
     public void setDatumUdalosti(Date datumUdalosti) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         this.datumUdalosti = sdf.format(datumUdalosti);
     }
+
     /**
      * Tato metoda je getter lokace dané události - kde se událost bude konat.
      * Vrací kde se bude konat událost ve Stringu
+     *
      * @return String místo konání akce
      */
     public String getLokaceUdalosti() {
@@ -68,6 +76,7 @@ public class Udalost {
 
     /**
      * Metoda vrací seznam lidí co jde
+     *
      * @return seznam lidí co jde
      */
     public List<String> getSeznamJde() {
@@ -76,20 +85,25 @@ public class Udalost {
 
     /**
      * Metoda nastavuje seznam lidí co jde.
+     *
      * @param seznamJde seznam jdoucích lidí
      */
     public void setSeznamJde(List<String> seznamJde) {
         this.seznamJde = seznamJde;
     }
+
     /**
      * Metoda vrací seznam lidí co nejde
+     *
      * @return seznam lidí co nejde
      */
     public List<String> getSeznamNejde() {
         return seznamNejde;
     }
+
     /**
      * Metoda nastavuje seznam lidí, kteří ohlásili, že nejdou na akci.
+     *
      * @param seznamNejde seznam lidí které se nezúčastní události
      */
     public void setSeznamNejde(List<String> seznamNejde) {
