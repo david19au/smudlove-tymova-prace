@@ -33,7 +33,7 @@ import java.util.Objects;
  * které představuje chat
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class ChatController {
 

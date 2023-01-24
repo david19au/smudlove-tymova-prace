@@ -16,7 +16,7 @@ import java.util.List;
  * Vytváří a zapisuje události, mění RSVP hráčů a zapisuje + načítá události z JSONu
  *
  * @author ?
- * @version ZS2022/23
+ * @version 1.0.0
  */
 public class SpravaUdalosti {
 

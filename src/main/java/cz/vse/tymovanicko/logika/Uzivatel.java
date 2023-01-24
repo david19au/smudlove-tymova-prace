@@ -6,7 +6,7 @@ package cz.vse.tymovanicko.logika;
  * "Uzivatel" reprezentuje uzivatele v aplikaci.
  *
  * @author ?
- * @version ZS2022/23
+ * @version 1.0.0
  */
 public class Uzivatel {
 

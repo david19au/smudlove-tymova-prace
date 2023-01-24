@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
  * které představuje obrazovku pro změnu hesla
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class ChangePasswordController {
 

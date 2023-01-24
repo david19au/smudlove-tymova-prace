@@ -29,7 +29,7 @@ import java.util.Objects;
  * které představuje přihlašovací obrazovku
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class LoginController {
 

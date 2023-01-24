@@ -36,7 +36,7 @@ import java.util.Objects;
  * které představuje události
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class EventsController {
 
