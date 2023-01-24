@@ -285,7 +285,7 @@ public class EventsController {
                         Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                         panelNeucastnici.getItems().addAll(nejde);
                     }
-                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
+                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost, Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
                     panelUcastnici.getItems().clear();
                     Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                     panelUcastnici.getItems().addAll(jde);
@@ -305,7 +305,7 @@ public class EventsController {
                         Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                         panelUcastnici.getItems().addAll(jde);
                     }
-                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
+                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost, Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
                     panelNeucastnici.getItems().clear();
                     Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                     panelNeucastnici.getItems().addAll(nejde);
