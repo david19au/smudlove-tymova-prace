@@ -69,6 +69,8 @@ public class ProfileSettingsController {
     @FXML
     private TextField email;
     @FXML
+    public TextField role;
+    @FXML
     private PasswordField heslo;
     @FXML
     private Label home;
@@ -83,6 +85,7 @@ public class ProfileSettingsController {
                 jmeno.setText(uzivatel.getKrestniJmeno());
                 prijmeni.setText(uzivatel.getPrijmeni());
                 email.setText(uzivatel.getEmail());
+                role.appendText(uzivatel.getRole());
             }
         }
         Platform.runLater(() -> uloz.requestFocus());
