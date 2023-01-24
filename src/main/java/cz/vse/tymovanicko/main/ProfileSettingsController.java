@@ -72,6 +72,8 @@ public class ProfileSettingsController {
     private PasswordField heslo;
     @FXML
     private Label home;
+    @FXML
+    private TextField role;
 
     /**
      * Inicializační metoda, která pomáhá aktualizovat okno aplikace
@@ -83,6 +85,7 @@ public class ProfileSettingsController {
                 jmeno.setText(uzivatel.getKrestniJmeno());
                 prijmeni.setText(uzivatel.getPrijmeni());
                 email.setText(uzivatel.getEmail());
+                role.setText(uzivatel.getRole());
             }
         }
         Platform.runLater(() -> uloz.requestFocus());
