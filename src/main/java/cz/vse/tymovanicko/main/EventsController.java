@@ -55,6 +55,9 @@ public class EventsController {
     private Stage stage;
     private Scene scene;
 
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
     @FXML
     private void initialize() {
         naplneniPaneluUdalosti();
@@ -81,6 +84,12 @@ public class EventsController {
         panelUdalosti.getItems().addAll(udalosti);
     }
 
+    /**
+     * Metoda, která změní obrazovku na chat
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/chat.fxml")));
@@ -195,6 +204,12 @@ public class EventsController {
         zpet.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která změní obrazovku na okno pro vytvoření události.
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaVytvoreniUdalosti(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/createEvent.fxml")));
@@ -205,6 +220,11 @@ public class EventsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která otevírá okno události při kliknutí na událost v panelu událostí.
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void klikPanelUdalosti(MouseEvent mouseEvent) {
         Udalost cilovaUdalost = panelUdalosti.getSelectionModel().getSelectedItem();
@@ -341,6 +361,12 @@ public class EventsController {
         dialog.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
@@ -351,6 +377,11 @@ public class EventsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniHome(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -358,6 +389,11 @@ public class EventsController {
         home.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejHome(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
