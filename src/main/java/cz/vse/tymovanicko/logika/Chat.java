@@ -21,20 +21,20 @@ public class Chat {
     private ChatLog chatLog;
 
     /**
+     * Vytvoření nové instance chatu s chatLogem.
+     */
+    public Chat() {
+        chatLog = new ChatLog();
+        nactiZpravyZJSON();
+    }
+
+    /**
      * Vrací instanci ChatLog
      *
      * @return instance ChatLog
      */
     public ChatLog getChatLog() {
         return chatLog;
-    }
-
-    /**
-     * Vytvoření nové instance chatu s chatLogem.
-     */
-    public Chat() {
-        chatLog = new ChatLog();
-        nactiZpravyZJSON();
     }
 
     /**
