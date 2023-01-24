@@ -1,5 +1,7 @@
 package cz.vse.tymovanicko.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
 import cz.vse.tymovanicko.logika.Uzivatel;
@@ -28,6 +30,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Objects;
@@ -235,7 +239,19 @@ public class HomeController {
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
+                            cilovyUzivatel.setRole(choiceBox.getSelectionModel().getSelectedItem().toString());
                             dialog.close();
+                            naplneniPaneluClenu();
+
+                            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                                String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
+                                bufferedWriter.write(json);
+                                bufferedWriter.newLine();
+                                bufferedWriter.flush();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     });
 
