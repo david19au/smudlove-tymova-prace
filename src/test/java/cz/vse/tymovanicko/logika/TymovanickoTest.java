@@ -42,6 +42,7 @@ public class TymovanickoTest {
         Tymovanicko.TYMOVANICKO.setChatLog(chatLog);
         assertEquals(chatLog, Tymovanicko.TYMOVANICKO.getChatLog());
     }
+
     /**
      * testGetId kontroluje, zda se vrátí stejné Id
      */
