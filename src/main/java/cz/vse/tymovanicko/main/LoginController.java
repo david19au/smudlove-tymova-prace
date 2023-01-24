@@ -83,7 +83,7 @@ public class LoginController {
                 Scene dialogScene = new Scene(dialogVbox, 250, 100);
                 dialog.setScene(dialogScene);
                 dialog.setTitle("Týmováníčko");
-                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
         } else {
@@ -108,7 +108,7 @@ public class LoginController {
             Scene dialogScene = new Scene(dialogVbox, 280, 100);
             dialog.setScene(dialogScene);
             dialog.setTitle("Týmováníčko");
-            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
     }

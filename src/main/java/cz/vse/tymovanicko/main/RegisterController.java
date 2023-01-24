@@ -119,7 +119,7 @@ public class RegisterController {
                                 Scene dialogScene = new Scene(dialogVbox, 250, 100);
                                 dialog.setScene(dialogScene);
                                 dialog.setTitle("Týmováníčko");
-                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                                 dialog.show();
                             } else {
                                 // Vkládá nového uživatele a vytváří JSON s jeho zadanými hodnotami
@@ -153,7 +153,7 @@ public class RegisterController {
                                 Scene dialogScene = new Scene(dialogVbox, 250, 100);
                                 dialog.setScene(dialogScene);
                                 dialog.setTitle("Týmováníčko");
-                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                                 dialog.show();
                                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
                                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -183,7 +183,7 @@ public class RegisterController {
                             Scene dialogScene = new Scene(dialogVbox, 200, 100);
                             dialog.setScene(dialogScene);
                             dialog.setTitle("Týmováníčko");
-                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                             dialog.show();
                         }
                     } else {
@@ -208,7 +208,7 @@ public class RegisterController {
                         Scene dialogScene = new Scene(dialogVbox, 580, 100);
                         dialog.setScene(dialogScene);
                         dialog.setTitle("Týmováníčko");
-                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                         dialog.show();
                     }
                 } else {
@@ -233,7 +233,7 @@ public class RegisterController {
                     Scene dialogScene = new Scene(dialogVbox, 200, 100);
                     dialog.setScene(dialogScene);
                     dialog.setTitle("Týmováníčko");
-                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                     dialog.show();
                 }
             } else {
@@ -258,7 +258,7 @@ public class RegisterController {
                 Scene dialogScene = new Scene(dialogVbox, 200, 100);
                 dialog.setScene(dialogScene);
                 dialog.setTitle("Týmováníčko");
-                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
         } else {
@@ -283,7 +283,7 @@ public class RegisterController {
             Scene dialogScene = new Scene(dialogVbox, 200, 100);
             dialog.setScene(dialogScene);
             dialog.setTitle("Týmováníčko");
-            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
     }
