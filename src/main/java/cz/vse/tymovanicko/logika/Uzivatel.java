@@ -41,6 +41,15 @@ public class Uzivatel {
     }
 
     /**
+     * Metoda nastavuje křestní jméno.
+     *
+     * @param krestniJmeno nastavované křestní jméno
+     */
+    public void setKrestniJmeno(String krestniJmeno) {
+        this.krestniJmeno = krestniJmeno;
+    }
+
+    /**
      * Tato metoda je getter příjmení uživatele.
      * Vrací příjmení uživatele ve Stringu
      *
@@ -51,6 +60,15 @@ public class Uzivatel {
     }
 
     /**
+     * Metoda nastavuje příjmení.
+     *
+     * @param prijmeni nastavované příjmení
+     */
+    public void setPrijmeni(String prijmeni) {
+        this.prijmeni = prijmeni;
+    }
+
+    /**
      * Tato metoda je getter emailu uživatele.
      * Vrací email uživatele ve Stringu
      *
@@ -58,6 +76,15 @@ public class Uzivatel {
      */
     public String getEmail() {
         return email;
+    }
+
+    /**
+     * Metoda nastavuje email.
+     *
+     * @param email nastavovaný email
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     /**
@@ -77,33 +104,6 @@ public class Uzivatel {
      */
     public void setHeslo(String heslo) {
         this.heslo = heslo;
-    }
-
-    /**
-     * Metoda nastavuje email.
-     *
-     * @param email nastavovaný email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * Metoda nastavuje křestní jméno.
-     *
-     * @param krestniJmeno nastavované křestní jméno
-     */
-    public void setKrestniJmeno(String krestniJmeno) {
-        this.krestniJmeno = krestniJmeno;
-    }
-
-    /**
-     * Metoda nastavuje příjmení.
-     *
-     * @param prijmeni nastavované příjmení
-     */
-    public void setPrijmeni(String prijmeni) {
-        this.prijmeni = prijmeni;
     }
 }
 
