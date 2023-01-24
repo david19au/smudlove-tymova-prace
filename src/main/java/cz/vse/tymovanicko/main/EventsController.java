@@ -69,7 +69,9 @@ public class EventsController {
             protected void updateItem(Udalost udalost, boolean empty) {
                 super.updateItem(udalost, empty);
                 if (!empty) {
-                    setText("[" + udalost.getDatumUdalosti() + "] " + udalost.getJmenoUdalosti());
+                    setText("[" + udalost.getDatumUdalosti() + "] " + udalost.getJmenoUdalosti() + "\n"
+                    + "Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
+                    + "Nezúčastní se: " + udalost.getSeznamNejde().size());
                 } else {
                     setText(null);
                 }
@@ -327,6 +329,7 @@ public class EventsController {
                     panelUcastnici.getItems().clear();
                     Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                     panelUcastnici.getItems().addAll(jde);
+                    naplneniPaneluUdalosti();
                 }
             }
         });
@@ -347,6 +350,7 @@ public class EventsController {
                     panelNeucastnici.getItems().clear();
                     Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                     panelNeucastnici.getItems().addAll(nejde);
+                    naplneniPaneluUdalosti();
                 }
             }
         });
