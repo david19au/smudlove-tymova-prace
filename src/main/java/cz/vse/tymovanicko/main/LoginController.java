@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -79,7 +81,12 @@ public class LoginController {
                 VBox dialogVbox = new VBox(20);
                 dialogVbox.setAlignment(Pos.CENTER);
                 dialogVbox.setStyle("-fx-background: #37598e;");
-                final Text text = new Text("Heslo není správně");
+                HBox hBox = new HBox(20);
+                hBox.setAlignment(Pos.CENTER);
+                ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                imageView.setFitHeight(50);
+                imageView.setPreserveRatio(true);
+                final Text text = new Text("Heslo není správně.");
                 text.setStyle("-fx-font: 14 arial;");
                 text.setFill(Color.WHITE);
                 Button button = new Button("OK");
@@ -89,11 +96,13 @@ public class LoginController {
                         dialog.close();
                     }
                 });
-                dialogVbox.getChildren().add(text);
+                hBox.getChildren().add(imageView);
+                hBox.getChildren().add(text);
+                dialogVbox.getChildren().add(hBox);
                 dialogVbox.getChildren().add(button);
-                Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                Scene dialogScene = new Scene(dialogVbox, 230, 120);
                 dialog.setScene(dialogScene);
-                dialog.setTitle("Týmováníčko");
+                dialog.setTitle("Upozornění");
                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
@@ -104,7 +113,12 @@ public class LoginController {
             VBox dialogVbox = new VBox(20);
             dialogVbox.setAlignment(Pos.CENTER);
             dialogVbox.setStyle("-fx-background: #37598e;");
-            final Text text = new Text("Účet se zadaným emailem neexistuje");
+            HBox hBox = new HBox(20);
+            hBox.setAlignment(Pos.CENTER);
+            ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+            imageView.setFitHeight(50);
+            imageView.setPreserveRatio(true);
+            final Text text = new Text("Účet se zadaným emailem neexistuje.");
             text.setStyle("-fx-font: 14 arial;");
             text.setFill(Color.WHITE);
             Button button = new Button("OK");
@@ -114,11 +128,13 @@ public class LoginController {
                     dialog.close();
                 }
             });
-            dialogVbox.getChildren().add(text);
+            hBox.getChildren().add(imageView);
+            hBox.getChildren().add(text);
+            dialogVbox.getChildren().add(hBox);
             dialogVbox.getChildren().add(button);
-            Scene dialogScene = new Scene(dialogVbox, 280, 100);
+            Scene dialogScene = new Scene(dialogVbox, 330, 120);
             dialog.setScene(dialogScene);
-            dialog.setTitle("Týmováníčko");
+            dialog.setTitle("Upozornění");
             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
