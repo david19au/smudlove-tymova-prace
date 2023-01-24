@@ -54,7 +54,7 @@ public class LoginController {
         if (emaily.contains("," + stringEmail + ",")) {
             String ulozeneHashnuteHeslo = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().hesloUzivatele(stringEmail);
             if (BCrypt.checkpw(stringHeslo, ulozeneHashnuteHeslo)) {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -121,7 +121,7 @@ public class LoginController {
      */
     @FXML
     private void zpracujNaZaregistrovani(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("register.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/register.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

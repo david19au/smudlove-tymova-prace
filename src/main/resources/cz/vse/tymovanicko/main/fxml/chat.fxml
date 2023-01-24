@@ -93,27 +93,27 @@
                            onMouseEntered="#ztmavniKalendar"
                            onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@calendar_white.png"/>
+                        <Image url="@../calendar_white.png"/>
                     </image>
                 </ImageView>
                 <ImageView blendMode="SOFT_LIGHT" fitHeight="150.0" fitWidth="50.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="@chat_white.png"/>
+                        <Image url="@../chat_white.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni"
                            onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="@setting_white.png"/>
+                        <Image url="@../setting_white.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="zpet" fitHeight="45.0" fitWidth="50.0" onMouseClicked="#zpracujZpatky"
                            onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="@arrow_white.png"/>
+                        <Image url="@../arrow_white.png"/>
                     </image>
                     <VBox.margin>
                         <Insets left="8.0"/>

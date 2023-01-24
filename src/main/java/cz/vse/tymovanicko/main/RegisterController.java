@@ -155,7 +155,7 @@ public class RegisterController {
                                 dialog.setTitle("Týmováníčko");
                                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
                                 dialog.show();
-                                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+                                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
                                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
@@ -320,7 +320,7 @@ public class RegisterController {
      */
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
