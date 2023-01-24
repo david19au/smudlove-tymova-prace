@@ -19,8 +19,8 @@ import java.util.List;
  * @version ZS2022/23
  */
 public class SpravaUdalosti {
-    private ArrayList<Udalost> udalosti;
     private final Gson gson;
+    private ArrayList<Udalost> udalosti;
 
     /**
      * Konstruktor třídy SpravaUdalosti, která vytváří nový ArrayList s událostmi a novou instanci GsonBuilderu.
