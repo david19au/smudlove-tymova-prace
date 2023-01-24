@@ -24,7 +24,7 @@ public class UdalostTest {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Udalost udalost = new Udalost("jmeno udalosti", date, "lokace udalosti");
-        assertEquals("jmeno udalost", udalost.getJmenoUdalosti());
+        assertEquals("jmeno udalosti", udalost.getJmenoUdalosti());
         assertEquals(sdf.format(date), udalost.getDatumUdalosti());
         assertEquals("lokace udalosti", udalost.getLokaceUdalosti());
     }
