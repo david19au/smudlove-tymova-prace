@@ -40,6 +40,9 @@ public class HomeController {
     @FXML
     private ListView panelClenu;
 
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
     @FXML
     private void initialize() {
         naplneniPaneluClenu();
@@ -177,6 +180,9 @@ public class HomeController {
         stage.show();
     }
 
+    /**
+     * Metoda, která naplňuje panel členů
+     */
     private void naplneniPaneluClenu() {
         panelClenu.getItems().clear();
         Collection<Uzivatel> clenove = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele();
