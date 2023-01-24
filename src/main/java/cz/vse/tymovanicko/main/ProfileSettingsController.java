@@ -21,6 +21,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -137,21 +138,26 @@ public class ProfileSettingsController {
                                 VBox dialogVbox = new VBox(20);
                                 dialogVbox.setAlignment(Pos.CENTER);
                                 dialogVbox.setStyle("-fx-background: #37598e;");
-                                final Text text = new Text("Údaje úspěšně změněny");
+                                HBox hBox = new HBox(20);
+                                hBox.setAlignment(Pos.CENTER);
+                                ImageView imageView = new ImageView(getClass().getResource("other/checkmark-white.png").toString());
+                                imageView.setFitHeight(50);
+                                imageView.setPreserveRatio(true);
+                                final Text text = new Text("Údaje úspěšně změněny!");
                                 text.setStyle("-fx-font: 14 arial;");
                                 text.setFill(Color.WHITE);
                                 Button button = new Button("OK");
-
-
                                 button.setOnAction(new EventHandler<ActionEvent>() {
                                     @Override
                                     public void handle(ActionEvent actionEvent) {
                                         dialog.close();
                                     }
                                 });
-                                dialogVbox.getChildren().add(text);
+                                hBox.getChildren().add(imageView);
+                                hBox.getChildren().add(text);
+                                dialogVbox.getChildren().add(hBox);
                                 dialogVbox.getChildren().add(button);
-                                Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                                Scene dialogScene = new Scene(dialogVbox, 280, 120);
                                 dialog.setScene(dialogScene);
                                 dialog.setTitle("Týmováníčko");
                                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
@@ -163,7 +169,12 @@ public class ProfileSettingsController {
                                 VBox dialogVbox = new VBox(20);
                                 dialogVbox.setAlignment(Pos.CENTER);
                                 dialogVbox.setStyle("-fx-background: #37598e;");
-                                final Text text = new Text("Tento email je již zaregistrovaný");
+                                HBox hBox = new HBox(20);
+                                hBox.setAlignment(Pos.CENTER);
+                                ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                                imageView.setFitHeight(50);
+                                imageView.setPreserveRatio(true);
+                                final Text text = new Text("Tento email je již zaregistrovaný.");
                                 text.setStyle("-fx-font: 14 arial;");
                                 text.setFill(Color.WHITE);
                                 Button button = new Button("OK");
@@ -173,11 +184,13 @@ public class ProfileSettingsController {
                                         dialog.close();
                                     }
                                 });
-                                dialogVbox.getChildren().add(text);
+                                hBox.getChildren().add(imageView);
+                                hBox.getChildren().add(text);
+                                dialogVbox.getChildren().add(hBox);
                                 dialogVbox.getChildren().add(button);
-                                Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                                Scene dialogScene = new Scene(dialogVbox, 310, 120);
                                 dialog.setScene(dialogScene);
-                                dialog.setTitle("Týmováníčko");
+                                dialog.setTitle("Upozornění");
                                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                                 dialog.show();
                             }
@@ -204,7 +217,12 @@ public class ProfileSettingsController {
                             VBox dialogVbox = new VBox(20);
                             dialogVbox.setAlignment(Pos.CENTER);
                             dialogVbox.setStyle("-fx-background: #37598e;");
-                            final Text text = new Text("Údaje úspěšně změněny");
+                            HBox hBox = new HBox(20);
+                            hBox.setAlignment(Pos.CENTER);
+                            ImageView imageView = new ImageView(getClass().getResource("other/checkmark-white.png").toString());
+                            imageView.setFitHeight(50);
+                            imageView.setPreserveRatio(true);
+                            final Text text = new Text("Údaje úspěšně změněny!");
                             text.setStyle("-fx-font: 14 arial;");
                             text.setFill(Color.WHITE);
                             Button button = new Button("OK");
@@ -214,9 +232,11 @@ public class ProfileSettingsController {
                                     dialog.close();
                                 }
                             });
-                            dialogVbox.getChildren().add(text);
+                            hBox.getChildren().add(imageView);
+                            hBox.getChildren().add(text);
+                            dialogVbox.getChildren().add(hBox);
                             dialogVbox.getChildren().add(button);
-                            Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                            Scene dialogScene = new Scene(dialogVbox, 280, 120);
                             dialog.setScene(dialogScene);
                             dialog.setTitle("Týmováníčko");
                             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
@@ -229,7 +249,12 @@ public class ProfileSettingsController {
                         VBox dialogVbox = new VBox(20);
                         dialogVbox.setAlignment(Pos.CENTER);
                         dialogVbox.setStyle("-fx-background: #37598e;");
-                        final Text text = new Text("Neplatné heslo");
+                        HBox hBox = new HBox(20);
+                        hBox.setAlignment(Pos.CENTER);
+                        ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                        imageView.setFitHeight(50);
+                        imageView.setPreserveRatio(true);
+                        final Text text = new Text("Neplatné heslo.");
                         text.setStyle("-fx-font: 14 arial;");
                         text.setFill(Color.WHITE);
                         Button button = new Button("OK");
@@ -239,11 +264,13 @@ public class ProfileSettingsController {
                                 dialog.close();
                             }
                         });
-                        dialogVbox.getChildren().add(text);
+                        hBox.getChildren().add(imageView);
+                        hBox.getChildren().add(text);
+                        dialogVbox.getChildren().add(hBox);
                         dialogVbox.getChildren().add(button);
-                        Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                        Scene dialogScene = new Scene(dialogVbox, 200, 120);
                         dialog.setScene(dialogScene);
-                        dialog.setTitle("Týmováníčko");
+                        dialog.setTitle("Upozornění");
                         dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                         dialog.show();
                     }
@@ -254,7 +281,12 @@ public class ProfileSettingsController {
                     VBox dialogVbox = new VBox(20);
                     dialogVbox.setAlignment(Pos.CENTER);
                     dialogVbox.setStyle("-fx-background: #37598e;");
-                    final Text text = new Text("Není validní email");
+                    HBox hBox = new HBox(20);
+                    hBox.setAlignment(Pos.CENTER);
+                    ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                    imageView.setFitHeight(50);
+                    imageView.setPreserveRatio(true);
+                    final Text text = new Text("Není validní email.");
                     text.setStyle("-fx-font: 14 arial;");
                     text.setFill(Color.WHITE);
                     Button button = new Button("OK");
@@ -264,11 +296,13 @@ public class ProfileSettingsController {
                             dialog.close();
                         }
                     });
-                    dialogVbox.getChildren().add(text);
+                    hBox.getChildren().add(imageView);
+                    hBox.getChildren().add(text);
+                    dialogVbox.getChildren().add(hBox);
                     dialogVbox.getChildren().add(button);
-                    Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                    Scene dialogScene = new Scene(dialogVbox, 220, 120);
                     dialog.setScene(dialogScene);
-                    dialog.setTitle("Týmováníčko");
+                    dialog.setTitle("Upozornění");
                     dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                     dialog.show();
                 }
@@ -279,7 +313,12 @@ public class ProfileSettingsController {
                 VBox dialogVbox = new VBox(20);
                 dialogVbox.setAlignment(Pos.CENTER);
                 dialogVbox.setStyle("-fx-background: #37598e;");
-                final Text text = new Text("Není validní příjmení");
+                HBox hBox = new HBox(20);
+                hBox.setAlignment(Pos.CENTER);
+                ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                imageView.setFitHeight(50);
+                imageView.setPreserveRatio(true);
+                final Text text = new Text("Není validní příjmení.");
                 text.setStyle("-fx-font: 14 arial;");
                 text.setFill(Color.WHITE);
                 Button button = new Button("OK");
@@ -289,11 +328,13 @@ public class ProfileSettingsController {
                         dialog.close();
                     }
                 });
-                dialogVbox.getChildren().add(text);
+                hBox.getChildren().add(imageView);
+                hBox.getChildren().add(text);
+                dialogVbox.getChildren().add(hBox);
                 dialogVbox.getChildren().add(button);
-                Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                Scene dialogScene = new Scene(dialogVbox, 240, 120);
                 dialog.setScene(dialogScene);
-                dialog.setTitle("Týmováníčko");
+                dialog.setTitle("Upozornění");
                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
@@ -304,7 +345,12 @@ public class ProfileSettingsController {
             VBox dialogVbox = new VBox(20);
             dialogVbox.setAlignment(Pos.CENTER);
             dialogVbox.setStyle("-fx-background: #37598e;");
-            final Text text = new Text("Není validní jméno");
+            HBox hBox = new HBox(20);
+            hBox.setAlignment(Pos.CENTER);
+            ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+            imageView.setFitHeight(50);
+            imageView.setPreserveRatio(true);
+            final Text text = new Text("Není validní jméno.");
             text.setStyle("-fx-font: 14 arial;");
             text.setFill(Color.WHITE);
             Button button = new Button("OK");
@@ -314,11 +360,13 @@ public class ProfileSettingsController {
                     dialog.close();
                 }
             });
-            dialogVbox.getChildren().add(text);
+            hBox.getChildren().add(imageView);
+            hBox.getChildren().add(text);
+            dialogVbox.getChildren().add(hBox);
             dialogVbox.getChildren().add(button);
-            Scene dialogScene = new Scene(dialogVbox, 200, 100);
+            Scene dialogScene = new Scene(dialogVbox, 220, 120);
             dialog.setScene(dialogScene);
-            dialog.setTitle("Týmováníčko");
+            dialog.setTitle("Upozornění");
             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
