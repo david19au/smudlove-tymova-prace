@@ -14,7 +14,7 @@
             <children>
                 <ImageView fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@tymovanicko.jpg"/>
+                        <Image url="@../tymovanicko.jpg"/>
                     </image>
                 </ImageView>
                 <Label text="Členové týmu:" textFill="WHITE">
@@ -22,7 +22,7 @@
                         <Font name="System Bold" size="16.0"/>
                     </font>
                 </Label>
-                <ListView/>
+                <ListView fx:id="panelClenu"/>
             </children>
             <padding>
                 <Insets bottom="20.0" left="10.0" right="20.0" top="10.0"/>
@@ -36,21 +36,21 @@
                            onMouseEntered="#ztmavniKalendar"
                            onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@calendar_white.png"/>
+                        <Image url="@../calendar_white.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat"
                            onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="@chat_white.png"/>
+                        <Image url="@../chat_white.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni"
                            onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="@setting_white.png"/>
+                        <Image url="@../setting_white.png"/>
                     </image>
                 </ImageView>
             </children>
