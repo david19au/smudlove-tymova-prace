@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,9 +11,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-
 /**
- *Metoda SpravaUdalostiTest kontroluje logiku třídy SpravaUdalosti
+ * Metoda SpravaUdalostiTest kontroluje logiku třídy SpravaUdalosti
  *
  * @author ?
  * @version 1.0.0
@@ -57,7 +55,6 @@ public class SpravaUdalostiTest {
 
     /**
      * testUlozUdalostDoJSON kontroluje, zda existuje soubor na události
-     *
      */
     @Test
     public void testUlozUdalostiDoJSON() {
