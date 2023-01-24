@@ -18,6 +18,7 @@ public class ChatTest {
 
     /**
      * Metoda zkouší přidání nové zprávy, avšak test failuje, protože metoda čte první zprávu co je v souboru, jinak by ale test prošel
+     *
      * @throws IOException
      */
     @Test
