@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-/*******************************************************************************
+/**
  * Třída SpravaUdalosti spravuje události v programu.
  * Vytváří a zapisuje události, mění RSVP hráčů a zapisuje + načítá události z JSONu
  *
