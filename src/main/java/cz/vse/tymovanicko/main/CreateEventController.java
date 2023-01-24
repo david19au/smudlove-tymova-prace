@@ -51,6 +51,9 @@ public class CreateEventController {
     private String pattern = "dd.MM.yyyy";
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
 
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
     @FXML
     private void initialize() {
         datumUdalosti.setConverter(new LocalDateStringConverter(dateTimeFormatter, null));

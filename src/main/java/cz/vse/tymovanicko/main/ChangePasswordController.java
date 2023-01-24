@@ -63,6 +63,9 @@ public class ChangePasswordController {
     @FXML
     private PasswordField noveHesloZnovu;
 
+    /**
+     * Konstruktor
+     */
     public ChangePasswordController() {
     }
 
