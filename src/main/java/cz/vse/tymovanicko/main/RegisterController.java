@@ -119,7 +119,7 @@ public class RegisterController {
                                 dialogVbox.setStyle("-fx-background: #37598e;");
                                 HBox hBox = new HBox(20);
                                 hBox.setAlignment(Pos.CENTER);
-                                ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                                ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                                 imageView.setFitHeight(50);
                                 imageView.setPreserveRatio(true);
                                 final Text text = new Text("Tento email je již zaregistrovaný.");
@@ -163,7 +163,7 @@ public class RegisterController {
                                 dialogVbox.setStyle("-fx-background: #37598e;");
                                 HBox hBox = new HBox(20);
                                 hBox.setAlignment(Pos.CENTER);
-                                ImageView imageView = new ImageView(getClass().getResource("other/checkmark-white.png").toString());
+                                ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/checkmark-white.png")).toString());
                                 imageView.setFitHeight(50);
                                 imageView.setPreserveRatio(true);
                                 final Text text = new Text("Úspěšně jste se zaregistrovali!");
@@ -200,7 +200,7 @@ public class RegisterController {
                             dialogVbox.setStyle("-fx-background: #37598e;");
                             HBox hBox = new HBox(20);
                             hBox.setAlignment(Pos.CENTER);
-                            ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                            ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                             imageView.setFitHeight(50);
                             imageView.setPreserveRatio(true);
                             final Text text = new Text("Hesla se neshodují.");
@@ -232,7 +232,7 @@ public class RegisterController {
                         dialogVbox.setStyle("-fx-background: #37598e;");
                         HBox hBox = new HBox(20);
                         hBox.setAlignment(Pos.CENTER);
-                        ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                        ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                         imageView.setFitHeight(50);
                         imageView.setPreserveRatio(true);
                         final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno, jedno číslo a minimálně osm znaků.");
@@ -264,7 +264,7 @@ public class RegisterController {
                     dialogVbox.setStyle("-fx-background: #37598e;");
                     HBox hBox = new HBox(20);
                     hBox.setAlignment(Pos.CENTER);
-                    ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                    ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                     imageView.setFitHeight(50);
                     imageView.setPreserveRatio(true);
                     final Text text = new Text("Není validní email.");
@@ -296,7 +296,7 @@ public class RegisterController {
                 dialogVbox.setStyle("-fx-background: #37598e;");
                 HBox hBox = new HBox(20);
                 hBox.setAlignment(Pos.CENTER);
-                ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+                ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                 imageView.setFitHeight(50);
                 imageView.setPreserveRatio(true);
                 final Text text = new Text("Není validní příjmení.");
@@ -328,7 +328,7 @@ public class RegisterController {
             dialogVbox.setStyle("-fx-background: #37598e;");
             HBox hBox = new HBox(20);
             hBox.setAlignment(Pos.CENTER);
-            ImageView imageView = new ImageView(getClass().getResource("other/x-mark-white.png").toString());
+            ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
             imageView.setFitHeight(50);
             imageView.setPreserveRatio(true);
             final Text text = new Text("Není validní jméno.");
