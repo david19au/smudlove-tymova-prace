@@ -42,6 +42,7 @@ public class SpravaUdalosti {
      * Metoda smazUdalost maže událost na bázi jejího jména.
      * For-loop projde události, kde porovnává jména událostí a pokud se nějaká bude rovnat, tak ji smaže ze seznamu.
      * Po smazání se uloží JSON soubor s událostmi a znovu načte, aby se aktualizoval.
+     *
      * @param jmenoUdalosti jméno události které se má smazat
      */
     public void smazUdalost(String jmenoUdalosti) {
@@ -81,6 +82,7 @@ public class SpravaUdalosti {
 
     /**
      * Metoda přidává událost do seznamu a ukládá jej do JSONu (volá metodu ulozUdalostiDoJSON
+     *
      * @param udalost daná událost
      */
     public void pridatUdalost(Udalost udalost) {
@@ -91,6 +93,7 @@ public class SpravaUdalosti {
     /**
      * Tato metoda je getter událostí.
      * Vrací instanci udalosti
+     *
      * @return instance udalosti
      */
     public List<Udalost> getUdalosti() {
@@ -111,8 +114,8 @@ public class SpravaUdalosti {
      * For-loop prochází událostmi v seznamu a páruje se se shodným jménem události, pokud se spáruje, porovná status, který uživatel dal a přidá jej do příslušného seznamu.
      *
      * @param jmenoUdalosti jméno události, kde se má změnit RSVP
-     * @param jmenoClena jméno člena, který si chce změnit RSVP
-     * @param status status, který ten člen chce mít
+     * @param jmenoClena    jméno člena, který si chce změnit RSVP
+     * @param status        status, který ten člen chce mít
      */
     public void zmenRSVP(String jmenoUdalosti, String jmenoClena, String status) {
         for (Udalost udalost : udalosti) {
@@ -144,6 +147,7 @@ public class SpravaUdalosti {
 
     /**
      * Metoda getJde vrací seznam uživatelů, kteří odpověděli, že jdou na danou událost.
+     *
      * @param jmenoUdalosti jméno události
      * @return ArrayList s lidmi co jdou na danou akci
      */
@@ -158,6 +162,7 @@ public class SpravaUdalosti {
 
     /**
      * Metoda getNejde vrací seznam uživatelů, kteří odpověděli, že nejdou na danou událost.
+     *
      * @param jmenoUdalosti jméno události
      * @return ArrayList s lidmi co nejdou na danou akci
      */
