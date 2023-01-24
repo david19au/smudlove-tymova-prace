@@ -14,26 +14,44 @@ import java.io.IOException;
  * "Chat" reprezentuje zprávy v aplikaci.
  *
  * @author ?
- * @version ?
+ * @version ZS2022/23
  */
 public class Chat {
 
     private ChatLog chatLog;
 
+    /**
+     * Vrací instanci ChatLog
+     *
+     * @return instance ChatLog
+     */
     public ChatLog getChatLog() {
         return chatLog;
     }
 
+    /**
+     * Vytvoření nové instance chatu s chatLogem.
+     *
+     */
     public Chat() {
         chatLog = new ChatLog();
         nactiZpravyZJSON();
     }
 
+    /**
+     * Metoda pridatZpravu vezme zprávy napsané ve Stringu a zavolá metodu ulozitZpravyDoJSON
+     * @param zprava zpráva, kterou chce uživatel odeslat
+     * @throws IOException
+     */
     public void pridatZpravu(String zprava) throws IOException {
         chatLog.zpravy.add(zprava);
         ulozitZpravyDoJSON();
     }
 
+    /**
+     * Metoda ulozitZpravyDoJSON používá knihovnu GSON od Google pro ukládání informací do souborů JSON.
+     * @throws IOException
+     */
     private void ulozitZpravyDoJSON() throws IOException {
         // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -45,6 +63,10 @@ public class Chat {
         bw.close();
     }
 
+    /**
+     * Metoda nactiZpravyZJSON používá knihovnu GSON od Google pro čtení informací ze souborů JSON.
+     * @throws IOException
+     */
     public void nactiZpravyZJSON() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader("target/" + "chat.json")) {
