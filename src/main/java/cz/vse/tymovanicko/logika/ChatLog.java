@@ -21,6 +21,7 @@ public class ChatLog {
 
     /**
      * Metodat getZpravy vrací ArrayList se zprávami.
+     *
      * @return ArrayList se zprávami
      */
     public ArrayList<String> getZpravy() {
