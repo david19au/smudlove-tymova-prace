@@ -69,11 +69,11 @@ public class ProfileSettingsController {
     @FXML
     private TextField email;
     @FXML
-    public TextField role;
-    @FXML
     private PasswordField heslo;
     @FXML
     private Label home;
+    @FXML
+    private TextField role;
 
     /**
      * Inicializační metoda, která pomáhá aktualizovat okno aplikace
@@ -85,7 +85,7 @@ public class ProfileSettingsController {
                 jmeno.setText(uzivatel.getKrestniJmeno());
                 prijmeni.setText(uzivatel.getPrijmeni());
                 email.setText(uzivatel.getEmail());
-                role.appendText(uzivatel.getRole());
+                role.setText(uzivatel.getRole());
             }
         }
         Platform.runLater(() -> uloz.requestFocus());
@@ -408,7 +408,7 @@ public class ProfileSettingsController {
      */
     @FXML
     private void zpracujNaZmenuHesla(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/change_password.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/changePassword.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -157,7 +157,7 @@ public class EventsController {
      */
     @FXML
     private void zpracujNaNastaveni(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

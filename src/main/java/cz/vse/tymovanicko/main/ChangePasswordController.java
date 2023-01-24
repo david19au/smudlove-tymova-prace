@@ -126,7 +126,7 @@ public class ChangePasswordController {
                             dialog.setTitle("Týmováníčko");
                             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                             dialog.show();
-                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
                             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                             scene = new Scene(root);
                             stage.setScene(scene);
@@ -248,7 +248,7 @@ public class ChangePasswordController {
      */
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

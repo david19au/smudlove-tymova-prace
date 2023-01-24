@@ -61,9 +61,22 @@ public class RegisterController {
     @FXML
     private TextField prijmeni;
 
+    /**
+     * Konstruktor
+     */
     public RegisterController() throws IOException {
     }
 
+    /**
+     * Metoda, která zpracovává zaregistrování.
+     * Kontroluje se validnost jména, příjmení, emailu a hesla.
+     * Kontroluje se, zda se hesla shodují.
+     * Když je vše v pořádku, účet se založí a zapíše do JSONu.
+     * Okno se přepne zpět na login.
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void zpracujZaregistrovani(ActionEvent actionEvent) throws IOException {
         String regexJmeno = ".+";
