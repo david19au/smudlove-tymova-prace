@@ -63,10 +63,18 @@ public class ChangePasswordController {
     @FXML
     private PasswordField noveHesloZnovu;
 
-
+    /**
+     *
+     */
     public ChangePasswordController() {
     }
 
+    /**
+     *
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void zpracujZmenuHesla(ActionEvent actionEvent) throws IOException {
         String stare = stareHeslo.getCharacters().toString();
