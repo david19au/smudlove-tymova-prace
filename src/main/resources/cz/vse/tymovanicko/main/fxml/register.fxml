@@ -99,7 +99,7 @@
                            onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="@../arrow_white.png"/>
+                        <Image url="@../other/arrow_white.png"/>
                     </image>
                     <HBox.margin>
                         <Insets bottom="10.0" left="15.0" top="15.0"/>

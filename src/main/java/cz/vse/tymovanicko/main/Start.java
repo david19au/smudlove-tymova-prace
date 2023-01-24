@@ -43,7 +43,7 @@ public class Start extends Application {
         Scene scene = new Scene(loader.getRoot());
         stage.setScene(scene);
         stage.setTitle("Týmováníčko - Přihlášení");
-        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
         stage.show();
     }
 

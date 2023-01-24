@@ -102,7 +102,7 @@ public class ChangePasswordController {
                             Scene dialogScene = new Scene(dialogVbox, 250, 100);
                             dialog.setScene(dialogScene);
                             dialog.setTitle("Týmováníčko");
-                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                             dialog.show();
                             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
                             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -145,7 +145,7 @@ public class ChangePasswordController {
                     Scene dialogScene = new Scene(dialogVbox, 200, 100);
                     dialog.setScene(dialogScene);
                     dialog.setTitle("Týmováníčko");
-                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                     dialog.show();
                 }
             } else {
@@ -173,7 +173,7 @@ public class ChangePasswordController {
                 Scene dialogScene = new Scene(dialogVbox, 580, 100);
                 dialog.setScene(dialogScene);
                 dialog.setTitle("Týmováníčko");
-                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
         } else {
@@ -201,7 +201,7 @@ public class ChangePasswordController {
             Scene dialogScene = new Scene(dialogVbox, 250, 100);
             dialog.setScene(dialogScene);
             dialog.setTitle("Týmováníčko");
-            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
     }
