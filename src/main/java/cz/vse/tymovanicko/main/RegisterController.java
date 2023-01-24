@@ -123,6 +123,9 @@ public class RegisterController {
                                 dialog.show();
                             } else {
                                 // Vkládá nového uživatele a vytváří JSON s jeho zadanými hodnotami
+                                if (Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getPocetUzivatelu()==0){
+                                    uzivatel.setRole("Trenér");
+                                } else uzivatel.setRole("Člen");
                                 Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
                                 try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
                                     String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());

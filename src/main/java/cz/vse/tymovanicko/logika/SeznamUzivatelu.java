@@ -38,6 +38,9 @@ public class SeznamUzivatelu {
         }
         return heslo;
     }
+    public int getPocetUzivatelu(){
+        return uzivatele.size();
+    }
 
     public ArrayList<Uzivatel> getUzivatele() {
         return uzivatele;

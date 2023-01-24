@@ -14,6 +14,7 @@ public class Uzivatel {
     private String krestniJmeno;
     private String prijmeni;
     private String heslo;
+    private String role;
 
     public Uzivatel(String email, String krestniJmeno, String prijmeni, String heslo) {
         this.email = email;
@@ -52,6 +53,14 @@ public class Uzivatel {
 
     public void setPrijmeni(String prijmeni) {
         this.prijmeni = prijmeni;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
 
