@@ -42,7 +42,7 @@ public enum Tymovanicko {
     /**
      * Metoda zalozTymovanicko vytváří novou instanci seznamu uživatelů, chatu, chatLogu a správu událostí.
      * Dělá novou instanci Gson pro převod JSON souborů do Javy.
-     *  Reader se pokusí přečíst zde soubory pro uživatele, chatu a seznamu událostí. Ty se potom nastaví setterem.
+     * Reader se pokusí přečíst zde soubory pro uživatele, chatu a seznamu událostí. Ty se potom nastaví setterem.
      */
     private void zalozTymovanicko() {
         seznamUzivatelu = new SeznamUzivatelu();
@@ -77,6 +77,7 @@ public enum Tymovanicko {
 
     /**
      * Metoda getSeznamUzivatelu vrací instanci seznam uživatelů
+     *
      * @return instance seznamu uživatelů
      */
     public SeznamUzivatelu getSeznamUzivatelu() {
@@ -85,6 +86,7 @@ public enum Tymovanicko {
 
     /**
      * Nastavuje seznam uživatelů
+     *
      * @param seznamUzivatelu
      */
     public void setSeznamUzivatelu(SeznamUzivatelu seznamUzivatelu) {
@@ -103,6 +105,7 @@ public enum Tymovanicko {
 
     /**
      * Nastavuje tuto danou instanci chatu
+     *
      * @param chat
      */
     public void setChat(Chat chat) {
@@ -120,6 +123,7 @@ public enum Tymovanicko {
 
     /**
      * Nastavuje tuto danou instanci chatLogu
+     *
      * @param chatLog
      */
     public void setChatLog(ChatLog chatLog) {
@@ -137,6 +141,7 @@ public enum Tymovanicko {
 
     /**
      * Nastavuje tuto danou instanci Id
+     *
      * @param id ve Stringu
      */
     public void setId(String id) {
@@ -173,7 +178,6 @@ public enum Tymovanicko {
      * Metoda getUdalosti vrací seznam událostí
      * Předtím než jej vrátí, je JSON s událostmi přečten aby se zachytly veškeré aktualizace.
      *
-     *
      * @return seznam s událostmi
      */
     public List<Udalost> getUdalosti() {
@@ -191,6 +195,7 @@ public enum Tymovanicko {
 
     /**
      * Metoda setUdálosti je setter pro události.
+     *
      * @param udalosti
      */
     public void setUdalosti(List<Udalost> udalosti) {
