@@ -6,8 +6,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="600.0"
+            style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea"
             fx:controller="cz.vse.tymovanicko.main.HomeController">
     <center>
         <VBox spacing="10.0">
