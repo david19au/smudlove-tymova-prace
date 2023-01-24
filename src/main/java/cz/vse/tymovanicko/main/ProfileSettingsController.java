@@ -151,7 +151,7 @@ public class ProfileSettingsController {
                                 Scene dialogScene = new Scene(dialogVbox, 250, 100);
                                 dialog.setScene(dialogScene);
                                 dialog.setTitle("Týmováníčko");
-                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                                 dialog.show();
                             } else {
                                 final Stage dialog = new Stage();
@@ -175,7 +175,7 @@ public class ProfileSettingsController {
                                 Scene dialogScene = new Scene(dialogVbox, 250, 100);
                                 dialog.setScene(dialogScene);
                                 dialog.setTitle("Týmováníčko");
-                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                                 dialog.show();
                             }
                         } else {
@@ -216,7 +216,7 @@ public class ProfileSettingsController {
                             Scene dialogScene = new Scene(dialogVbox, 250, 100);
                             dialog.setScene(dialogScene);
                             dialog.setTitle("Týmováníčko");
-                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                             dialog.show();
                         }
                     } else {
@@ -241,7 +241,7 @@ public class ProfileSettingsController {
                         Scene dialogScene = new Scene(dialogVbox, 200, 100);
                         dialog.setScene(dialogScene);
                         dialog.setTitle("Týmováníčko");
-                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                         dialog.show();
                     }
                 } else {
@@ -266,7 +266,7 @@ public class ProfileSettingsController {
                     Scene dialogScene = new Scene(dialogVbox, 200, 100);
                     dialog.setScene(dialogScene);
                     dialog.setTitle("Týmováníčko");
-                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                     dialog.show();
                 }
             } else {
@@ -291,7 +291,7 @@ public class ProfileSettingsController {
                 Scene dialogScene = new Scene(dialogVbox, 200, 100);
                 dialog.setScene(dialogScene);
                 dialog.setTitle("Týmováníčko");
-                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+                dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
         } else {
@@ -316,7 +316,7 @@ public class ProfileSettingsController {
             Scene dialogScene = new Scene(dialogVbox, 200, 100);
             dialog.setScene(dialogScene);
             dialog.setTitle("Týmováníčko");
-            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
     }

@@ -334,7 +334,7 @@ public class EventsController {
         Scene dialogScene = new Scene(dialogVbox);
         dialog.setScene(dialogScene);
         dialog.setTitle("Událost - " + panelUdalosti.getSelectionModel().getSelectedItem().getJmenoUdalosti());
-        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.jpg"))));
+        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
         dialog.show();
     }
 }
