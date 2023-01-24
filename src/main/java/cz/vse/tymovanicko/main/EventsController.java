@@ -27,7 +27,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -236,7 +235,7 @@ public class EventsController {
         ucastnici.setStyle("-fx-font: 14 arial;");
         ucastnici.setFill(Color.WHITE);
 
-        ListView panelUcastnici = new ListView();
+        ListView<String> panelUcastnici = new ListView<String>();
         panelUcastnici.getItems().clear();
         Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
         panelUcastnici.getItems().addAll(jde);
@@ -248,7 +247,7 @@ public class EventsController {
         neucastnici.setStyle("-fx-font: 14 arial;");
         neucastnici.setFill(Color.WHITE);
 
-        ListView panelNeucastnici = new ListView();
+        ListView<String> panelNeucastnici = new ListView<>();
         panelNeucastnici.getItems().clear();
         Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
         panelNeucastnici.getItems().addAll(nejde);

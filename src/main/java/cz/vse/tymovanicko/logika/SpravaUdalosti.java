@@ -107,7 +107,7 @@ public class SpravaUdalosti {
 
     public Collection<String> getJde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
-            if (udalost.equals(jmenoUdalosti)) {
+            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti.getJmenoUdalosti())) {
                 return udalost.getSeznamJde();
             }
         }
@@ -117,7 +117,7 @@ public class SpravaUdalosti {
 
     public Collection<String> getNejde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
-            if (udalost.equals(jmenoUdalosti)) {
+            if (udalost.getJmenoUdalosti().equals(jmenoUdalosti.getJmenoUdalosti())) {
                 return udalost.getSeznamNejde();
             }
         }
