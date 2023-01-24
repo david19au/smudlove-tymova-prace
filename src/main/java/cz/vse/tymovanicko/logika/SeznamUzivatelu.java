@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class SeznamUzivatelu {
 
+    // datové atributy
     private ArrayList<Uzivatel> uzivatele;
 
     /**

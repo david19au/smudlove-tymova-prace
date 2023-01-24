@@ -10,6 +10,8 @@ import java.util.ArrayList;
  * @version ZS2022/23
  */
 public class ChatLog {
+
+    // datové atributy
     ArrayList<String> zpravy;
 
     /**

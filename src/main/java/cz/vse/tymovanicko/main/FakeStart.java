@@ -2,7 +2,7 @@ package cz.vse.tymovanicko.main;
 
 import java.io.IOException;
 
-/*******************************************************************************
+/**
  * Třída FakeStart je (falešnou) hlavní třídou projektu.
  * Napomáhá ke spuštění fat jaru, aby JRE si myslelo, že se nejedná o JFX aplikaci a spustila se správně při použití s
  * fatjarem.

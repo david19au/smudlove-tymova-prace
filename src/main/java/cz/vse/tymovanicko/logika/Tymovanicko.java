@@ -22,6 +22,7 @@ import java.util.List;
 public enum Tymovanicko {
     TYMOVANICKO;
 
+    // datové atributy
     private SeznamUzivatelu seznamUzivatelu;
     private Uzivatel uzivatel;
     private Chat chat;

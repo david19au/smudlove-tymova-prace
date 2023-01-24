@@ -37,7 +37,6 @@ import java.util.Objects;
  */
 public class ChatController {
 
-
     // datové atributy
     @FXML
     private TextField vstupZprava;

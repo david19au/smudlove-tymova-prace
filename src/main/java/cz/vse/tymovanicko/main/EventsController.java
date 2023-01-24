@@ -39,6 +39,7 @@ import java.util.Objects;
  */
 public class EventsController {
 
+    // datové atributy
     @FXML
     private Label home;
     @FXML

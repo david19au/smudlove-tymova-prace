@@ -18,6 +18,7 @@ import java.io.IOException;
  */
 public class Chat {
 
+    // datové atributy
     private ChatLog chatLog;
 
     /**

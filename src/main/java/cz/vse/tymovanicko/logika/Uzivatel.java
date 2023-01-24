@@ -10,6 +10,7 @@ package cz.vse.tymovanicko.logika;
  */
 public class Uzivatel {
 
+    // datové atributy
     private String email;
     private String krestniJmeno;
     private String prijmeni;

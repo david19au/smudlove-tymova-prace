@@ -43,7 +43,6 @@ import java.util.regex.Pattern;
  */
 public class RegisterController {
 
-
     // datové atributy
     @FXML
     private Button zaregistruj;

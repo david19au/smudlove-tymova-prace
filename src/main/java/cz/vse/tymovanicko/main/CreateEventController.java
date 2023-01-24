@@ -22,8 +22,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Třída  CreateEventController je hlavní třídou okna,
+ * které představuje okno pro vytvoření události
+ *
+ * @author ?
+ * @version ?
+ */
 public class CreateEventController {
 
+    // datové atributy
     @FXML
     private TextField jmenoUdalosti;
     @FXML

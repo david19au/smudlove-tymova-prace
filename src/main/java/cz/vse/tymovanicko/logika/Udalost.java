@@ -13,6 +13,8 @@ import java.util.List;
  * @version ZS2022/23
  */
 public class Udalost {
+
+    // datové atributy
     private String jmenoUdalosti;
     private String datumUdalosti;
     private String lokaceUdalosti;

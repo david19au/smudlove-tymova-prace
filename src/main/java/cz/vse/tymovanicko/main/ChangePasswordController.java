@@ -43,7 +43,6 @@ import java.util.regex.Pattern;
  */
 public class ChangePasswordController {
 
-
     // datové atributy
     @FXML
     private Label home;
