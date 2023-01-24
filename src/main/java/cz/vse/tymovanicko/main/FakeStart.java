@@ -10,7 +10,6 @@ import java.io.IOException;
  * @author Trong Dat Luu
  * @version ZS 2022/23
  */
-
 public class FakeStart {
 
     /**

@@ -73,6 +73,9 @@ public class ProfileSettingsController {
     @FXML
     private Label home;
 
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
     @FXML
     private void initialize() {
         for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
@@ -85,6 +88,12 @@ public class ProfileSettingsController {
         Platform.runLater(() -> uloz.requestFocus());
     }
 
+    /**
+     * Metoda, která zpracovává uložení nových údajů.
+     * Kontroluje se validnost a neexistence emailu v JSONu.
+     *
+     * @param actionEvent
+     */
     @FXML
     private void zpracujUlozeni(ActionEvent actionEvent) {
         String stringJmeno = jmeno.getCharacters().toString();
@@ -372,6 +381,12 @@ public class ProfileSettingsController {
         }
     }
 
+    /**
+     * Metoda, která zpracovává odhlášení z aplikace.
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujOdhlaseni(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
@@ -396,10 +411,6 @@ public class ProfileSettingsController {
         stage.setScene(scene);
         stage.setTitle("Týmováníčko - Změna hesla");
         stage.show();
-    }
-
-    @FXML
-    private void zpracujNaZmenuTymu(ActionEvent actionEvent) {
     }
 
     /**
@@ -438,6 +449,11 @@ public class ProfileSettingsController {
         chat.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat chat, když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejChat(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
@@ -516,6 +532,12 @@ public class ProfileSettingsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
@@ -526,6 +548,11 @@ public class ProfileSettingsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniHome(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -533,6 +560,11 @@ public class ProfileSettingsController {
         home.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejHome(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();

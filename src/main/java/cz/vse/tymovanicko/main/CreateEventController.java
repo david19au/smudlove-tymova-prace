@@ -51,11 +51,20 @@ public class CreateEventController {
     private String pattern = "dd.MM.yyyy";
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
 
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
     @FXML
     private void initialize() {
         datumUdalosti.setConverter(new LocalDateStringConverter(dateTimeFormatter, null));
     }
 
+    /**
+     * Metoda, která změní obrazovku na chat
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/chat.fxml")));
@@ -170,6 +179,13 @@ public class CreateEventController {
         zpet.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která zpracuje vytvoření události
+     * a přepne okno zpět na events.
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void vytvorUdalost(ActionEvent actionEvent) throws IOException {
         String jmeno = jmenoUdalosti.getCharacters().toString();
@@ -185,6 +201,12 @@ public class CreateEventController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
@@ -195,6 +217,11 @@ public class CreateEventController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniHome(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -202,6 +229,11 @@ public class CreateEventController {
         home.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejHome(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
