@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
@@ -27,7 +28,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -39,6 +39,8 @@ import java.util.Objects;
  */
 public class EventsController {
 
+    @FXML
+    private Label home;
     @FXML
     private Button vytvorUdalost;
     @FXML
@@ -236,7 +238,7 @@ public class EventsController {
         ucastnici.setStyle("-fx-font: 14 arial;");
         ucastnici.setFill(Color.WHITE);
 
-        ListView panelUcastnici = new ListView();
+        ListView<String> panelUcastnici = new ListView<String>();
         panelUcastnici.getItems().clear();
         Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
         panelUcastnici.getItems().addAll(jde);
@@ -248,7 +250,7 @@ public class EventsController {
         neucastnici.setStyle("-fx-font: 14 arial;");
         neucastnici.setFill(Color.WHITE);
 
-        ListView panelNeucastnici = new ListView();
+        ListView<String> panelNeucastnici = new ListView<>();
         panelNeucastnici.getItems().clear();
         Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
         panelNeucastnici.getItems().addAll(nejde);
@@ -336,5 +338,29 @@ public class EventsController {
         dialog.setTitle("Událost - " + panelUdalosti.getSelectionModel().getSelectedItem().getJmenoUdalosti());
         dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
         dialog.show();
+    }
+
+    @FXML
+    private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko");
+        stage.show();
+    }
+
+    @FXML
+    private void ztmavniHome(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        home.setEffect(ztmavnuti);
+    }
+
+    @FXML
+    private void zesvetlejHome(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        home.setEffect(zesvetleni);
     }
 }

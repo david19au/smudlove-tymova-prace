@@ -117,7 +117,8 @@
         </VBox>
     </center>
     <top>
-        <Label text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+        <Label fx:id="home" text="Týmováníčko" onMouseClicked="#zpracujNaHome"
+               onMouseEntered="#ztmavniHome" onMouseExited="#zesvetlejHome" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
             <font>
                 <Font name="System Bold" size="22.0"/>
             </font>
