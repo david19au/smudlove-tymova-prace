@@ -63,14 +63,14 @@ public class ChangePasswordController {
     @FXML
     private PasswordField noveHesloZnovu;
 
-    /**
-     *
-     */
     public ChangePasswordController() {
     }
 
     /**
-     *
+     * Tato metoda kontroluje zda je nové heslo validní,
+     * zda se shodují nové hesla,
+     * zda bylo zadáno správné staré heslo,
+     * když bylo vše zadáno správně, proběhně změna hesla.
      *
      * @param actionEvent
      * @throws IOException
@@ -357,6 +357,12 @@ public class ChangePasswordController {
         stage.show();
     }
 
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
@@ -367,6 +373,11 @@ public class ChangePasswordController {
         stage.show();
     }
 
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void ztmavniHome(MouseEvent mouseEvent) {
         ColorAdjust ztmavnuti = new ColorAdjust();
@@ -374,6 +385,11 @@ public class ChangePasswordController {
         home.setEffect(ztmavnuti);
     }
 
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void zesvetlejHome(MouseEvent mouseEvent) {
         ColorAdjust zesvetleni = new ColorAdjust();
