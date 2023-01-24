@@ -20,7 +20,24 @@ import java.util.List;
  */
 public class SpravaUdalosti {
     private ArrayList<Udalost> udalosti;
-    private Gson gson;
+    private final Gson gson;
+
+    /**
+     * Konstruktor třídy SpravaUdalosti, která vytváří nový ArrayList s událostmi a novou instanci GsonBuilderu.
+     * Snaží se přečíst JSON s událostmi a Gson jej populuje.
+     */
+    public SpravaUdalosti() {
+        udalosti = new ArrayList<Udalost>();
+        gson = new GsonBuilder().setPrettyPrinting().create();
+        try (Reader reader = new FileReader("target/udalosti.json")) {
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            udalosti = gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
+            }.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Metoda vytvorUdalost vytváří novou událost a zpracuje jméno události, kdy se událost koná a kde se koná.
@@ -60,23 +77,6 @@ public class SpravaUdalosti {
                 }
                 return;
             }
-        }
-    }
-
-    /**
-     * Konstruktor třídy SpravaUdalosti, která vytváří nový ArrayList s událostmi a novou instanci GsonBuilderu.
-     * Snaží se přečíst JSON s událostmi a Gson jej populuje.
-     */
-    public SpravaUdalosti() {
-        udalosti = new ArrayList<Udalost>();
-        gson = new GsonBuilder().setPrettyPrinting().create();
-        try (Reader reader = new FileReader("target/udalosti.json")) {
-            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
-            String jsonInString = gson.toJson(jsonElement);
-            udalosti = gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
-            }.getType());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
