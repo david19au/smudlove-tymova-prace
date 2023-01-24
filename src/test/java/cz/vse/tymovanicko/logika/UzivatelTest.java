@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class UzivatelTest {
-    Uzivatel u = new Uzivatel("user@email.com", "John", "Doe", "password");
+    Uzivatel u = new Uzivatel("adam@email.com", "Adam", "Zátopek", "heslo");
 
     /**
      * Metoda testGetEmail kontroluje, že vrací správně email
