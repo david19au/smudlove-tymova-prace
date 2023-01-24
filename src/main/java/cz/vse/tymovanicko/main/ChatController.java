@@ -1,5 +1,9 @@
 package cz.vse.tymovanicko.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import cz.vse.tymovanicko.logika.ChatLog;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -15,7 +19,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,6 +61,15 @@ public class ChatController {
     }
 
     public void nactiStareZpravy() {
+
+        try (Reader reader = new FileReader("target/chat.json")) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
+            String jsonInString = gson.toJson(jsonElement);
+            Tymovanicko.TYMOVANICKO.setChatLog(gson.fromJson(jsonInString, ChatLog.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ArrayList<String> zpravy = Tymovanicko.TYMOVANICKO.getChatLog().getZpravy();
         for (String zprava : zpravy) {
