@@ -22,6 +22,7 @@ public class SeznamUzivatelu {
 
     /**
      * Metoda vlozUzivateleDoSeznamu vezme uživatele a vloží jej do seznamu s uživateli
+     *
      * @param uzivatel
      */
     public void vlozUzivateleDoSeznamu(Uzivatel uzivatel) {
@@ -30,6 +31,7 @@ public class SeznamUzivatelu {
 
     /**
      * Metoda emailyUzivatelu prochází emailama uživatelů v seznamu.
+     *
      * @return E-maily uživatelů ve String formě
      */
     public String emailyUzivatelu() {
@@ -42,6 +44,7 @@ public class SeznamUzivatelu {
 
     /**
      * Metoda vrací zpět saltnuté heslo daného uživatele s určitým emailem.
+     *
      * @param email uživatele
      * @return salted heslo uživatele
      */
@@ -57,6 +60,7 @@ public class SeznamUzivatelu {
 
     /**
      * Metoda getUzivatele vrací seznam uživatelů.
+     *
      * @return seznam uživatelů
      */
     public ArrayList<Uzivatel> getUzivatele() {
