@@ -28,7 +28,6 @@ import java.util.Objects;
  */
 public class HomeController {
 
-
     // datové atributy
     @FXML
     private ImageView udalosti;

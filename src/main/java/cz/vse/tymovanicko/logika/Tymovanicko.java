@@ -14,13 +14,15 @@ import java.util.List;
  * Třída Tymovanicko - představuje stav aplikace.
  * Tato třída je součástí aplikace Týmováníčko.
  * Tato třída inicializuje prvky ze kterých se aplikace skládá.
+ * Tato třída je enum a aplikuje se zde Singleton.
  *
  * @author ?
- * @version ?
+ * @version ZS2022/23
  */
 public enum Tymovanicko {
     TYMOVANICKO;
 
+    // datové atributy
     private SeznamUzivatelu seznamUzivatelu;
     private Uzivatel uzivatel;
     private Chat chat;
@@ -31,10 +33,18 @@ public enum Tymovanicko {
     private List<Udalost> udalosti;
 
 
+    /**
+     * Konstruktor volá metodu zalozTymovanicko
+     */
     Tymovanicko() {
         zalozTymovanicko();
     }
 
+    /**
+     * Metoda zalozTymovanicko vytváří novou instanci seznamu uživatelů, chatu, chatLogu a správu událostí.
+     * Dělá novou instanci Gson pro převod JSON souborů do Javy.
+     * Reader se pokusí přečíst zde soubory pro uživatele, chatu a seznamu událostí. Ty se potom nastaví setterem.
+     */
     private void zalozTymovanicko() {
         seznamUzivatelu = new SeznamUzivatelu();
         chat = new Chat();
@@ -66,46 +76,85 @@ public enum Tymovanicko {
         }
     }
 
+    /**
+     * Metoda getSeznamUzivatelu vrací instanci seznam uživatelů
+     *
+     * @return instance seznamu uživatelů
+     */
     public SeznamUzivatelu getSeznamUzivatelu() {
         return seznamUzivatelu;
     }
 
+    /**
+     * Nastavuje seznam uživatelů
+     *
+     * @param seznamUzivatelu
+     */
     public void setSeznamUzivatelu(SeznamUzivatelu seznamUzivatelu) {
         this.seznamUzivatelu = seznamUzivatelu;
     }
 
-    public Uzivatel getUzivatel() {
-        return uzivatel;
-    }
 
-    public void setUzivatel(Uzivatel uzivatel) {
-        this.uzivatel = uzivatel;
-    }
-
+    /**
+     * Vrací instanci Chat
+     *
+     * @return instance Chat
+     */
     public Chat getChat() {
         return chat;
     }
 
+    /**
+     * Nastavuje tuto danou instanci chatu
+     *
+     * @param chat
+     */
     public void setChat(Chat chat) {
         this.chat = chat;
     }
 
+    /**
+     * Vrací instanci ChatLog
+     *
+     * @return instance ChatLog
+     */
     public ChatLog getChatLog() {
         return chatLog;
     }
 
+    /**
+     * Nastavuje tuto danou instanci chatLogu
+     *
+     * @param chatLog
+     */
     public void setChatLog(ChatLog chatLog) {
         this.chatLog = chatLog;
     }
 
+    /**
+     * Vrací String Id, což je emailová adresa uživatele
+     *
+     * @return Id/email ve stringu
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Nastavuje tuto danou instanci Id
+     *
+     * @param id ve Stringu
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Metoda getJmeno vrací křestní jméno a příjmení uživatele ve Stringu.
+     * Metoda páruje email ve Stringu s jménem uživatele a pak vrací jeho jméno.
+     *
+     * @return jméno uživatele ve Stringu
+     */
     public String getJmeno(String stringEmailu) {
         String getJmeno = null;
         for (Uzivatel uzivatel : TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
@@ -116,23 +165,22 @@ public enum Tymovanicko {
         return getJmeno;
     }
 
+    /**
+     * Vrací instanci správy událostí
+     *
+     * @return instance SpravaUdalosti
+     */
     public SpravaUdalosti getSpravaUdalosti() {
         return spravaUdalosti;
     }
 
 
-    public void setSpravaUdalosti(SpravaUdalosti spravaUdalosti) {
-        this.spravaUdalosti = spravaUdalosti;
-    }
-
-    public Udalost getUdalost() {
-        return udalost;
-    }
-
-    public void setUdalost(Udalost udalost) {
-        this.udalost = udalost;
-    }
-
+    /**
+     * Metoda getUdalosti vrací seznam událostí
+     * Předtím než jej vrátí, je JSON s událostmi přečten aby se zachytly veškeré aktualizace.
+     *
+     * @return seznam s událostmi
+     */
     public List<Udalost> getUdalosti() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (Reader reader = new FileReader("target/" + "udalosti.json")) {
@@ -146,6 +194,11 @@ public enum Tymovanicko {
         return udalosti;
     }
 
+    /**
+     * Metoda setUdálosti je setter pro události.
+     *
+     * @param udalosti
+     */
     public void setUdalosti(List<Udalost> udalosti) {
         this.udalosti = udalosti;
     }

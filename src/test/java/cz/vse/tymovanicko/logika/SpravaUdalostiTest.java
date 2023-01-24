@@ -11,6 +11,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+//TODO fix
 public class SpravaUdalostiTest {
 
     private SpravaUdalosti sprava;
@@ -45,22 +46,16 @@ public class SpravaUdalostiTest {
     public void testZmenRSVP() {
         u1.setSeznamJde(new ArrayList<String>());
         u1.setSeznamNejde(new ArrayList<String>());
-        u1.setSeznamNeodpovedeli(new ArrayList<String>());
-        u1.getSeznamNeodpovedeli().add("Hana");
-        u1.getSeznamNeodpovedeli().add("Jakub");
-        u1.getSeznamNeodpovedeli().add("Dat");
         sprava.pridatUdalost(u1);
 
-        sprava.zmenRSVP("Event 1", "Hana", "jdu");
-        sprava.zmenRSVP("Event 1", "Jakub", "nejdu");
-        sprava.zmenRSVP("Event 1", "Dat", "nevim");
+        sprava.zmenRSVP(u1, "Hana", "jdu");
+        sprava.zmenRSVP(u1, "Jakub", "nejdu");
+        sprava.zmenRSVP(u1, "Dat", "nejdu");
 
         assertEquals(1, u1.getSeznamJde().size());
         assertEquals("Hana", u1.getSeznamJde().get(0));
-        assertEquals(1, u1.getSeznamNejde().size());
+        assertEquals(2, u1.getSeznamNejde().size());
         assertEquals("Jakub", u1.getSeznamNejde().get(0));
-        assertEquals(1, u1.getSeznamNeodpovedeli().size());
-        assertTrue(u1.getSeznamNeodpovedeli().contains("Dat"));
     }
 
     @Test
