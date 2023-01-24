@@ -63,6 +63,14 @@ public class ChatController {
     }
 
     /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
+    @FXML
+    private void initialize() {
+        Platform.runLater(() -> vstupZprava.requestFocus());
+    }
+
+    /**
      * Tato metoda načítá zprávy z JSON souboru chat.json.
      */
     public void nactiStareZpravy() {
