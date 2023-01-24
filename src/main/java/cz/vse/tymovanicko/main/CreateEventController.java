@@ -27,7 +27,7 @@ import java.util.Objects;
  * které představuje okno pro vytvoření události
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class CreateEventController {
 

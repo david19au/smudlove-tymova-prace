@@ -14,7 +14,7 @@ import java.util.Objects;
  * Třída by default zapíná své grafické rozhraní, textové rozhraní k dispozici není.
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class Start extends Application {
 

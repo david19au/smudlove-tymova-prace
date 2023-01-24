@@ -8,7 +8,7 @@ import java.io.IOException;
  * fatjarem.
  *
  * @author Trong Dat Luu
- * @version ZS 2022/23
+ * @version 1.0.0
  */
 public class FakeStart {
 

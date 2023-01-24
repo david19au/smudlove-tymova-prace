@@ -17,7 +17,7 @@ import java.util.List;
  * Tato třída je enum a aplikuje se zde Singleton.
  *
  * @author ?
- * @version ZS2022/23
+ * @version 1.0.0
  */
 public enum Tymovanicko {
     TYMOVANICKO;

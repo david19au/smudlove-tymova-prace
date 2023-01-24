@@ -1,20 +1,37 @@
 package cz.vse.tymovanicko.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
 import cz.vse.tymovanicko.logika.Uzivatel;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Objects;
@@ -24,7 +41,7 @@ import java.util.Objects;
  * které představuje domovskou obrazovku
  *
  * @author ?
- * @version ?
+ * @version 1.0.0
  */
 public class HomeController {
 
@@ -187,5 +204,68 @@ public class HomeController {
         panelClenu.getItems().clear();
         Collection<Uzivatel> clenove = Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele();
         panelClenu.getItems().addAll(clenove);
+    }
+
+    /**
+     * Metoda, která zobrazuje okno pro změnu role uživatele při kliknutí na uživatele v panelu členů
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    public void klikPanelClenu(MouseEvent mouseEvent) {
+        Uzivatel cilovyUzivatel = (Uzivatel) panelClenu.getSelectionModel().getSelectedItem();
+        if (cilovyUzivatel == null) return;
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getRole().equals("Trenér")) {
+                if (!cilovyUzivatel.getRole().equals("Trenér")) {
+                    final Stage dialog = new Stage();
+                    dialog.initModality(Modality.APPLICATION_MODAL);
+                    dialog.initOwner(stage);
+
+                    VBox dialogVbox = new VBox(20);
+                    dialogVbox.setAlignment(Pos.CENTER);
+                    dialogVbox.setStyle("-fx-background: #37598e;");
+                    dialogVbox.setPadding(new Insets(10, 10, 10, 10));
+
+                    final Text text = new Text("Jakou roli chcete uživateli " + cilovyUzivatel.getKrestniJmeno() + " " + cilovyUzivatel.getPrijmeni() + " přiřadit?");
+                    text.setStyle("-fx-font: 14 arial;");
+                    text.setFill(Color.WHITE);
+
+                    ChoiceBox choiceBox = new ChoiceBox();
+                    choiceBox.setItems(FXCollections.observableArrayList("Trenér", "Kapitán", "Člen"));
+                    choiceBox.setValue(cilovyUzivatel.getRole());
+
+                    Button button = new Button("Přiřaď roli");
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            cilovyUzivatel.setRole(choiceBox.getSelectionModel().getSelectedItem().toString());
+                            dialog.close();
+                            naplneniPaneluClenu();
+
+                            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                                String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
+                                bufferedWriter.write(json);
+                                bufferedWriter.newLine();
+                                bufferedWriter.flush();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                    dialogVbox.getChildren().add(text);
+                    dialogVbox.getChildren().add(choiceBox);
+                    dialogVbox.getChildren().add(button);
+
+                    Scene dialogScene = new Scene(dialogVbox);
+                    dialog.setScene(dialogScene);
+                    dialog.setTitle("Změna role: " + cilovyUzivatel.getKrestniJmeno() + " " + cilovyUzivatel.getPrijmeni());
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
+                    dialog.show();
+                } else return;
+            } else return;
+        }
     }
 }
