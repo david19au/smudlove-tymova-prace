@@ -14,7 +14,7 @@ import java.io.IOException;
  * "Chat" reprezentuje zprávy v aplikaci.
  *
  * @author ?
- * @version ZS2022/23
+ * @version 1.0.0
  */
 public class Chat {
 
