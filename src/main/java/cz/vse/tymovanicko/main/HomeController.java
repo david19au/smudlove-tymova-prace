@@ -1,5 +1,7 @@
 package cz.vse.tymovanicko.main;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
 import cz.vse.tymovanicko.logika.Uzivatel;
@@ -28,6 +30,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Objects;
@@ -212,44 +216,58 @@ public class HomeController {
         Uzivatel cilovyUzivatel = (Uzivatel) panelClenu.getSelectionModel().getSelectedItem();
         if (cilovyUzivatel == null) return;
         for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
-            if (uzivatel.getRole().equals("Trenér")) {
-                if (!cilovyUzivatel.getRole().equals("Trenér")) {
-                    final Stage dialog = new Stage();
-                    dialog.initModality(Modality.APPLICATION_MODAL);
-                    dialog.initOwner(stage);
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                if (uzivatel.getRole().equals("Trenér")) {
+                    if (!cilovyUzivatel.getRole().equals("Trenér")) {
+                        final Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        dialog.initOwner(stage);
 
-                    VBox dialogVbox = new VBox(20);
-                    dialogVbox.setAlignment(Pos.CENTER);
-                    dialogVbox.setStyle("-fx-background: #37598e;");
-                    dialogVbox.setPadding(new Insets(10, 10, 10, 10));
+                        VBox dialogVbox = new VBox(20);
+                        dialogVbox.setAlignment(Pos.CENTER);
+                        dialogVbox.setStyle("-fx-background: #37598e;");
+                        dialogVbox.setPadding(new Insets(10, 10, 10, 10));
 
-                    final Text text = new Text("Jakou roli chcete uživateli " + cilovyUzivatel.getKrestniJmeno() + " " + cilovyUzivatel.getPrijmeni() + " přiřadit?");
-                    text.setStyle("-fx-font: 14 arial;");
-                    text.setFill(Color.WHITE);
+                        final Text text = new Text("Jakou roli chcete uživateli " + cilovyUzivatel.getKrestniJmeno() + " " + cilovyUzivatel.getPrijmeni() + " přiřadit?");
+                        text.setStyle("-fx-font: 14 arial;");
+                        text.setFill(Color.WHITE);
 
-                    ChoiceBox choiceBox = new ChoiceBox();
-                    choiceBox.setItems(FXCollections.observableArrayList("Trenér", "Kapitán", "Člen"));
-                    choiceBox.setValue(cilovyUzivatel.getRole());
+                        ChoiceBox choiceBox = new ChoiceBox();
+                        choiceBox.setItems(FXCollections.observableArrayList("Trenér", "Kapitán", "Člen"));
+                        choiceBox.setValue(cilovyUzivatel.getRole());
 
-                    Button button = new Button("Přiřaď roli");
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent actionEvent) {
-                            dialog.close();
-                        }
-                    });
+                        Button button = new Button("Přiřaď roli");
+                        button.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                cilovyUzivatel.setRole(choiceBox.getSelectionModel().getSelectedItem().toString());
+                                dialog.close();
+                                naplneniPaneluClenu();
 
-                    dialogVbox.getChildren().add(text);
-                    dialogVbox.getChildren().add(choiceBox);
-                    dialogVbox.getChildren().add(button);
+                                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                                    String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
+                                    bufferedWriter.write(json);
+                                    bufferedWriter.newLine();
+                                    bufferedWriter.flush();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
 
-                    Scene dialogScene = new Scene(dialogVbox);
-                    dialog.setScene(dialogScene);
-                    dialog.setTitle("Změna role: " + cilovyUzivatel.getKrestniJmeno() + " " + cilovyUzivatel.getPrijmeni());
-                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
-                    dialog.show();
+                        dialogVbox.getChildren().add(text);
+                        dialogVbox.getChildren().add(choiceBox);
+                        dialogVbox.getChildren().add(button);
+
+                        Scene dialogScene = new Scene(dialogVbox);
+                        dialog.setScene(dialogScene);
+                        dialog.setTitle("Změna role: " + cilovyUzivatel.getKrestniJmeno() + " " + cilovyUzivatel.getPrijmeni());
+                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
+                        dialog.show();
+                    } else return;
                 } else return;
-            } else return;
+            }
         }
     }
 }
