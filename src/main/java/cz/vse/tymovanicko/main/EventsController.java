@@ -238,7 +238,7 @@ public class EventsController {
 
         ListView panelUcastnici = new ListView();
         panelUcastnici.getItems().clear();
-        List<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
+        Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
         panelUcastnici.getItems().addAll(jde);
 
         VBox vBoxNeucastnici = new VBox();
@@ -250,7 +250,7 @@ public class EventsController {
 
         ListView panelNeucastnici = new ListView();
         panelNeucastnici.getItems().clear();
-        List<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
+        Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
         panelNeucastnici.getItems().addAll(nejde);
 
         HBox hBoxTlacitka = new HBox();
@@ -280,12 +280,12 @@ public class EventsController {
                     if (Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost).contains(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()))) {
                         Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost).remove(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()));
                         panelNeucastnici.getItems().clear();
-                        List<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
+                        Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                         panelNeucastnici.getItems().addAll(nejde);
                     }
                     Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
                     panelUcastnici.getItems().clear();
-                    List<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
+                    Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                     panelUcastnici.getItems().addAll(jde);
                 }
             }
@@ -300,12 +300,12 @@ public class EventsController {
                     if (Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost).contains(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()))) {
                         Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost).remove(Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()));
                         panelUcastnici.getItems().clear();
-                        List<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
+                        Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                         panelUcastnici.getItems().addAll(jde);
                     }
                     Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
                     panelNeucastnici.getItems().clear();
-                    List<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
+                    Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                     panelNeucastnici.getItems().addAll(nejde);
                 }
             }

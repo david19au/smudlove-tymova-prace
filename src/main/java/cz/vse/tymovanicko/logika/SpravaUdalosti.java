@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -104,19 +105,23 @@ public class SpravaUdalosti {
         }
     }
 
-    public List<String> getJde(Udalost jmenoUdalosti) {
+    public Collection<String> getJde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
-            return udalost.getSeznamJde();
+            if (udalost.equals(jmenoUdalosti)) {
+                return udalost.getSeznamJde();
+            }
         }
-        return null;
+        return new ArrayList<>();
     }
 
 
-    public List<String> getNejde(Udalost jmenoUdalosti) {
+    public Collection<String> getNejde(Udalost jmenoUdalosti) {
         for (Udalost udalost : udalosti) {
-            return udalost.getSeznamNejde();
+            if (udalost.equals(jmenoUdalosti)) {
+                return udalost.getSeznamNejde();
+            }
         }
-        return null;
+        return new ArrayList<>();
     }
 
 }
