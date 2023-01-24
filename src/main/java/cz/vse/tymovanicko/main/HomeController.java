@@ -50,7 +50,7 @@ public class HomeController {
             protected void updateItem(Uzivatel uzivatel, boolean empty) {
                 super.updateItem(uzivatel, empty);
                 if (!empty) {
-                    setText(uzivatel.getPrijmeni() + " " + uzivatel.getPrijmeni());
+                    setText(uzivatel.getKrestniJmeno() + " " + uzivatel.getPrijmeni());
                 } else {
                     setText(null);
                 }
