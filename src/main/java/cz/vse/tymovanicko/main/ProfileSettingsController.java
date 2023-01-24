@@ -405,7 +405,7 @@ public class ProfileSettingsController {
      */
     @FXML
     private void zpracujNaZmenuHesla(ActionEvent actionEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/change_password.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/changePassword.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
