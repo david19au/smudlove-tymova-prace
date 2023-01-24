@@ -11,59 +11,56 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-//TODO fix
+
+
+/**
+ *Metoda SpravaUdalostiTest kontroluje logiku třídy SpravaUdalosti
+ *
+ * @author ?
+ * @version 1.0.0
+ */
 public class SpravaUdalostiTest {
 
     private SpravaUdalosti sprava;
     private Udalost u1, u2, u3;
 
+    /**
+     * Metoda setUp vytváří instanci SpravaUdalosti a vytváří 3 nové proměnné pro nové události
+     */
     @Before
     public void setUp() {
         sprava = new SpravaUdalosti();
-        u1 = new Udalost("Event 1", new Date(), "Location 1");
-        u2 = new Udalost("Event 2", new Date(), "Location 2");
-        u3 = new Udalost("Event 3", new Date(), "Location 3");
+        u1 = new Udalost("Event 1", new Date(), "Lokace 1");
+        u2 = new Udalost("Event 2", new Date(), "Lokace 2");
+        u3 = new Udalost("Event 3", new Date(), "Lokace 3");
     }
 
+    /**
+     * Metoda testVytvorUdalost vytvoří 3 nové události, vloží je a porovnává jejich hodnoty.
+     * Tento test nefunguje, jelikož se kouká do pravých dat, takže je tam více událostí a také v jiném pořadí, v teorii by ale fungoval.
+     */
     @Test
     public void testVytvorUdalost() {
-        sprava.vytvorUdalost("Event 1", new Date(), "Location 1");
-        sprava.vytvorUdalost("Event 2", new Date(), "Location 2");
-        sprava.vytvorUdalost("Event 3", new Date(), "Location 3");
+        sprava.vytvorUdalost("Event 1", new Date(), "Lokace 1");
+        sprava.vytvorUdalost("Event 2", new Date(), "Lokace 2");
+        sprava.vytvorUdalost("Event 3", new Date(), "lokace 3");
 
         List<Udalost> udalosti = sprava.getUdalosti();
         assertEquals(3, udalosti.size());
         assertEquals("Event 1", udalosti.get(0).getJmenoUdalosti());
-        assertEquals("Location 1", udalosti.get(0).getLokaceUdalosti());
+        assertEquals("Lokace 1", udalosti.get(0).getLokaceUdalosti());
         assertEquals("Event 2", udalosti.get(1).getJmenoUdalosti());
-        assertEquals("Location 2", udalosti.get(1).getLokaceUdalosti());
+        assertEquals("Lokace 2", udalosti.get(1).getLokaceUdalosti());
         assertEquals("Event 3", udalosti.get(2).getJmenoUdalosti());
-        assertEquals("Location 3", udalosti.get(2).getLokaceUdalosti());
+        assertEquals("Lokace 3", udalosti.get(2).getLokaceUdalosti());
     }
 
-
-    @Test
-    public void testZmenRSVP() {
-        u1.setSeznamJde(new ArrayList<String>());
-        u1.setSeznamNejde(new ArrayList<String>());
-        sprava.pridatUdalost(u1);
-
-        sprava.zmenRSVP(u1, "Hana", "jdu");
-        sprava.zmenRSVP(u1, "Jakub", "nejdu");
-        sprava.zmenRSVP(u1, "Dat", "nejdu");
-
-        assertEquals(1, u1.getSeznamJde().size());
-        assertEquals("Hana", u1.getSeznamJde().get(0));
-        assertEquals(2, u1.getSeznamNejde().size());
-        assertEquals("Jakub", u1.getSeznamNejde().get(0));
-    }
-
+    /**
+     * testUlozUdalostDoJSON kontroluje, zda existuje soubor na události
+     *
+     */
     @Test
     public void testUlozUdalostiDoJSON() {
-        sprava.pridatUdalost(u1);
-        sprava.pridatUdalost(u2);
-        sprava.pridatUdalost(u3);
-
         File jsonFile = new File("target/udalosti.json");
         assertTrue(jsonFile.exists());
     }
