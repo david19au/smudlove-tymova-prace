@@ -174,4 +174,5 @@ public class CreateEventController {
         stage.setTitle("Týmováníčko - Události");
         stage.show();
     }
+
 }
