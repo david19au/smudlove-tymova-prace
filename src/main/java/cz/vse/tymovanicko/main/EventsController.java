@@ -303,6 +303,13 @@ public class EventsController {
                 dialog.close();
             }
         });
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                if (uzivatel.getRole().equals("Člen")) {
+                    buttonSmazat.setDisable(true);
+                }
+            }
+        }
 
         buttonZucastnim.setOnAction(new EventHandler<ActionEvent>() {
             @Override
