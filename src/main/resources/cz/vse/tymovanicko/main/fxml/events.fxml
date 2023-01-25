@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.Cursor?>
 <BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.EventsController">
     <top>
         <BorderPane BorderPane.alignment="TOP_LEFT">
@@ -25,6 +26,9 @@
             </left>
             <right>
                 <Button fx:id="vytvorUdalost" mnemonicParsing="false" onAction="#zpracujNaVytvoreniUdalosti" text="Vytvořit událost" BorderPane.alignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <padding>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                     </padding>
