@@ -12,9 +12,9 @@
 
 ## Anotace aplikace
 
-Aplikace **TÝMOVÁNÍČKO** slouží pro správu a organizaci sportovního týmu. Členové týmu mají přístup například k týmové
-nástěnce, týmovému chatu, jednotlivým událostem. V chatech se mohou domlouvat na všem, co se jejich týmu nebo konkrétní
-události týká, na událostech mohou vyjadřovat svou ne/účast.
+Aplikace **TÝMOVÁNÍČKO** slouží pro správu a organizaci sportovního týmu. Členové týmu mají přístup například k týmovému chatu a jednotlivým událostem. V chatech se mohou domlouvat na všem, co se jejich týmu týká a na událostech mohou vyjadřovat svou ne/účast.
+
+**Naše aplikace je postavená jako základní kostra, kterou bychom dále dolaďovali týmům na míru.**
 
 ## Seznam úkolů a jejich přiřazení členům týmu
 
@@ -64,22 +64,20 @@ události týká, na událostech mohou vyjadřovat svou ne/účast.
 * **
 
 * **Bonusové (individuální) UML modely:**
-  * Diagram aktivit - 🐻 Trong Dat Luu (luut02)
-  * Sekvenční diagram - 🐧 Adam Schindler (scha28)
-  * Stavový diagram - 🐼 Hana Žahourová (zahh00)
-  * Objektový diagram - 🪲 Jakub Kafka (kafj03)
-  * Diagram komponent - 🐸 Magdalena Hájková (hajm17)
+    * Diagram aktivit - 🐻 Trong Dat Luu (luut02)
+    * Sekvenční diagram - 🐧 Adam Schindler (scha28)
+    * Stavový diagram - 🐼 Hana Žahourová (zahh00)
+    * Objektový diagram - 🪲 Jakub Kafka (kafj03)
+    * Diagram komponent - 🐸 Magdalena Hájková (hajm17)
 
 ## Funkcionalita
 
 - Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla
-  viditelná týmová docházka a týmová komunikace. Zároveň chci mít možnost s týmem sdílet různé soubory, fotky, obrázky,
-  odkazy a ankety_.
-- Jako **_kapitán týmu_** chci _organizovat tým_, abych _se mohl starat o konkrétní, mě přiřazenou, skupinu. Dohlížet na
+  viditelná týmová docházka a týmová komunikace.
+- Jako **_kapitán týmu_** chci _organizovat tým. Dohlížet na
   to že v týmu komunikace funguje a všichni členi se jí účastní_.
 - Jako **_člen týmu_** se chci _účastnit komunikace v týmu_, abych _měl přehled o všem, co se v týmu děje. Mohl
-  komunikovat s ostatními členy, kapitány i trenéry, abych mohl vyjadřovat svou ne/účast na jednotlivých událostech a
-  zdůvodňovat ji_.
+  komunikovat s ostatními členy, kapitány i trenéry, abych mohl vyjadřovat svou ne/účast na jednotlivých událostech.
 
 ## Návrh aplikace
 
@@ -454,10 +452,13 @@ class  "RegisterController" <<ui>> {
 }
 
 ```
+
 - další UML modely
-  - **Diagram aktivit (activity diagram)** -> *DIAGRAM CHOVÁNÍ*
-    - 🐻 Trong Dat Luu (luut02)
-    - Diagram aktivit se používá pro popis dynamických aspektů systému. Znázorňuje tok řízení z aktivity do aktivity. Diagram aktivit se soustřeďuje spíše na proces výpočtu než na objekty účastnící se výpočtu.
+    - **Diagram aktivit (activity diagram)** -> *DIAGRAM CHOVÁNÍ*
+        - 🐻 Trong Dat Luu (luut02)
+        - Diagram aktivit se používá pro popis dynamických aspektů systému. Znázorňuje tok řízení z aktivity do
+          aktivity. Diagram aktivit se soustřeďuje spíše na proces výpočtu než na objekty účastnící se výpočtu.
+
 ```plantuml
   (*) --> if "Login / registrace" then
 
@@ -508,11 +509,13 @@ endif
 
 endif
  ```
-  - **Sekvenční diagram (sequence diagram)** -> *DIAGRAM INTERAKCE*
+
+- **Sekvenční diagram (sequence diagram)** -> *DIAGRAM INTERAKCE*
     - 🐧 Adam Schindler (scha28)
-    - Sekvenční diagram se používá v případech, kde jsou důležité časové souvislosti interakcí, ovšem nevidíme v něm zobrazené vztahy mezi objekty. Objekty si mohou posílat zprávy.
+    - Sekvenční diagram se používá v případech, kde jsou důležité časové souvislosti interakcí, ovšem nevidíme v něm
+      zobrazené vztahy mezi objekty. Objekty si mohou posílat zprávy.
     - Sekvenční diagram zobrazuje časovou posloupnost
-   
+
 ```plantuml
     actor Uživatel #skyblue
 
@@ -538,10 +541,11 @@ Login --> Uživatel : vstup do aplikace
 
 ```
 
-    
-  - **Stavový diagram (state machine diagram)** -> *DIAGRAM CHOVÁNÍ*
+- **Stavový diagram (state machine diagram)** -> *DIAGRAM CHOVÁNÍ*
     - 🐼 Hana Žahourová (zahh00)
-    - Stavový diagram obsahuje tzv. stavový stroj (state machine) -> vyjadřuje stavy určitého objektu a přechody mezi těmito stavy.
+    - Stavový diagram obsahuje tzv. stavový stroj (state machine) -> vyjadřuje stavy určitého objektu a přechody mezi
+      těmito stavy.
+
 ```plantuml
 scale 300 width
 state Přihlásení_zaregistrovaného_uživatele {
@@ -559,9 +563,10 @@ zadej_heslo --> [*]
 }
 ```
 
-  - **Objektový diagram (object diagram)** -> *STRUKTURNÍ DIAGRAM*
+- **Objektový diagram (object diagram)** -> *STRUKTURNÍ DIAGRAM*
     - 🪲 Jakub Kafka (kafj03)
     - Diagram objektů ukazuje objekty a jejich vztahy v jistém časovém okamžiku.
+
 ```plantuml
 scale 500 width
 map Uživatel {
@@ -600,10 +605,13 @@ Chat <- Zpráva
 Chat --> Chatlog
 
 ```
-  - **Diagram komponent (component diagram)** -> *STRUKTURNÍ DIAGRAM*
+
+- **Diagram komponent (component diagram)** -> *STRUKTURNÍ DIAGRAM*
     - 🐸 Magdalena Hájková (hajm17)
-    - Diagram komponent ukazuje závislost mezi SW komponentami a jejich implementací. Komponenta v UML reprezentuje modulární část systému, která zapouzdřuje svůj obsah a jejíž projev je nahraditelný v jejím okolí
+    - Diagram komponent ukazuje závislost mezi SW komponentami a jejich implementací. Komponenta v UML reprezentuje
+      modulární část systému, která zapouzdřuje svůj obsah a jejíž projev je nahraditelný v jejím okolí
     - Chování je plně definováno jejími poskytovanými a požadovanými rozhraními
+
 ```plantuml
 scale 300 width
 [Chatlog]
@@ -755,7 +763,7 @@ online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/
 
 * **Název testovacího případu:** Změna hesla
 * **Popis:** Tento případ testuje změnu hesla, kdy očekávaným výsledkem je, že se změní heslo přihlášeného uživatele
-   a aplikace zobrazí výsledek této operace.
+  a aplikace zobrazí výsledek této operace.
 * **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
 * **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšné změně hesla.
   Dané akce zahrnují zobrazení okna pro změnu hesla, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
