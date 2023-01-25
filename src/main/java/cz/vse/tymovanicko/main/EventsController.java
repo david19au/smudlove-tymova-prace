@@ -71,8 +71,8 @@ public class EventsController {
                 if (!empty) {
                     setText(udalost.getJmenoUdalosti() + " (" + udalost.getDatumUdalosti() + ") " + "\n"
                     + " – Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
-                    + " – Nezúčastní se: " + udalost.getSeznamNejde().size() + "\n"
-                    + " ––––––––––––––––––––––––––––––––");
+                    + " – Nezúčastní se: " + udalost.getSeznamNejde().size());
+                    setStyle(getIndex() % 2 == 0 ? "-fx-background-color: white; -fx-text-fill: black;" : "-fx-background-color: #C5C5C5; -fx-text-fill: black;");
                 } else {
                     setText(null);
                 }
