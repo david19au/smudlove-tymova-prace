@@ -37,7 +37,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Třída  CreateEventController je hlavní třídou okna,
+ * Třída CreateEventController je hlavní třídou okna,
  * které představuje okno pro vytvoření události
  *
  * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)

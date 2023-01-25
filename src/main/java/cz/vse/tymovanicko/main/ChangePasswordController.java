@@ -35,7 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Třída  ChangePasswordController je hlavní třídou okna,
+ * Třída ChangePasswordController je hlavní třídou okna,
  * které představuje obrazovku pro změnu hesla
  *
  * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
