@@ -460,7 +460,7 @@ class  "RegisterController" <<ui>> {
   - Sekvenční diagram (sequence diagram)
   - Stavový diagram (state machine diagram)
 ```plantuml
-scale 500 width
+scale 300 width
 state Přihlásení_zaregistrovaného_uživatele {
 [*] --> start_aplikace
 start_aplikace : uživatelské údaje
@@ -517,7 +517,7 @@ Chat --> Chatlog
 ```
   - Diagram komponent (component diagram)
 ```plantuml
-scale 500 width
+scale 300 width
 [Chatlog]
 [Uživatel]
 [Chat]
