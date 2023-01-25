@@ -264,10 +264,19 @@ public class EventsController {
         hBox.setAlignment(Pos.CENTER);
         hBox.setSpacing(5);
 
+        HBox hBoxSmazat = new HBox();
+        hBoxSmazat.setAlignment(Pos.CENTER);
+        hBoxSmazat.setSpacing(100);
+        hBoxSmazat.setPadding(new Insets(0, 0, 0, 200));
+
+        VBox vBoxSmazat = new VBox();
+        vBoxSmazat.setAlignment(Pos.CENTER);
+        vBoxSmazat.setSpacing(10);
+
         VBox vBoxUcastnici = new VBox();
         vBoxUcastnici.setSpacing(2);
 
-        final Text ucastnici = new Text("Zučastní se:");
+        final Text ucastnici = new Text("Zúčastní se:");
         ucastnici.setStyle("-fx-font: 14 arial;");
         ucastnici.setFill(Color.WHITE);
 
@@ -294,6 +303,15 @@ public class EventsController {
 
         Button buttonZucastnim = new Button("Zúčastním se");
         Button buttonNezucastnim = new Button("Nezúčastním se");
+
+        Button buttonOk = new Button("OK");
+
+        buttonOk.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                dialog.close();
+            }
+        });
 
         Button buttonSmazat = new Button("Smazat událost");
         buttonSmazat.setOnAction(new EventHandler<ActionEvent>() {
@@ -355,13 +373,17 @@ public class EventsController {
             }
         });
 
+        vBoxSmazat.getChildren().add(jmeno);
+        vBoxSmazat.getChildren().add(datum);
+        vBoxSmazat.getChildren().add(lokace);
 
-        dialogVbox.getChildren().add(jmeno);
-        dialogVbox.getChildren().add(datum);
-        dialogVbox.getChildren().add(lokace);
+        hBoxSmazat.getChildren().add(vBoxSmazat);
+        hBoxSmazat.getChildren().add(buttonSmazat);
+
+        dialogVbox.getChildren().add(hBoxSmazat);
         dialogVbox.getChildren().add(hBox);
         dialogVbox.getChildren().add(hBoxTlacitka);
-        dialogVbox.getChildren().add(buttonSmazat);
+        dialogVbox.getChildren().add(buttonOk);
 
         hBox.getChildren().add(vBoxUcastnici);
         hBox.getChildren().add(vBoxNeucastnici);
