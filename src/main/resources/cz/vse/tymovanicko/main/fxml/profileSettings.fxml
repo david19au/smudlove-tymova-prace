@@ -2,10 +2,10 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.Cursor?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="600.0"
             style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea"
             fx:controller="cz.vse.tymovanicko.main.ProfileSettingsController">
@@ -86,7 +86,7 @@
                     <children>
                         <Button fx:id="uloz" mnemonicParsing="false" onAction="#zpracujUlozeni" text="Uložit">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <font>
                                 <Font size="14.0"/>
@@ -97,7 +97,7 @@
                         </Button>
                         <Button fx:id="odhlas" mnemonicParsing="false" onAction="#zpracujOdhlaseni" text="Odhlásit se">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <font>
                                 <Font size="14.0"/>
@@ -109,7 +109,7 @@
                         <Button fx:id="zmenHeslo" mnemonicParsing="false" onAction="#zpracujNaZmenuHesla"
                                 text="Změna hesla">
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                             <font>
                                 <Font size="14.0"/>
@@ -130,7 +130,7 @@
         <Label fx:id="home" onMouseClicked="#zpracujNaHome" onMouseEntered="#ztmavniHome" onMouseExited="#zesvetlejHome"
                text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
             <font>
                 <Font name="System Bold" size="22.0"/>
@@ -147,7 +147,7 @@
                            onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true"
                            preserveRatio="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <image>
                         <Image url="@../other/calendar_white.png"/>
@@ -157,7 +157,7 @@
                            onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true"
                            preserveRatio="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <image>
                         <Image url="@../other/chat_white.png"/>
@@ -173,7 +173,7 @@
                            onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true"
                            preserveRatio="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <image>
                         <Image url="@../other/arrow_white.png"/>
