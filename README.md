@@ -38,6 +38,29 @@ události týká, na událostech mohou vyjadřovat svou ne/účast.
 * **Testovací případy:**
     * 🪲 Jakub Kafka (kafj03)
 
+* **
+
+* **Implementace chatu:**
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐼 Hana Žahourová (zahh00)
+* **Implementace uživatelů, správy registrace:**
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐧 Adam Schindler (scha28)
+* **Implementace seznamu událostí:**
+    * 🐸 Magdalena Hájková (hajm17)
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐧 Adam Schindler (scha28)
+
+* **
+
+* **Grafika a struktura aplikace:**
+    * 🪲 Jakub Kafka (kafj03)
+* **Testovací třídy:**
+    * 🐼 Hana Žahourová (zahh00)
+
 ## Funkcionalita
 
 - Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla
@@ -188,6 +211,56 @@ class  "Nastaveni" <<ui>> {}
     - Uživatel (obsahuje všechny základní údaje všech registrovaných uživatelů)
     - Chat (obsahuje zprávy v chatu)
     - Událost (obsahuje základní data všech vytvořených událostí)
+
+* Struktura souboru chat.json
+
+```
+{
+  "zpravy": [
+    "[25.01.2023, 15:16] Adam Schindler: Tak co? Sejdem se zejtra na obhajobě??",
+    "[25.01.2023, 15:17] Jakub Kafka: Jasně, počítám s tím.",
+    "[25.01.2023, 15:21] Magdalena Hájková: No já teda nevím, no...",
+    "[25.01.2023, 15:22] Hana Žahourová: Přijdu, asi pozdě, ale přijdu...",
+    "[25.01.2023, 15:25] Trong Dat Luu: Klasická Hanka"
+  ]
+}
+```  
+
+* Struktura souboru udalosti.json
+
+```
+[
+  {
+    "jmenoUdalosti": "Obhajoba 4IT115",
+    "datumUdalosti": "26.01.2023",
+    "lokaceUdalosti": "VŠE Žižkov",
+    "seznamJde": [
+      "Adam Schindler",
+      "Jakub Kafka",
+      "Magdalena Hájková",
+      "Hana Žahourová"
+    ],
+    "seznamNejde": [
+    "Trong Dat Luu"
+    ]
+  }
+]
+```
+
+* Struktura souboru uzivatele.json
+
+```
+{
+  "uzivatele": [
+    {
+      "email": "scha28@vse.cz",
+      "krestniJmeno": "Adam",
+      "prijmeni": "Schindler",
+      "heslo": "$2a$10$vRsqrJmLUejEvJyPL.H0duFV6xC41NcWjh92OZ70PGK3wFp3nrLyC",
+      "role": "Trenér"
+    }
+}
+```
 
 ## Prototyp aplikace
 
