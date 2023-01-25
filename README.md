@@ -61,6 +61,15 @@ události týká, na událostech mohou vyjadřovat svou ne/účast.
 * **Testovací třídy:**
     * 🐼 Hana Žahourová (zahh00)
 
+* **
+
+* **Bonusové (individuální) UML modely:**
+  * Diagram aktivit - 🐻 Trong Dat Luu (luut02)
+  * Sekvenční diagram - 🐧 Adam Schindler (scha28)
+  * Stavový diagram - 🐼 Hana Žahourová (zahh00)
+  * Objektový diagram - 🪲 Jakub Kafka (kafj03)
+  * Diagram komponent - 🐸 Magdalena Hájková (hajm17)
+
 ## Funkcionalita
 
 - Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla
