@@ -458,7 +458,7 @@ class  "RegisterController" <<ui>> {
 - další UML modely
   - Diagram aktivit (activity diagram) -> DIAGRAM CHOVÁNÍ
     - Diagram aktivit se používá pro popis dynamických aspektů systému. Znázorňuje tok řízení z aktivity do aktivity. Diagram aktivit se soustřeďuje spíše na proces výpočtu než na objekty účastnící se výpočtu.
-  ```plantuml
+```plantuml
   (*) --> if "Login / registrace" then
 
    -right-> [login] "zobrazení login formuláře" 
@@ -507,12 +507,12 @@ endif
 
 
 endif
-  ```
+ ```
   - Sekvenční diagram (sequence diagram) -> DIAGRAM INTERAKCE
     - Sekvenční diagram se používá v případech, kde jsou důležité časové souvislosti interakcí, ovšem nevidíme v něm zobrazené vztahy mezi objekty. Objekty si mohou posílat zprávy.
     - Sekvenční diagram zobrazuje časovou posloupnost
    
-    ```plantuml
+```plantuml
     actor Uživatel #skyblue
 
 participant Registrace
@@ -535,7 +535,7 @@ JSON --> Validace : zadané údaje nalezeny
 Validace--> Login : úspěšné přihlášení
 Login --> Uživatel : vstup do aplikace
 
-     ```
+```
 
     
   - Stavový diagram (state machine diagram) -> DIAGRAM CHOVÁNÍ
