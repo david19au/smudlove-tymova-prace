@@ -52,21 +52,21 @@ public enum Tymovanicko {
         spravaUdalosti = new SpravaUdalosti();
         // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (Reader reader = new FileReader("target/uzivatele.json")) {
+        try (Reader reader = new FileReader("data/uzivatele.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setSeznamUzivatelu(gson.fromJson(jsonInString, SeznamUzivatelu.class));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (Reader reader = new FileReader("target/chat.json")) {
+        try (Reader reader = new FileReader("data/chat.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setChatLog(gson.fromJson(jsonInString, ChatLog.class));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (Reader reader = new FileReader("target/" + "udalosti.json")) {
+        try (Reader reader = new FileReader("data/" + "udalosti.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setUdalosti(gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
@@ -183,7 +183,7 @@ public enum Tymovanicko {
      */
     public List<Udalost> getUdalosti() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (Reader reader = new FileReader("target/" + "udalosti.json")) {
+        try (Reader reader = new FileReader("data/" + "udalosti.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             setUdalosti(gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {

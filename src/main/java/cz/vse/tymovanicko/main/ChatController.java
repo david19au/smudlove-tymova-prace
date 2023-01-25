@@ -74,7 +74,7 @@ public class ChatController {
      * Tato metoda načítá zprávy z JSON souboru chat.json.
      */
     public void nactiStareZpravy() {
-        try (Reader reader = new FileReader("target/chat.json")) {
+        try (Reader reader = new FileReader("data/chat.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);

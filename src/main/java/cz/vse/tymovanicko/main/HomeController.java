@@ -269,7 +269,7 @@ public class HomeController {
                                 naplneniPaneluClenu();
 
                                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data/uzivatele.json"))) {
                                     String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                                     bufferedWriter.write(json);
                                     bufferedWriter.newLine();

@@ -58,7 +58,7 @@ public class Chat {
         // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(chatLog);
-        BufferedWriter bw = new BufferedWriter(new FileWriter("target/" + "chat.json"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("data/" + "chat.json"));
         bw.write(json);
         bw.newLine();
         bw.flush();
@@ -72,7 +72,7 @@ public class Chat {
      */
     public void nactiZpravyZJSON() {
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader("target/" + "chat.json")) {
+        try (FileReader reader = new FileReader("data/" + "chat.json")) {
             chatLog = gson.fromJson(reader, ChatLog.class);
         } catch (IOException e) {
             e.printStackTrace();

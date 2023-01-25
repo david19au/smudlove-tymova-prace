@@ -31,7 +31,7 @@ public class SpravaUdalosti {
     public SpravaUdalosti() {
         udalosti = new ArrayList<Udalost>();
         gson = new GsonBuilder().setPrettyPrinting().create();
-        try (Reader reader = new FileReader("target/udalosti.json")) {
+        try (Reader reader = new FileReader("data/udalosti.json")) {
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
             udalosti = gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
@@ -69,7 +69,7 @@ public class SpravaUdalosti {
             if (udalost.getJmenoUdalosti().equals(jmenoUdalosti)) {
                 udalosti.remove(udalost);
                 ulozUdalostiDoJSON();
-                try (Reader reader = new FileReader("target/udalosti.json")) {
+                try (Reader reader = new FileReader("data/udalosti.json")) {
                     JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
                     String jsonInString = gson.toJson(jsonElement);
                     udalosti = gson.fromJson(jsonInString, new TypeToken<List<Udalost>>() {
@@ -144,7 +144,7 @@ public class SpravaUdalosti {
      */
     public void ulozUdalostiDoJSON() {
         String json = gson.toJson(udalosti);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("target/" + "udalosti.json"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("data/" + "udalosti.json"))) {
             writer.write(json);
         } catch (IOException e) {
             e.printStackTrace();

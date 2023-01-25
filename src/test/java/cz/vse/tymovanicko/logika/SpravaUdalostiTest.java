@@ -58,7 +58,7 @@ public class SpravaUdalostiTest {
      */
     @Test
     public void testUlozUdalostiDoJSON() {
-        File jsonFile = new File("target/udalosti.json");
+        File jsonFile = new File("data/udalosti.json");
         assertTrue(jsonFile.exists());
     }
 }

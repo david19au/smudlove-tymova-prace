@@ -136,7 +136,7 @@ public class ProfileSettingsController {
                                         Tymovanicko.TYMOVANICKO.setId(stringEmail);
                                     }
                                 }
-                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data/uzivatele.json"))) {
                                     String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                                     bufferedWriter.write(json);
                                     bufferedWriter.newLine();
@@ -215,7 +215,7 @@ public class ProfileSettingsController {
                                     Tymovanicko.TYMOVANICKO.setId(stringEmail);
                                 }
                             }
-                            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data/uzivatele.json"))) {
                                 String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                                 bufferedWriter.write(json);
                                 bufferedWriter.newLine();

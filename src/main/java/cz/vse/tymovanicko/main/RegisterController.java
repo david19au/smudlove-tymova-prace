@@ -147,7 +147,7 @@ public class RegisterController {
                                     uzivatel.setRole("Trenér");
                                 } else uzivatel.setRole("Člen");
                                 Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);
-                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                                try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data/uzivatele.json"))) {
                                     String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                                     bufferedWriter.write(json);
                                     bufferedWriter.newLine();
