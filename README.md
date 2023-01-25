@@ -61,6 +61,15 @@ události týká, na událostech mohou vyjadřovat svou ne/účast.
 * **Testovací třídy:**
     * 🐼 Hana Žahourová (zahh00)
 
+* **
+
+* **Bonusové (individuální) UML modely:**
+  * Diagram aktivit - 🐻 Trong Dat Luu (luut02)
+  * Sekvenční diagram - 🐧 Adam Schindler (scha28)
+  * Stavový diagram - 🐼 Hana Žahourová (zahh00)
+  * Objektový diagram - 🪲 Jakub Kafka (kafj03)
+  * Diagram komponent - 🐸 Magdalena Hájková (hajm17)
+
 ## Funkcionalita
 
 - Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla
@@ -123,25 +132,36 @@ trainer -[#red,thickness=2]-> createEvent
 trainer -[#red,thickness=2]-> delegateCaptain
 ```
 
-- další UML modely za každého člena týmu (individuální práce)
 - diagram tříd na designové úrovni
 
 ```plantuml
+
 package "Logika" {
-Uzivatel<|-- SeznamUzivatelu : obsahuje
-KategorieUzivatele<|-- Uzivatel 
-Tym<|-- Uzivatel
-Chat<|--Tym
+Uzivatel *-- SeznamUzivatelu 
+Udalost *-- SpravaUdalosti
+Chat	o-- ChatLog : obsahuje
+Tymovanicko<|-- Uzivatel
+Tymovanicko <|-- Udalost
+Tymovanicko <|-- Chat
+
+
+
 
 class "Uzivatel" {
- +id: string
-+jmeno: string
++email: string
++krestniJmeno: string
 +prijmeni: string
-+tym: tym
 -heslo: string
-+boolean prihlaseni()
-+void potvrdit()
-+boolean chat()
++role: string
++getKrestniJmeno() : string
++setKrestniJmeno() : void
++getPrijmeni() : string
++setPrijmeni() : void
++getEmail() : String
++setEmail() : void
++getHeslo() : string
++getRole() : string
++setRole() : void
 }
 class "SeznamUzivatelu" {
 -uzivatel: SeznamUzivatelu
@@ -151,47 +171,451 @@ class "SeznamUzivatelu" {
 +collection zobrazSeznamUzivatel()
 
 }
-class "KategorieUzivatele"{
-+nazev: string
-+vlastnosti: string
 
-}
-class "Tym" {
-+nazev: string
-+pocetClenu: int
-
-+void pridatClena(uzivatel : Uzivatel)
-+void odebratClena(uzivatel : Uzivatel)
-+collection zobrazSeznamClenu()
-}
 
 class "Chat" {
-+zprava: string
-+boolean odeslatZpravu()
+-chatLog: chatLog
++odeslatZpravu() : void
++pridatZpravu() : void
+-ulozitZpravyDoJSON() : void
++nactiZpravyZJSON() : void
 
 }
+
+class "ChatLog" {
++zpravy: ArrayList
++ getZpravy() : ArrayList<String>
+
 }
+
+class "Tymovanicko" {
+-seznamUzivatelu: seznamUzivatelu
+-uzivatel: uzivatel
+-chat: chat
+-chatLog: chatLog
+-id: string
+-spravaUdalosti: spravaUdalosti
+-udalost: udalost
+-udalosti: List<Udalost>
+-zalozTymovanicko() : void
++getSeznamUzivatelu() : SeznamUzivatelu
++setSeznamUzivatelu(SeznamUzivatelu seznamUzivatelu) : void
++getChat() : Chat
++setChat(Chat chat) : void
++getChatLog() : chatLog
++setChatLog(ChatLog chatLog) : void
++getId() : string
++setItd(String id) : void
++getJmeno(String stringEmailu) : string
++getSpravaUdalosti() : spravaUdalosti
++getUdalosti() : List<Udalost>
++setUdalosti(List<Udalost> udalosti) : void
+}
+
+class "Udalost" {
+-jmenoUdalosti : string
+-datumUdalosti : string
+-lokaceUdalosti : string
+-seznamJde : List<String>
+-seznamNejde : List<String>
++ getJmenoUdalosti() : string
++getDatumUdalosti() : string
++setDatumUdalosti (Date datumUdalosti) : void
++getLokaceUdalosti : string
++getSeznamJde : List<String>
++setSeznamJde(List<String> seznamJde) : void
++getSeznamNejde() : List<String>
++setSeznamNejde(List<String> seznamNejde) : void
+
+}
+
+class "SpravaUdalosti" {
+- gson : gson
+- udalosti : ArrayList<Udalost>
++ vytvorUdalost(String jmenoUdalosti, Date datumUdalosti, String lokaceUdalosti) : void
++ smazUdalost (String jmenoUdalosti) : void
++ pridatUdalost (Udalost udalost) : void
++ getUdalosti() : list<Udalost>
++ setUdalosti(ArrayList<Udalost> udalosti) : void
++ zmenRSVP (Udalost jmenoUdalosti, String jmenoClena, String status) : void
++ ulozUdalostiDoJSON() : void
++ getJde(Udalost jmenoUdalosti) : collection<String>
++getNejde(Udalost jmenoUdalosti) : collection<string>
+
+}
+
+
+
+
 package "Main" {
+HomeController <|-- RegisterController
+HomeController <|-- LoginController
+HomeController <|-- EventsController
+HomeController <|-- ChatController
+HomeController <|-- ProfileSettings
+ProfileSettings <|-- ChangePassword
+
+EventsController <|-- CreateEventController
 class "Start" {
-+main (args[] : String)():void
++{static} main (String[] args) : void
++ start(Stage stage) : void
 
 }
+class "ChangePassword" <<ui>>  {
+-home : Label
+-zmenHeslo : Button
+-zpet : ImageView
+-stage : Stage
+-scene : Scene
+-udalosti : ImageView
+- chat : ImageView
+- stareHeslo : PasswordField
+- noveHeslo : PasswordField
+- noveHesloZnovu : PasswordField
+-zpracujZmenuHesla(ActionEvent actionEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
+-ztmavni (MouseEvent mouseEvent) : void
+-zesvetlej(MouseEvent mouseEvent) : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-zpracujNaUdalost(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+
+
+}
+class "ChatController" <<ui>> {
+-vstupZprava : textField
+-home : label
+-zpravyChatu : textArea
+-udalosti : imageView
+-nastaveni : imageView
+-stage : stage
+-scene : scene
+-zpet : imageView
++nactiStareZpravy() : void
+-zpracujPoslani(Actionevent actionEvent) : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
+-ztmavniNastaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
+-ztmavni(MouseEvent mouseEvent) : void
+-zesvetlej(MouseEvent mouseEvent) : void
+-zpracujNaUdalosti(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+
+}
+class "CreateEventController" <<ui>> {
+-jmenoUdalosti : textField
+-datumUdalosti : datePicker
+-lokaceUdalosti : textField
+-nastaveni : imageView
+-chat : imageView
+-zpet : imageView
+-stage : stage
+-scene: scene
+-home: label
+-pattern : string
+-dateTimeFormatter : DateTimeFormatter
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-ztmavniNatstaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
++zpracujZpatky(MouseEvent mouseEvent) : void
++ztmavni(MouseEvent mouseEvent) : void
++zesvetlej(MouseEvent mouseEvent) : void
+-vytvorUdalost(ActionEvent actionEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+-
+}
+class "EventsController" <<ui>>  {
+-home : label
+-vytvorUdalost : button
+-panelUdalosti : listView<Udalost>
+-nastaveni : imageView
+-chat : imageView
+- zpet : imageView
+-stage : stage
+-scene : scene
+-initialize() : void
+-naplneniPaneluUdalosti() : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-ztmavniNastaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
++zpracujZpatky(MouseEvent mouseEvent) : void
++ztmavni(MouseEvent mouseEvent) : void
++zesvetlej(MouseEvent mouseEvent) : void
+-zpracujNaVytvoreniUdalosti(ActionEvent actionEvent) : void
+-klikPanelUdalosti(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+
+
+
+}
+class "HomeController" <<ui>> {
+-udalosti : imageView
+-chat : imageView
+-nastaveni : imageView
+- stage : stage
+-scene : scene
+-panelClenu : listView
++initialize() : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-ztmavniNastaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-zpracujNaUdalosti(MouseEvent mouseEvent) : void
+-naplneniPaneluClenu() : void
++klikPanelClenu(MouseEvent mouseEvent) : void
+
+}
+class "LoginController" <<ui>> {
+-prihlasit : button
+-zaregistrovat : button
+-stage : stage
+-scene: scene
+-email : textField
+-password : passwordField
+-zpracujPrihlaseni(ActionEvent actionEvent) : void
+-zpracujNaZaregistrovani (ActionEvent actionEvent) : void
 }
 
-package "uzivatelskeRozhrani" {
-class "Menu" <<ui>>  {
+class "ProfileSettings" <<ui>> {
+-zmenTym : button
+-zmenHeslo : button
+-odhlas : button
+-uloz : button
+-udalosti : imageView
+-chat : imageView
+-stage : stage
+-scene : scene
+-zpet : imageView
+-jmeno : textField
+-prijmeni : textField
+-email : textField
+-heslo : passwordField
+-home : label
+-role : textField
+-initialize() : void
+-zpracujUlozeni(ActionEvent actionEvent) : void
+-zpracujOdhlaseni(ActionEvent actionEvent) : void
+-zpracujNaZmenuHesla(ActionEvent actionEvent) : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
++ztmavni(MouseEvent mouseEvent) : void
++zesvetlej(MouseEvent mouseEvent) : void
+-zpracujNaUdalosti(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
 
 }
-class "HlavniObrazovka" <<ui>> {
-}
-class " ZalozeniUzivatele" <<ui>> {}
-class "Hledat" <<ui>>  {}
-class "Kalendar" <<ui>> {}
-class "Chatovani" <<ui>> {}
+class  "RegisterController" <<ui>> {
+-zaregistruj : button
+-zpet : ImageView
+-stage : stage
+-scene: scene
+-email : textField
+-jmeno : textField
+-heslo : passwordField
+-potvrzeniHesla : passwordField
+- prijmeni : textField
+-zpracujZaregistrovani(ActionEvent actionEvent) : void
+-ztmavni(MouseEvent mouseEvent) : void
+-zesvetlej(MouseEvent mouseEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
 
-class "ZalozkaUzivatele" <<ui>> {}
-class  "Nastaveni" <<ui>> {} 
+} 
 }
+
+```
+- další UML modely
+  - **Diagram aktivit (activity diagram)** -> *DIAGRAM CHOVÁNÍ*
+    - 🐻 Trong Dat Luu (luut02)
+    - Diagram aktivit se používá pro popis dynamických aspektů systému. Znázorňuje tok řízení z aktivity do aktivity. Diagram aktivit se soustřeďuje spíše na proces výpočtu než na objekty účastnící se výpočtu.
+```plantuml
+  (*) --> if "Login / registrace" then
+
+   -right-> [login] "zobrazení login formuláře" 
+
+else
+
+-left->[registrace] "vyplní registrační formulář"
+
+
+
+-->"aplikace zvaliduje zadané údaje"
+--> if "Validní údaje?" then
+-->[ne]"uživatel není úspěšně zaregistrován"
+--> "vyplní registrační formulář"
+else
+-->[ano] "zobrazí se: Úspěšně jste se zaregistrovali!"
+
+
+
+-->"údaje se uloží do jsonu"
+-->"zobrazení login formuláře"
+
+
+
+
+
+-->"zadá přihlašovací údaje"
+
+
+
+-->"validace přihlašovacích údajů"
+
+--> if "Validní login?" then
+-right-> [ne] "zobrazí se: Účet se zadaným emailem neexistuje / Heslo není správně"
+else
+-left->[ano] "uživatel se úspěšně přihlásí"
+
+
+"zobrazí se: Účet se zadaným emailem neexistuje / Heslo není správně"--> === S2 ===
+
+
+
+"uživatel se úspěšně přihlásí" --> === S2 ===
+--> (*)
+endif
+
+
+endif
+ ```
+  - **Sekvenční diagram (sequence diagram)** -> *DIAGRAM INTERAKCE*
+    - 🐧 Adam Schindler (scha28)
+    - Sekvenční diagram se používá v případech, kde jsou důležité časové souvislosti interakcí, ovšem nevidíme v něm zobrazené vztahy mezi objekty. Objekty si mohou posílat zprávy.
+    - Sekvenční diagram zobrazuje časovou posloupnost
+   
+```plantuml
+    actor Uživatel #skyblue
+
+participant Registrace
+participant Login
+participant Validace
+participant JSON
+
+
+Uživatel -> Registrace : kliknutí na tlačítko "zaregistrujte se"
+Registrace --> Uživatel : zobrazení registračního formuláře
+Uživatel -> Registrace : zadání údajů
+Registrace -> Validace : validace zadaných údajů
+Validace -> JSON : zapsání uživatele do JSONu
+Validace -->Registrace : úspěšná registrace
+Registrace --> Uživatel: přesměrování na login
+Uživatel -> Login : zadání přihlašovacích údajů
+Login -> Validace : validace zadaných údajů (email, heslo)
+Validace -> JSON : hledání zadané kombinace údajů
+JSON --> Validace : zadané údaje nalezeny
+Validace--> Login : úspěšné přihlášení
+Login --> Uživatel : vstup do aplikace
+
+```
+
+    
+  - **Stavový diagram (state machine diagram)** -> *DIAGRAM CHOVÁNÍ*
+    - 🐼 Hana Žahourová (zahh00)
+    - Stavový diagram obsahuje tzv. stavový stroj (state machine) -> vyjadřuje stavy určitého objektu a přechody mezi těmito stavy.
+```plantuml
+scale 300 width
+state Přihlásení_zaregistrovaného_uživatele {
+[*] --> start_aplikace
+start_aplikace : uživatelské údaje
+start_aplikace --> [*] : abbort
+start_aplikace -> zadej_email
+
+zadej_email : emailová adresa
+zadej_email --> zadej_heslo : proceed
+
+zadej_heslo : heslo uživatele
+zadej_heslo --> zadej_email : špatné heslo
+zadej_heslo --> [*]
+}
+```
+
+  - **Objektový diagram (object diagram)** -> *STRUKTURNÍ DIAGRAM*
+    - 🪲 Jakub Kafka (kafj03)
+    - Diagram objektů ukazuje objekty a jejich vztahy v jistém časovém okamžiku.
+```plantuml
+scale 500 width
+map Uživatel {
+  krestniJmeno => Magdalena
+  prijmeni => Hájková
+  e-mail => hajkova.majda@gmail.com
+}
+
+map Uživatel2{
+  krestniJmeno => Hana
+  prijmeni => Žahourová
+  e-mail => zahourova.hana@gmail.com
+}
+
+map Zpráva {
+  text => No já teda nevím, no...
+  text2 => Přijdu, asi pozdě, ale přijdu...
+}
+
+map Chat {
+  timestamp => 25.01.2023, 15:21
+  uzivatel => Magdalena Hájková
+  text => No já teda nevím, no...
+  timestamp2 => 25.01.2023, 15:22
+  uzivatel2 => Hana Žahourová
+  text2 => Přijdu, asi pozdě, ale přijdu...
+}
+
+class Chatlog
+
+Uživatel2 --> Zpráva :poslat
+Uživatel2 <-- Zpráva :obdržet
+Zpráva --> Uživatel :obdržet 
+Uživatel --> Zpráva :poslat
+Chat <- Zpráva
+Chat --> Chatlog
+
+```
+  - **Diagram komponent (component diagram)** -> *STRUKTURNÍ DIAGRAM*
+    - 🐸 Magdalena Hájková (hajm17)
+    - Diagram komponent ukazuje závislost mezi SW komponentami a jejich implementací. Komponenta v UML reprezentuje modulární část systému, která zapouzdřuje svůj obsah a jejíž projev je nahraditelný v jejím okolí
+    - Chování je plně definováno jejími poskytovanými a požadovanými rozhraními
+```plantuml
+scale 300 width
+[Chatlog]
+[Uživatel]
+[Chat]
+
+
+
+Chatlog <- podrobnosti_zprávy
+Chat --> podrobnosti_zprávy
+Uživatel --> Chat
+
 ```
 
 ### Návrh úložiště
