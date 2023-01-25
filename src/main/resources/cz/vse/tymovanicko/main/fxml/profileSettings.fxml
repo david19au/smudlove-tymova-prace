@@ -129,6 +129,9 @@
     <top>
         <Label fx:id="home" onMouseClicked="#zpracujNaHome" onMouseEntered="#ztmavniHome" onMouseExited="#zesvetlejHome"
                text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
             <font>
                 <Font name="System Bold" size="22.0"/>
             </font>
@@ -143,6 +146,9 @@
                 <ImageView fx:id="udalosti" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaUdalosti"
                            onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true"
                            preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <image>
                         <Image url="@../other/calendar_white.png"/>
                     </image>
@@ -150,6 +156,9 @@
                 <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat"
                            onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true"
                            preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <image>
                         <Image url="@../other/chat_white.png"/>
                     </image>
@@ -163,6 +172,9 @@
                 <ImageView fx:id="zpet" fitHeight="45.0" fitWidth="50.0" onMouseClicked="#zpracujZpatky"
                            onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true"
                            preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <image>
                         <Image url="@../other/arrow_white.png"/>
                     </image>
