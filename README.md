@@ -460,52 +460,49 @@ class  "RegisterController" <<ui>> {
   - Sekvenční diagram (sequence diagram)
   - Stavový diagram (state machine diagram)
 ```plantuml
-scale 300 width
+scale 500 width
 state Přihlásení_zaregistrovaného_uživatele {
 [*] --> start_aplikace
 start_aplikace : uživatelské údaje
-
 start_aplikace --> [*] : abbort
-
 start_aplikace -> zadej_email
+
 zadej_email : emailová adresa
-
 zadej_email --> zadej_heslo : proceed
+
 zadej_heslo : heslo uživatele
-
 zadej_heslo --> zadej_email : špatné heslo
-
 zadej_heslo --> [*]
 }
 ```
 
   - Objektový diagram (object diagram)
 ```plantuml
-scale 700 width
+scale 500 width
 map Uživatel {
-krestniJmeno => Magdalena
-prijmeni => Hájková
-e-mail => hajkova.majda@gmail.com
+  krestniJmeno => Magdalena
+  prijmeni => Hájková
+  e-mail => hajkova.majda@gmail.com
 }
 
 map Uživatel2{
-krestniJmeno => Hana
-prijmeni => Žahourová
-e-mail => zahourova.hana@gmail.com
+  krestniJmeno => Hana
+  prijmeni => Žahourová
+  e-mail => zahourova.hana@gmail.com
 }
 
 map Zpráva {
-text => No já teda nevím, no...
-text2 => Přijdu, asi pozdě, ale přijdu...
+  text => No já teda nevím, no...
+  text2 => Přijdu, asi pozdě, ale přijdu...
 }
 
 map Chat {
-timestamp => 25.01.2023, 15:21
-uzivatel => Magdalena Hájková
-text => No já teda nevím, no...
-timestamp2 => 25.01.2023, 15:22
-uzivatel2 => Hana Žahourová
-text2 => Přijdu, asi pozdě, ale přijdu...
+  timestamp => 25.01.2023, 15:21
+  uzivatel => Magdalena Hájková
+  text => No já teda nevím, no...
+  timestamp2 => 25.01.2023, 15:22
+  uzivatel2 => Hana Žahourová
+  text2 => Přijdu, asi pozdě, ale přijdu...
 }
 
 class Chatlog
@@ -519,7 +516,19 @@ Chat --> Chatlog
 
 ```
   - Diagram komponent (component diagram)
+```plantuml
+scale 500 width
+[Chatlog]
+[Uživatel]
+[Chat]
 
+
+
+Chatlog <- podrobnosti_zprávy
+Chat --> podrobnosti_zprávy
+Uživatel --> Chat
+
+```
 
 ### Návrh úložiště
 
