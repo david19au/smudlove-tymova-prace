@@ -1,16 +1,5 @@
 image: maven:3.8
 
-jlink:
-  script:
-    - echo "Buildím jlink."
-    - "mvn javafx:jlink -B"
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-  artifacts:
-    paths:
-      - "target/*.zip"
-
-
 fatjar:
   script:
     - echo "Buildím fat jar."
