@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.Cursor?>
 <BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.HomeController">
     <center>
         <VBox spacing="10.0">
@@ -34,16 +35,25 @@
         <VBox spacing="50.0" BorderPane.alignment="CENTER">
             <children>
                 <ImageView fx:id="udalosti" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaUdalosti" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <image>
                         <Image url="@../other/calendar_white.png" />
                     </image>
                 </ImageView>
                 <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true" preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <image>
                         <Image url="@../other/chat_white.png" />
                     </image>
                 </ImageView>
                 <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true" preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <image>
                         <Image url="@../other/setting_white.png" />
                     </image>
