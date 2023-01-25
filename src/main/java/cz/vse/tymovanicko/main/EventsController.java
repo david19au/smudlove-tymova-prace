@@ -69,9 +69,10 @@ public class EventsController {
             protected void updateItem(Udalost udalost, boolean empty) {
                 super.updateItem(udalost, empty);
                 if (!empty) {
-                    setText("[" + udalost.getDatumUdalosti() + "] " + udalost.getJmenoUdalosti() + "\n"
-                    + "Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
-                    + "Nezúčastní se: " + udalost.getSeznamNejde().size());
+                    setText(udalost.getJmenoUdalosti() + " (" + udalost.getDatumUdalosti() + ") " + "\n"
+                    + " – Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
+                    + " – Nezúčastní se: " + udalost.getSeznamNejde().size() + "\n"
+                    + " ––––––––––––––––––––––––––––––––");
                 } else {
                     setText(null);
                 }
@@ -267,7 +268,7 @@ public class EventsController {
         VBox vBoxUcastnici = new VBox();
         vBoxUcastnici.setSpacing(2);
 
-        final Text ucastnici = new Text("Účastnící:");
+        final Text ucastnici = new Text("Zučastní se:");
         ucastnici.setStyle("-fx-font: 14 arial;");
         ucastnici.setFill(Color.WHITE);
 
@@ -279,7 +280,7 @@ public class EventsController {
         VBox vBoxNeucastnici = new VBox();
         vBoxNeucastnici.setSpacing(2);
 
-        final Text neucastnici = new Text("Neúčastníci:");
+        final Text neucastnici = new Text("Nezúčastní se:");
         neucastnici.setStyle("-fx-font: 14 arial;");
         neucastnici.setFill(Color.WHITE);
 
