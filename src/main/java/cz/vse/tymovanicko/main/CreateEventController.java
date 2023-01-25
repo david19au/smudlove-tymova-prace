@@ -1,7 +1,6 @@
 package cz.vse.tymovanicko.main;
 
 import cz.vse.tymovanicko.logika.Tymovanicko;
-import cz.vse.tymovanicko.logika.Udalost;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
