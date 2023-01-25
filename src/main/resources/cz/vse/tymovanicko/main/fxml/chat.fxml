@@ -5,6 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.Cursor?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="600.0"
             style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea"
             fx:controller="cz.vse.tymovanicko.main.ChatController">
@@ -35,6 +36,9 @@
                                 </TextField>
                                 <Button fx:id="posli" mnemonicParsing="false" onAction="#zpracujPoslani" text="Pošli"
                                         HBox.hgrow="ALWAYS">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                     <padding>
                                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
                                     </padding>

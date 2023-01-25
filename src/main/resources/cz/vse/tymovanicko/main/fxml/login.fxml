@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.Cursor?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;"
             xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="cz.vse.tymovanicko.main.LoginController">
@@ -43,6 +44,9 @@
                                GridPane.rowIndex="1"/>
                 <Button fx:id="prihlasit" mnemonicParsing="false" onAction="#zpracujPrihlaseni" text="Přihlásit se"
                         GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <padding>
                         <Insets bottom="5.0" left="30.0" right="30.0" top="5.0"/>
                     </padding>
@@ -70,6 +74,9 @@
                 <Label prefHeight="25.0" text="Nemáte založený účet?" textFill="WHITE"/>
                 <Button fx:id="zaregistrovat" mnemonicParsing="false" onAction="#zpracujNaZaregistrovani"
                         text="Zaregistrujte se">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <padding>
                         <Insets bottom="4.0" left="8.0" right="8.0" top="4.0"/>
                     </padding>
