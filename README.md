@@ -94,24 +94,18 @@ left to right direction
 
 
 usecase "Registrace" as register
-usecase "Vytvoření nového týmu" as createTeam
-usecase "Přidání se k existujícímu týmu" as joinTeam
 usecase "Přihlášení se do aplikace" as login
 usecase "Zadávání reakce na událost" as rsvp
-usecase "Posílání zpráv v chatu týmu nebo události" as chat
+usecase "Posílání zpráv v chatu týmu" as chat
 usecase "Vytvoření události" as createEvent
-usecase "Upravení týmu" as modifyTeamMembers
-usecase "Upravení události" as modifyEvent
-usecase "Jmenování člena týmu kapitánem" as delegateCaptain
+usecase "Změna rolí uživatelů" as delegateCaptain
 
 newUser -[#black,thickness=2]-> register
-newUser -[#black,thickness=2]-|> registeredUser
+newUser <|-[#black,thickness=2]- registeredUser
 
-registeredUser -[#black,thickness=2]-|> teamMember
-registeredUser -[#black,thickness=2]-|> captain
-registeredUser -[#black,thickness=2]-|> trainer
-registeredUser -[#black,thickness=2]-> createTeam
-registeredUser -[#black,thickness=2]-> joinTeam
+registeredUser <|-[#black,thickness=2]- teamMember
+registeredUser <|-[#black,thickness=2]- captain
+registeredUser <|-[#black,thickness=2]- trainer
 
 teamMember --> login
 teamMember --> rsvp
@@ -121,15 +115,11 @@ captain -[#green,thickness=2]-> login
 captain -[#green,thickness=2]-> rsvp
 captain -[#green,thickness=2]-> chat
 captain -[#green,thickness=2]-> createEvent
-captain -[#green,thickness=2]-> modifyTeamMembers
-captain -[#green,thickness=2]-> modifyEvent
 
 trainer -[#red,thickness=2]-> login
 trainer -[#red,thickness=2]-> rsvp
 trainer -[#red,thickness=2]-> chat
 trainer -[#red,thickness=2]-> createEvent
-trainer -[#red,thickness=2]-> modifyTeamMembers
-trainer -[#red,thickness=2]-> modifyEvent
 trainer -[#red,thickness=2]-> delegateCaptain
 ```
 
