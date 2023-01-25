@@ -3,7 +3,6 @@ package cz.vse.tymovanicko.main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cz.vse.tymovanicko.logika.Tymovanicko;
-import cz.vse.tymovanicko.logika.Udalost;
 import cz.vse.tymovanicko.logika.Uzivatel;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -23,7 +22,6 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -38,7 +36,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 /**
- * Třída  HomeController je hlavní třídou okna,
+ * Třída HomeController je hlavní třídou okna,
  * které představuje domovskou obrazovku
  *
  * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)

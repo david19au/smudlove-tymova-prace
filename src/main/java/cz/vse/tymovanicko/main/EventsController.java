@@ -3,7 +3,6 @@ package cz.vse.tymovanicko.main;
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
 import cz.vse.tymovanicko.logika.Uzivatel;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,7 +32,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 /**
- * Třída  EventController je hlavní třídou okna,
+ * Třída EventController je hlavní třídou okna,
  * které představuje události
  *
  * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
@@ -70,8 +69,8 @@ public class EventsController {
                 super.updateItem(udalost, empty);
                 if (!empty) {
                     setText(udalost.getJmenoUdalosti() + " (" + udalost.getDatumUdalosti() + ") " + "\n"
-                    + " – Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
-                    + " – Nezúčastní se: " + udalost.getSeznamNejde().size());
+                            + " – Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
+                            + " – Nezúčastní se: " + udalost.getSeznamNejde().size());
                     //setStyle(getIndex() % 2 == 0 ? "-fx-background-color: white; -fx-text-fill: black;" : "-fx-background-color: #C5C5C5; -fx-text-fill: black;");
                 } else {
                     setText(null);

@@ -35,7 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Třída  RegisterController je hlavní třídou okna,
+ * Třída RegisterController je hlavní třídou okna,
  * které představuje registrační obrazovku
  *
  * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
@@ -143,7 +143,7 @@ public class RegisterController {
                                 dialog.show();
                             } else {
                                 // Vkládá nového uživatele a vytváří JSON s jeho zadanými hodnotami
-                                if (Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getPocetUzivatelu()==0){
+                                if (Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getPocetUzivatelu() == 0) {
                                     uzivatel.setRole("Trenér");
                                 } else uzivatel.setRole("Člen");
                                 Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().vlozUzivateleDoSeznamu(uzivatel);

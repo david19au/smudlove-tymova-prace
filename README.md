@@ -38,6 +38,29 @@ události týká, na událostech mohou vyjadřovat svou ne/účast.
 * **Testovací případy:**
     * 🪲 Jakub Kafka (kafj03)
 
+* **
+
+* **Implementace chatu:**
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐼 Hana Žahourová (zahh00)
+* **Implementace uživatelů, správy registrace:**
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐧 Adam Schindler (scha28)
+* **Implementace seznamu událostí:**
+    * 🐸 Magdalena Hájková (hajm17)
+    * 🐻 Trong Dat Luu (luut02)
+    * 🪲 Jakub Kafka (kafj03)
+    * 🐧 Adam Schindler (scha28)
+
+* **
+
+* **Grafika a struktura aplikace:**
+    * 🪲 Jakub Kafka (kafj03)
+* **Testovací třídy:**
+    * 🐼 Hana Žahourová (zahh00)
+
 ## Funkcionalita
 
 - Jako **_trenér sportovního týmu_** chci _spravovat tým_, aby _tým mohl být produktivní. Byl schopný se scházet, byla
@@ -110,7 +133,6 @@ trainer -[#red,thickness=2]-> modifyEvent
 trainer -[#red,thickness=2]-> delegateCaptain
 ```
 
-- další UML modely za každého člena týmu (individuální práce)
 - diagram tříd na designové úrovni
 
 ```plantuml
@@ -433,6 +455,33 @@ class  "RegisterController" <<ui>> {
 }
 
 ```
+- další UML modely
+  - Diagram aktivit (activity diagram)
+  - Sekvenční diagram (sequence diagram)
+  - Stavový diagram (state machine diagram)
+```plantuml
+scale 300 width
+state Přihlásení_zaregistrovaného_uživatele {
+[*] --> start_aplikace
+start_aplikace : uživatelské údaje
+
+start_aplikace --> [*] : abbort
+
+start_aplikace -> zadej_email
+zadej_email : emailová adresa
+
+zadej_email --> zadej_heslo : proced
+zadej_heslo : heslo uživatele
+
+zadej_heslo --> zadej_email : špatné heslo
+
+zadej_heslo --> [*]
+}
+```
+
+  - Objektový diagram (object diagram)
+  - Diagram spolupráce (collaboration diagram) / diagram komponent (component diagram)
+
 
 ### Návrh úložiště
 
@@ -441,6 +490,56 @@ class  "RegisterController" <<ui>> {
     - Uživatel (obsahuje všechny základní údaje všech registrovaných uživatelů)
     - Chat (obsahuje zprávy v chatu)
     - Událost (obsahuje základní data všech vytvořených událostí)
+
+* Struktura souboru chat.json
+
+```
+{
+  "zpravy": [
+    "[25.01.2023, 15:16] Adam Schindler: Tak co? Sejdem se zejtra na obhajobě??",
+    "[25.01.2023, 15:17] Jakub Kafka: Jasně, počítám s tím.",
+    "[25.01.2023, 15:21] Magdalena Hájková: No já teda nevím, no...",
+    "[25.01.2023, 15:22] Hana Žahourová: Přijdu, asi pozdě, ale přijdu...",
+    "[25.01.2023, 15:25] Trong Dat Luu: Klasická Hanka"
+  ]
+}
+```  
+
+* Struktura souboru udalosti.json
+
+```
+[
+  {
+    "jmenoUdalosti": "Obhajoba 4IT115",
+    "datumUdalosti": "26.01.2023",
+    "lokaceUdalosti": "VŠE Žižkov",
+    "seznamJde": [
+      "Adam Schindler",
+      "Jakub Kafka",
+      "Magdalena Hájková",
+      "Hana Žahourová"
+    ],
+    "seznamNejde": [
+    "Trong Dat Luu"
+    ]
+  }
+]
+```
+
+* Struktura souboru uzivatele.json
+
+```
+{
+  "uzivatele": [
+    {
+      "email": "scha28@vse.cz",
+      "krestniJmeno": "Adam",
+      "prijmeni": "Schindler",
+      "heslo": "$2a$10$vRsqrJmLUejEvJyPL.H0duFV6xC41NcWjh92OZ70PGK3wFp3nrLyC",
+      "role": "Trenér"
+    }
+}
+```
 
 ## Prototyp aplikace
 
@@ -459,11 +558,11 @@ online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/
   Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
   zadané údaje a aplikace se pokusí o zaznamenání účasti.
 
-| **Kroky**            | **Akce testera**                                             | **Reakce systému**                         | **Výsledek (OK/error)** |
-|----------------------|--------------------------------------------------------------|--------------------------------------------|-------------------------|
-| **1.**               | U dané události kliknu na zúčastním se/nezúčastním se/nevím. | Proběhne zaznamenání účasti                | -                       |
-| **2.**               | Žádná.                                                       | Uživatel se zobrazí u daného stavu účasti. | -                       |
-| **Celkový výsledek** | -                                                            |                                            |                         |
+| **Kroky**            | **Akce testera**                                       | **Reakce systému**                         | **Výsledek (OK/error)** |
+|----------------------|--------------------------------------------------------|--------------------------------------------|-------------------------|
+| **1.**               | U dané události kliknu na zúčastním se/nezúčastním se. | Proběhne zaznamenání účasti                | OK                      |
+| **2.**               | Žádná.                                                 | Uživatel se zobrazí u daného stavu účasti. | OK                      |
+| **Celkový výsledek** | OK                                                     |                                            |                         |
 
 ### 2. testovací případ
 
@@ -475,13 +574,13 @@ online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/
   zahrnují zobrazení okna pro založení záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané údaje a
   aplikace se pokusí o přidání nového uživatele.
 
-| **Kroky**            | **Akce testera**                               | **Reakce systému**                                                                             | **Výsledek (OK/error)** |
-|----------------------|------------------------------------------------|------------------------------------------------------------------------------------------------|-------------------------|
-| **1.**               | Kliknu na tlačítko "Registrace".               | Proběhne přesměrování na registrační formulář.                                                 | -                       |
-| **2.**               | Vyplním registrační formulář.                  | Žádná.                                                                                         | -                       |
-| **3.**               | Odešlu formulář pomocí tlačítka "Registrovat". | Uživatel dostane potvrzení o registraci.                                                       | -                       |
-| **4.**               | Žádná.                                         | Uživatel se bude moci přihlásit do aplikaci pomocí emailu a hesla, které zadal při registraci. | -                       |
-| **Celkový výsledek** | -                                              |                                                                                                |                         |
+| **Kroky**            | **Akce testera**                                    | **Reakce systému**                                                                             | **Výsledek (OK/error)** |
+|----------------------|-----------------------------------------------------|------------------------------------------------------------------------------------------------|-------------------------|
+| **1.**               | Kliknu na tlačítko "Zaregistrovat se".              | Proběhne přesměrování na registrační formulář.                                                 | OK                      |
+| **2.**               | Vyplním registrační formulář.                       | Žádná.                                                                                         | OK                      |
+| **3.**               | Odešlu formulář pomocí tlačítka "Zaregistrovat se". | Uživatel dostane potvrzení o registraci.                                                       | OK                      |
+| **4.**               | Žádná.                                              | Uživatel se bude moci přihlásit do aplikaci pomocí emailu a hesla, které zadal při registraci. | OK                      |
+| **Celkový výsledek** | OK                                                  |                                                                                                |                         |
 
 ### 3. testovací případ
 
@@ -493,12 +592,12 @@ online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/
   zahrnují zobrazení okna pro zkontrolování záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí zadané
   údaje a aplikace se pokusí o přihlášení uživatele.
 
-| **Kroky**            | **Akce testera**                   | **Reakce systému**                       | **Výsledek (OK/error)** |
-|----------------------|------------------------------------|------------------------------------------|-------------------------|
-| **1.**               | Vyplním přihlašovací formulář.     | Žádná.                                   | -                       |
-| **2.**               | Kliknu na tlačítko "Přihlásit se". | Uživatel dostane potvrzení o přihlášení. | -                       |
-| **3.**               | Žádná.                             | Uživateli se zpřístupní funkce aplikace. | -                       |
-| **Celkový výsledek** | -                                  |                                          |                         |
+| **Kroky**            | **Akce testera**                   | **Reakce systému**                                | **Výsledek (OK/error)** |
+|----------------------|------------------------------------|---------------------------------------------------|-------------------------|
+| **1.**               | Vyplním přihlašovací formulář.     | Žádná.                                            | OK                      |
+| **2.**               | Kliknu na tlačítko "Přihlásit se". | Uživatel bude přesměrován na domovskou obrazovku. | OK                      |
+| **3.**               | Žádná.                             | Uživateli se zpřístupní funkce aplikace.          | OK                      |
+| **Celkový výsledek** | OK                                 |                                                   |                         |
 
 ### 4. testovací případ
 
@@ -512,27 +611,28 @@ online: [návrh UI: desktop](https://www.figma.com/proto/e01XmYcBzoZowpxB7YSI4N/
 
 | **Kroky**            | **Akce testera**                       | **Reakce systému**         | **Výsledek (OK/error)** |
 |----------------------|----------------------------------------|----------------------------|-------------------------|
-| **1.**               | V menu kliknu na ikonu chatu.          | Uživateli se zobrazí chat. | -                       |
-| **2.**               | Napíši zprávu do textového pole chatu. | Žádná.                     | -                       |
-| **3.**               | Kliknu na tlačítko "Odeslat".          | Zpráva se zobrazí v chatu. | -                       |
-| **Celkový výsledek** | -                                      |                            |                         |
+| **1.**               | V menu kliknu na ikonu chatu.          | Uživateli se zobrazí chat. | OK                      |
+| **2.**               | Napíši zprávu do textového pole chatu. | Žádná.                     | OK                      |
+| **3.**               | Kliknu na tlačítko "Odeslat".          | Zpráva se zobrazí v chatu. | OK                      |
+| **Celkový výsledek** | OK                                     |                            |                         |
 
 ### 5. testovací případ
 
-* **Název testovacího případu:** Postnutí - fotky a/nebo videa
-* **Popis:** Tento případ testuje přidání příspěvku na zeď týmu, kdy očekávaným výsledkem je, že se na zeď přidá nový
-  příspěvek a aplikace zobrazí výsledek této operace.
+* **Název testovacího případu:** Změna hesla
+* **Popis:** Tento případ testuje změnu hesla, kdy očekávaným výsledkem je, že se změní heslo přihlášeného uživatele
+   a aplikace zobrazí výsledek této operace.
 * **Vstupní podmínky:** Spuštěná aplikace, uživatel přihlášen pod svým uživ. jménem a heslem.
-* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšnému přidání příspěvku na zeď týmu.
-  Dané akce zahrnují zobrazení okna pro přidání záznamu, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
-  zadané údaje a aplikace se pokusí o přidání nového příspěvku.
+* **Poznámky:** V rámci tohoto testu jsou prováděny akce, jež by měly vést k úspěšné změně hesla.
+  Dané akce zahrnují zobrazení okna pro změnu hesla, vyplnění vstupních polí a stisknutí tlačítka, jež potvrdí
+  zadané údaje a aplikace se pokusí o změnu hesla.
 
-| **Kroky**            | **Akce testera**              | **Reakce systému**          | **Výsledek (OK/error)** |
-|----------------------|-------------------------------|-----------------------------|-------------------------|
-| **1.**               | V menu kliknu na ikonu zdi.   | Uživateli se zobrazí zeď.   | -                       |
-| **2.**               | Napíši a/nebo přidám přílohu. | Žádná.                      | -                       |
-| **3.**               | Kliknu na tlačítko "Odeslat". | Příspěvek se objeví na zdi. | -                       |
-| **Celkový výsledek** | -                             |                             |                         |
+| **Kroky**            | **Akce testera**                         | **Reakce systému**                                                                | **Výsledek (OK/error)** |
+|----------------------|------------------------------------------|-----------------------------------------------------------------------------------|-------------------------|
+| **1.**               | V menu kliknu na ikonu profile settings. | Uživateli se zobrazí profile settings.                                            | OK                      |
+| **2.**               | Kliknu na tlačítko "Změna hesla".        | Uživateli se zobrazi okno pro změnu hesla.                                        | OK                      |
+| **3.**               | Vyplním údaje.                           | Žádná.                                                                            | OK                      |
+| **4.**               | Kliknu na tlačítko "Změnit".             | Uživateli se zobrazi hláška a pokud bylo vše zapsáno dobře, proběhne změna hesla. | OK                      |
+| **Celkový výsledek** | OK                                       |                                                                                   |                         |
 
 ## Projektový board a workflow
 

@@ -25,7 +25,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.util.Objects;
 
 /**
- * Třída  LoginController je hlavní třídou okna,
+ * Třída LoginController je hlavní třídou okna,
  * které představuje přihlašovací obrazovku
  *
  * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
