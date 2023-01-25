@@ -37,6 +37,8 @@ import java.util.Objects;
  */
 public class ChatController {
 
+    private static final SimpleDateFormat datumCas = new SimpleDateFormat("dd.MM.yyyy, HH:mm");
+    Date date = new Date();
     // datové atributy
     @FXML
     private TextField vstupZprava;
@@ -52,8 +54,6 @@ public class ChatController {
     private Scene scene;
     @FXML
     private ImageView zpet;
-    private static final SimpleDateFormat datumCas = new SimpleDateFormat("dd.MM.yyyy, HH:mm");
-    Date date = new Date();
 
     /**
      * Konstruktor který načítá staré zprávy.
