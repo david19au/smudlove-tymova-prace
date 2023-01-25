@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -69,9 +70,32 @@ public class HomeController {
             protected void updateItem(Uzivatel uzivatel, boolean empty) {
                 super.updateItem(uzivatel, empty);
                 if (!empty) {
-                    setText(uzivatel.getKrestniJmeno() + " " + uzivatel.getPrijmeni() + " (" + uzivatel.getRole() + ")");
+                    String role = "";
+                    if (uzivatel.getRole().equals("Trenér")) {
+                        role = "T";
+                    }
+                    if (uzivatel.getRole().equals("Kapitán")) {
+                        role = "C";
+                    }
+                    if (uzivatel.getRole().equals("Člen")) {
+                        role = "M";
+                    }
+                    String zakladniVypis = uzivatel.getKrestniJmeno() + " " + uzivatel.getPrijmeni() + " (" + uzivatel.getRole() + ")";
+
+                    URL urlObrazku = getClass().getResource("icons/icon" + role + ".PNG");
+                    if (urlObrazku == null) {
+                        setText(zakladniVypis);
+                        setGraphic(null);
+                        return;
+                    }
+                    ImageView iw = new ImageView(urlObrazku.toString());
+                    iw.setFitWidth(25);
+                    iw.setPreserveRatio(true);
+                    setText(zakladniVypis);
+                    setGraphic(iw);
                 } else {
                     setText(null);
+                    setGraphic(null);
                 }
             }
         });
