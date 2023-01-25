@@ -3,69 +3,64 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="600.0"
-            style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            fx:controller="cz.vse.tymovanicko.main.HomeController">
+
+<BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.tymovanicko.main.HomeController">
     <center>
         <VBox spacing="10.0">
             <children>
                 <ImageView fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../other/tymovanicko.jpg"/>
+                        <Image url="@../other/tymovanicko.jpg" />
                     </image>
                 </ImageView>
                 <Label text="Členové týmu:" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="16.0"/>
+                        <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <ListView fx:id="panelClenu" onMouseClicked="#klikPanelClenu"/>
+                <ListView fx:id="panelClenu" onMouseClicked="#klikPanelClenu" stylesheets="@../styles/listStyle.css" />
             </children>
             <padding>
-                <Insets bottom="20.0" left="10.0" right="20.0" top="10.0"/>
+                <Insets bottom="20.0" left="10.0" right="20.0" top="10.0" />
             </padding>
         </VBox>
     </center>
     <left>
         <VBox spacing="50.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fx:id="udalosti" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaUdalosti"
-                           onMouseEntered="#ztmavniKalendar"
-                           onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="udalosti" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaUdalosti" onMouseEntered="#ztmavniKalendar" onMouseExited="#zesvetlejKalendar" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../other/calendar_white.png"/>
+                        <Image url="@../other/calendar_white.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat"
-                           onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat" onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../other/chat_white.png"/>
+                        <Image url="@../other/chat_white.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni"
-                           onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni" onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../other/setting_white.png"/>
+                        <Image url="@../other/setting_white.png" />
                     </image>
                 </ImageView>
             </children>
             <padding>
-                <Insets bottom="30.0" left="40.0" right="30.0" top="30.0"/>
+                <Insets bottom="30.0" left="40.0" right="30.0" top="30.0" />
             </padding>
         </VBox>
     </left>
     <top>
         <Label text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
             <font>
-                <Font name="System Bold" size="22.0"/>
+                <Font name="System Bold" size="22.0" />
             </font>
             <padding>
-                <Insets bottom="10.0" left="20.0" top="20.0"/>
+                <Insets bottom="10.0" left="20.0" top="20.0" />
             </padding>
         </Label>
     </top>
