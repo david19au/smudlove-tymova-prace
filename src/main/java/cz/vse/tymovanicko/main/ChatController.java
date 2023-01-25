@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
@@ -28,19 +29,21 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * Třída  ChatController je hlavní třídou okna,
+ * Třída ChatController je hlavní třídou okna,
  * které představuje chat
  *
- * @author ?
- * @version ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
+ * @version 1.0.0
  */
 public class ChatController {
 
-
+    private static final SimpleDateFormat datumCas = new SimpleDateFormat("dd.MM.yyyy, HH:mm");
+    Date date = new Date();
     // datové atributy
     @FXML
     private TextField vstupZprava;
-
+    @FXML
+    private Label home;
     @FXML
     private TextArea zpravyChatu;
     @FXML
@@ -52,17 +55,26 @@ public class ChatController {
     @FXML
     private ImageView zpet;
 
-    private static final SimpleDateFormat datumCas = new SimpleDateFormat("dd.MM.yyyy, HH:mm");
-
-    Date date = new Date();
-
+    /**
+     * Konstruktor který načítá staré zprávy.
+     */
     public ChatController() {
         Platform.runLater(this::nactiStareZpravy);
     }
 
-    public void nactiStareZpravy() {
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
+    @FXML
+    private void initialize() {
+        Platform.runLater(() -> vstupZprava.requestFocus());
+    }
 
-        try (Reader reader = new FileReader("target/chat.json")) {
+    /**
+     * Tato metoda načítá zprávy z JSON souboru chat.json.
+     */
+    public void nactiStareZpravy() {
+        try (Reader reader = new FileReader("data/chat.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonElement jsonElement = gson.fromJson(reader, JsonElement.class);
             String jsonInString = gson.toJson(jsonElement);
@@ -77,7 +89,13 @@ public class ChatController {
         }
     }
 
-
+    /**
+     * Tato metoda zpracovává poslání zpravy do chatu
+     * s časem poslání této zprávy.
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void zpracujPoslani(ActionEvent actionEvent) throws IOException {
         String zprava = vstupZprava.getText();
@@ -120,7 +138,7 @@ public class ChatController {
      */
     @FXML
     private void zpracujNaNastaveni(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -206,5 +224,45 @@ public class ChatController {
         stage.setScene(scene);
         stage.setTitle("Týmováníčko - Události");
         stage.show();
+    }
+
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
+    @FXML
+    private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko");
+        stage.show();
+    }
+
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    private void ztmavniHome(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        home.setEffect(ztmavnuti);
+    }
+
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    private void zesvetlejHome(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        home.setEffect(zesvetleni);
     }
 }

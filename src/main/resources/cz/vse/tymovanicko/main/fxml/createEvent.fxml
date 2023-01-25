@@ -2,11 +2,12 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<BorderPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #37598e;"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="600.0"
+            style="-fx-background-color: #37598e;" xmlns="http://javafx.com/javafx/17.0.2-ea"
             fx:controller="cz.vse.tymovanicko.main.CreateEventController">
     <left>
         <VBox spacing="50.0" BorderPane.alignment="CENTER">
@@ -20,6 +21,9 @@
                 <ImageView fx:id="chat" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaChat"
                            onMouseEntered="#ztmavniChat" onMouseExited="#zesvetlejChat" pickOnBounds="true"
                            preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
                     <image>
                         <Image url="@../other/chat_white.png"/>
                     </image>
@@ -27,6 +31,9 @@
                 <ImageView fx:id="nastaveni" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#zpracujNaNastaveni"
                            onMouseEntered="#ztmavniNastaveni" onMouseExited="#zesvetlejNastaveni" pickOnBounds="true"
                            preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
                     <image>
                         <Image url="@../other/setting_white.png"/>
                     </image>
@@ -34,6 +41,9 @@
                 <ImageView fx:id="zpet" fitHeight="45.0" fitWidth="50.0" onMouseClicked="#zpracujZpatky"
                            onMouseEntered="#ztmavni" onMouseExited="#zesvetlej" pickOnBounds="true"
                            preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
                     <image>
                         <Image url="@../other/arrow_white.png"/>
                     </image>
@@ -48,7 +58,11 @@
         </VBox>
     </left>
     <top>
-        <Label text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+        <Label fx:id="home" onMouseClicked="#zpracujNaHome" onMouseEntered="#ztmavniHome" onMouseExited="#zesvetlejHome"
+               text="Týmováníčko" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
             <font>
                 <Font name="System Bold" size="22.0"/>
             </font>
@@ -76,24 +90,29 @@
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="jmenoUdalosti" onAction="#vytvorUdalost" maxWidth="220.0" GridPane.columnIndex="1"
-                           GridPane.valignment="BOTTOM"/>
+                <TextField fx:id="jmenoUdalosti" maxWidth="220.0" onAction="#vytvorUdalost" promptText="Jměno události"
+                           GridPane.columnIndex="1" GridPane.valignment="BOTTOM"/>
                 <Label text="Datum události:" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                     <font>
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <DatePicker fx:id="datumUdalosti" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <DatePicker fx:id="datumUdalosti" editable="false" promptText="DD.MM.RRRR" GridPane.columnIndex="1"
+                            GridPane.rowIndex="1"/>
                 <Label text="Lokace události:" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2"
                        GridPane.valignment="TOP">
                     <font>
                         <Font size="16.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="lokaceUdalosti" onAction="#vytvorUdalost" maxWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                <TextField fx:id="lokaceUdalosti" maxWidth="220.0" onAction="#vytvorUdalost"
+                           promptText="Lokace události" GridPane.columnIndex="1" GridPane.rowIndex="2"
                            GridPane.valignment="TOP"/>
-                <Button mnemonicParsing="false" text="Vytvoř událost" onAction="#vytvorUdalost" GridPane.columnIndex="1"
+                <Button mnemonicParsing="false" onAction="#vytvorUdalost" text="Vytvoř událost" GridPane.columnIndex="1"
                         GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
                     <font>
                         <Font size="14.0"/>
                     </font>

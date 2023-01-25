@@ -13,41 +13,66 @@ import java.io.IOException;
  * Tato třída je součástí aplikace Týmováníčko.
  * "Chat" reprezentuje zprávy v aplikaci.
  *
- * @author ?
- * @version ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
+ * @version 1.0.0
  */
 public class Chat {
 
+    // datové atributy
     private ChatLog chatLog;
 
-    public ChatLog getChatLog() {
-        return chatLog;
-    }
-
+    /**
+     * Vytvoření nové instance chatu s chatLogem.
+     */
     public Chat() {
         chatLog = new ChatLog();
         nactiZpravyZJSON();
     }
 
+    /**
+     * Vrací instanci ChatLog
+     *
+     * @return instance ChatLog
+     */
+    public ChatLog getChatLog() {
+        return chatLog;
+    }
+
+    /**
+     * Metoda pridatZpravu vezme zprávy napsané ve Stringu a zavolá metodu ulozitZpravyDoJSON
+     *
+     * @param zprava zpráva, kterou chce uživatel odeslat
+     * @throws IOException
+     */
     public void pridatZpravu(String zprava) throws IOException {
         chatLog.zpravy.add(zprava);
         ulozitZpravyDoJSON();
     }
 
+    /**
+     * Metoda ulozitZpravyDoJSON používá knihovnu GSON od Google pro ukládání informací do souborů JSON.
+     *
+     * @throws IOException
+     */
     private void ulozitZpravyDoJSON() throws IOException {
         // Gson builder pro lepší vzhled struktury JSONu
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(chatLog);
-        BufferedWriter bw = new BufferedWriter(new FileWriter("target/" + "chat.json"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("data/" + "chat.json"));
         bw.write(json);
         bw.newLine();
         bw.flush();
         bw.close();
     }
 
+    /**
+     * Metoda nactiZpravyZJSON používá knihovnu GSON od Google pro čtení informací ze souborů JSON.
+     *
+     * @throws IOException
+     */
     public void nactiZpravyZJSON() {
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader("target/" + "chat.json")) {
+        try (FileReader reader = new FileReader("data/" + "chat.json")) {
             chatLog = gson.fromJson(reader, ChatLog.class);
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,6 +2,7 @@ package cz.vse.tymovanicko.main;
 
 import cz.vse.tymovanicko.logika.Tymovanicko;
 import cz.vse.tymovanicko.logika.Udalost;
+import cz.vse.tymovanicko.logika.Uzivatel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.ColorAdjust;
@@ -30,14 +32,17 @@ import java.util.Collection;
 import java.util.Objects;
 
 /**
- * Třída  EventController je hlavní třídou okna,
+ * Třída EventController je hlavní třídou okna,
  * které představuje události
  *
- * @author ?
- * @version ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
+ * @version 1.0.0
  */
 public class EventsController {
 
+    // datové atributy
+    @FXML
+    private Label home;
     @FXML
     private Button vytvorUdalost;
     @FXML
@@ -51,6 +56,9 @@ public class EventsController {
     private Stage stage;
     private Scene scene;
 
+    /**
+     * Inicializační metoda, která pomáhá aktualizovat okno aplikace
+     */
     @FXML
     private void initialize() {
         naplneniPaneluUdalosti();
@@ -60,12 +68,23 @@ public class EventsController {
             protected void updateItem(Udalost udalost, boolean empty) {
                 super.updateItem(udalost, empty);
                 if (!empty) {
-                    setText("[" + udalost.getDatumUdalosti() + "] " + udalost.getJmenoUdalosti());
+                    setText(udalost.getJmenoUdalosti() + " (" + udalost.getDatumUdalosti() + ") " + "\n"
+                            + " – Zúčastní se: " + udalost.getSeznamJde().size() + "\n"
+                            + " – Nezúčastní se: " + udalost.getSeznamNejde().size());
+                    //setStyle(getIndex() % 2 == 0 ? "-fx-background-color: white; -fx-text-fill: black;" : "-fx-background-color: #C5C5C5; -fx-text-fill: black;");
                 } else {
                     setText(null);
                 }
             }
         });
+
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                if (uzivatel.getRole().equals("Člen")) {
+                    vytvorUdalost.setDisable(true);
+                }
+            }
+        }
     }
 
     /**
@@ -77,6 +96,12 @@ public class EventsController {
         panelUdalosti.getItems().addAll(udalosti);
     }
 
+    /**
+     * Metoda, která změní obrazovku na chat
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaChat(MouseEvent mouseEvent) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/chat.fxml")));
@@ -143,7 +168,7 @@ public class EventsController {
      */
     @FXML
     private void zpracujNaNastaveni(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -191,6 +216,12 @@ public class EventsController {
         zpet.setEffect(zesvetleni);
     }
 
+    /**
+     * Metoda, která změní obrazovku na okno pro vytvoření události.
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     private void zpracujNaVytvoreniUdalosti(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/createEvent.fxml")));
@@ -201,6 +232,11 @@ public class EventsController {
         stage.show();
     }
 
+    /**
+     * Metoda, která otevírá okno události při kliknutí na událost v panelu událostí.
+     *
+     * @param mouseEvent
+     */
     @FXML
     private void klikPanelUdalosti(MouseEvent mouseEvent) {
         Udalost cilovaUdalost = panelUdalosti.getSelectionModel().getSelectedItem();
@@ -231,7 +267,7 @@ public class EventsController {
         VBox vBoxUcastnici = new VBox();
         vBoxUcastnici.setSpacing(2);
 
-        final Text ucastnici = new Text("Účastnící:");
+        final Text ucastnici = new Text("Zučastní se:");
         ucastnici.setStyle("-fx-font: 14 arial;");
         ucastnici.setFill(Color.WHITE);
 
@@ -243,7 +279,7 @@ public class EventsController {
         VBox vBoxNeucastnici = new VBox();
         vBoxNeucastnici.setSpacing(2);
 
-        final Text neucastnici = new Text("Neúčastníci:");
+        final Text neucastnici = new Text("Nezúčastní se:");
         neucastnici.setStyle("-fx-font: 14 arial;");
         neucastnici.setFill(Color.WHITE);
 
@@ -269,6 +305,13 @@ public class EventsController {
                 dialog.close();
             }
         });
+        for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
+            if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
+                if (uzivatel.getRole().equals("Člen")) {
+                    buttonSmazat.setDisable(true);
+                }
+            }
+        }
 
         buttonZucastnim.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -282,10 +325,11 @@ public class EventsController {
                         Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                         panelNeucastnici.getItems().addAll(nejde);
                     }
-                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
+                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost, Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "jdu");
                     panelUcastnici.getItems().clear();
                     Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                     panelUcastnici.getItems().addAll(jde);
+                    naplneniPaneluUdalosti();
                 }
             }
         });
@@ -302,10 +346,11 @@ public class EventsController {
                         Collection<String> jde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getJde(cilovaUdalost);
                         panelUcastnici.getItems().addAll(jde);
                     }
-                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost.getJmenoUdalosti(), Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
+                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().zmenRSVP(cilovaUdalost, Tymovanicko.TYMOVANICKO.getJmeno(Tymovanicko.TYMOVANICKO.getId()), "nejdu");
                     panelNeucastnici.getItems().clear();
                     Collection<String> nejde = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getNejde(cilovaUdalost);
                     panelNeucastnici.getItems().addAll(nejde);
+                    naplneniPaneluUdalosti();
                 }
             }
         });
@@ -335,5 +380,45 @@ public class EventsController {
         dialog.setTitle("Událost - " + panelUdalosti.getSelectionModel().getSelectedItem().getJmenoUdalosti());
         dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
         dialog.show();
+    }
+
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
+    @FXML
+    private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko");
+        stage.show();
+    }
+
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    private void ztmavniHome(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        home.setEffect(ztmavnuti);
+    }
+
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    private void zesvetlejHome(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        home.setEffect(zesvetleni);
     }
 }

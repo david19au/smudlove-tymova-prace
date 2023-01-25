@@ -1,0 +1,39 @@
+{
+  "uzivatele": [
+    {
+      "email": "scha28@vse.cz",
+      "krestniJmeno": "Adam",
+      "prijmeni": "Schindler",
+      "heslo": "$2a$10$vRsqrJmLUejEvJyPL.H0duFV6xC41NcWjh92OZ70PGK3wFp3nrLyC",
+      "role": "Trenér"
+    },
+    {
+      "email": "kafj03@vse.cz",
+      "krestniJmeno": "Jakub",
+      "prijmeni": "Kafka",
+      "heslo": "$2a$10$PIr77Z.cx9j5qO9JCnHA/.hHHYOdMZB9s7RywdOc3BIKoQub0ym0u",
+      "role": "Trenér"
+    },
+    {
+      "email": "zahh00@vse.cz",
+      "krestniJmeno": "Hana",
+      "prijmeni": "Žahourová",
+      "heslo": "$2a$10$jQ.4auk7GzOMiod8H0zW9ukusZKNzONwU4Qw66Vfjy6.trvGiCM2S",
+      "role": "Člen"
+    },
+    {
+      "email": "luut02@vse.cz",
+      "krestniJmeno": "Trong Dat",
+      "prijmeni": "Luu",
+      "heslo": "$2a$10$.sVkfm6DUWUbXrs/DapP/uKNNFzOqEeQeIXH07loIaeD/euoSixH6",
+      "role": "Kapitán"
+    },
+    {
+      "email": "hajm17@vse.cz",
+      "krestniJmeno": "Magdalena",
+      "prijmeni": "Hájková",
+      "heslo": "$2a$10$hOPgppUW3.wFoiVyPdZHhuhKHvxpZV0fGHU4RzwtUebRwwWc2UUIK",
+      "role": "Člen"
+    }
+  ]
+}

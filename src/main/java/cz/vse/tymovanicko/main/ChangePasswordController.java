@@ -13,11 +13,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -33,15 +35,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Třída  ChangePasswordController je hlavní třídou okna,
+ * Třída ChangePasswordController je hlavní třídou okna,
  * které představuje obrazovku pro změnu hesla
  *
- * @author ?
- * @version ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
+ * @version 1.0.0
  */
 public class ChangePasswordController {
 
     // datové atributy
+    @FXML
+    private Label home;
     @FXML
     private Button zmenHeslo;
     @FXML
@@ -59,10 +63,21 @@ public class ChangePasswordController {
     @FXML
     private PasswordField noveHesloZnovu;
 
-
+    /**
+     * Konstruktor
+     */
     public ChangePasswordController() {
     }
 
+    /**
+     * Tato metoda kontroluje zda je nové heslo validní,
+     * zda se shodují nové hesla,
+     * zda bylo zadáno správné staré heslo,
+     * když bylo vše zadáno správně, proběhně změna hesla.
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     private void zpracujZmenuHesla(ActionEvent actionEvent) throws IOException {
         String stare = stareHeslo.getCharacters().toString();
@@ -87,7 +102,12 @@ public class ChangePasswordController {
                             VBox dialogVbox = new VBox(20);
                             dialogVbox.setAlignment(Pos.CENTER);
                             dialogVbox.setStyle("-fx-background: #37598e;");
-                            final Text text = new Text("Heslo bylo úspěšně změněno.");
+                            HBox hBox = new HBox(20);
+                            hBox.setAlignment(Pos.CENTER);
+                            ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/checkmark-white.png")).toString());
+                            imageView.setFitHeight(50);
+                            imageView.setPreserveRatio(true);
+                            final Text text = new Text("Heslo bylo úspěšně změněno!");
                             text.setStyle("-fx-font: 14 arial;");
                             text.setFill(Color.WHITE);
                             Button button = new Button("OK");
@@ -97,14 +117,16 @@ public class ChangePasswordController {
                                     dialog.close();
                                 }
                             });
-                            dialogVbox.getChildren().add(text);
+                            hBox.getChildren().add(imageView);
+                            hBox.getChildren().add(text);
+                            dialogVbox.getChildren().add(hBox);
                             dialogVbox.getChildren().add(button);
-                            Scene dialogScene = new Scene(dialogVbox, 250, 100);
+                            Scene dialogScene = new Scene(dialogVbox, 300, 120);
                             dialog.setScene(dialogScene);
                             dialog.setTitle("Týmováníčko");
                             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                             dialog.show();
-                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
                             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                             scene = new Scene(root);
                             stage.setScene(scene);
@@ -112,7 +134,7 @@ public class ChangePasswordController {
                             stage.show();
                         }
                     }
-                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("target/uzivatele.json"))) {
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data/uzivatele.json"))) {
                         String json = gson.toJson(Tymovanicko.TYMOVANICKO.getSeznamUzivatelu());
                         bufferedWriter.write(json);
                         bufferedWriter.newLine();
@@ -127,24 +149,28 @@ public class ChangePasswordController {
                     VBox dialogVbox = new VBox(20);
                     dialogVbox.setAlignment(Pos.CENTER);
                     dialogVbox.setStyle("-fx-background: #37598e;");
-                    final Text text = new Text("Hesla se neshodují");
+                    HBox hBox = new HBox(20);
+                    hBox.setAlignment(Pos.CENTER);
+                    ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
+                    imageView.setFitHeight(50);
+                    imageView.setPreserveRatio(true);
+                    final Text text = new Text("Hesla se neshodují.");
                     text.setStyle("-fx-font: 14 arial;");
                     text.setFill(Color.WHITE);
                     Button button = new Button("OK");
-                    noveHeslo.clear();
-                    noveHesloZnovu.clear();
-                    stareHeslo.clear();
                     button.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
                             dialog.close();
                         }
                     });
-                    dialogVbox.getChildren().add(text);
+                    hBox.getChildren().add(imageView);
+                    hBox.getChildren().add(text);
+                    dialogVbox.getChildren().add(hBox);
                     dialogVbox.getChildren().add(button);
-                    Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                    Scene dialogScene = new Scene(dialogVbox, 230, 120);
                     dialog.setScene(dialogScene);
-                    dialog.setTitle("Týmováníčko");
+                    dialog.setTitle("Upozornění");
                     dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                     dialog.show();
                 }
@@ -155,24 +181,28 @@ public class ChangePasswordController {
                 VBox dialogVbox = new VBox(20);
                 dialogVbox.setAlignment(Pos.CENTER);
                 dialogVbox.setStyle("-fx-background: #37598e;");
-                final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno, jedno číslo a minimálně osm znaků");
+                HBox hBox = new HBox(20);
+                hBox.setAlignment(Pos.CENTER);
+                ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
+                imageView.setFitHeight(50);
+                imageView.setPreserveRatio(true);
+                final Text text = new Text("Heslo musí obsahovat alespoň jedno písmeno, jedno číslo a minimálně osm znaků.");
                 text.setStyle("-fx-font: 14 arial;");
                 text.setFill(Color.WHITE);
                 Button button = new Button("OK");
-                noveHeslo.clear();
-                noveHesloZnovu.clear();
-                stareHeslo.clear();
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
                         dialog.close();
                     }
                 });
-                dialogVbox.getChildren().add(text);
+                hBox.getChildren().add(imageView);
+                hBox.getChildren().add(text);
+                dialogVbox.getChildren().add(hBox);
                 dialogVbox.getChildren().add(button);
-                Scene dialogScene = new Scene(dialogVbox, 580, 100);
+                Scene dialogScene = new Scene(dialogVbox, 620, 120);
                 dialog.setScene(dialogScene);
-                dialog.setTitle("Týmováníčko");
+                dialog.setTitle("Upozornění");
                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
             }
@@ -183,24 +213,28 @@ public class ChangePasswordController {
             VBox dialogVbox = new VBox(20);
             dialogVbox.setAlignment(Pos.CENTER);
             dialogVbox.setStyle("-fx-background: #37598e;");
-            final Text text = new Text("Staré heslo se neshoduje");
+            HBox hBox = new HBox(20);
+            hBox.setAlignment(Pos.CENTER);
+            ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
+            imageView.setFitHeight(50);
+            imageView.setPreserveRatio(true);
+            final Text text = new Text("Staré heslo se neshoduje.");
             text.setStyle("-fx-font: 14 arial;");
             text.setFill(Color.WHITE);
             Button button = new Button("OK");
-            stareHeslo.clear();
-            noveHeslo.clear();
-            noveHesloZnovu.clear();
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     dialog.close();
                 }
             });
-            dialogVbox.getChildren().add(text);
+            hBox.getChildren().add(imageView);
+            hBox.getChildren().add(text);
+            dialogVbox.getChildren().add(hBox);
             dialogVbox.getChildren().add(button);
-            Scene dialogScene = new Scene(dialogVbox, 250, 100);
+            Scene dialogScene = new Scene(dialogVbox, 280, 120);
             dialog.setScene(dialogScene);
-            dialog.setTitle("Týmováníčko");
+            dialog.setTitle("Upozornění");
             dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
             dialog.show();
         }
@@ -214,7 +248,7 @@ public class ChangePasswordController {
      */
     @FXML
     private void zpracujZpatky(MouseEvent mouseEvent) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profile_settings.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/profileSettings.fxml")));
         stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -324,5 +358,45 @@ public class ChangePasswordController {
         stage.setScene(scene);
         stage.setTitle("Týmováníčko - Události");
         stage.show();
+    }
+
+    /**
+     * Metoda, která změní obrazovku na home
+     *
+     * @param mouseEvent
+     * @throws Exception
+     */
+    @FXML
+    private void zpracujNaHome(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/home.fxml")));
+        stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Týmováníčko");
+        stage.show();
+    }
+
+    /**
+     * Metoda, která nechá ztmavnout "Týmováníčko", když na něj najede myš
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    private void ztmavniHome(MouseEvent mouseEvent) {
+        ColorAdjust ztmavnuti = new ColorAdjust();
+        ztmavnuti.setBrightness(-0.5);
+        home.setEffect(ztmavnuti);
+    }
+
+    /**
+     * Metoda, která nechá zesvětlat "Týmováníčko", když myš odejde
+     *
+     * @param mouseEvent
+     */
+    @FXML
+    private void zesvetlejHome(MouseEvent mouseEvent) {
+        ColorAdjust zesvetleni = new ColorAdjust();
+        zesvetleni.setBrightness(0);
+        home.setEffect(zesvetleni);
     }
 }
