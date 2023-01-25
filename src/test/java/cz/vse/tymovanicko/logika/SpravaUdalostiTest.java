@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Metoda SpravaUdalostiTest kontroluje logiku třídy SpravaUdalosti
  *
- * @author ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
  * @version 1.0.0
  */
 public class SpravaUdalostiTest {
