@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "jmenoUdalosti": "Obhajoba 4IT115",
+    "datumUdalosti": "26.01.2023",
+    "lokaceUdalosti": "VŠE Žižkov",
+    "seznamJde": [
+      "Adam Schindler",
+      "Jakub Kafka",
+      "Magdalena Hájková"
+    ],
+    "seznamNejde": []
+  },
+  {
+    "jmenoUdalosti": "DOD - FIS",
+    "datumUdalosti": "27.01.2023",
+    "lokaceUdalosti": "VŠE - Žižkov",
+    "seznamJde": [
+      "Jakub Kafka"
+    ],
+    "seznamNejde": [
+      "Adam Schindler",
+      "Magdalena Hájková"
+    ]
+  },
+  {
+    "jmenoUdalosti": "Začátek LS",
+    "datumUdalosti": "13.02.2023",
+    "lokaceUdalosti": "Praha",
+    "seznamJde": [
+      "Adam Schindler",
+      "Jakub Kafka"
+    ],
+    "seznamNejde": [
+      "Magdalena Hájková"
+    ]
+  }
+]
