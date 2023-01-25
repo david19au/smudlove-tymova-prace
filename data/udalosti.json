@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "jmenoUdalosti": "a",
+    "datumUdalosti": "01.01.2023",
+    "lokaceUdalosti": "a",
+    "seznamJde": [],
+    "seznamNejde": []
+  },
+  {
+    "jmenoUdalosti": "a",
+    "datumUdalosti": "01.01.2023",
+    "lokaceUdalosti": "n",
+    "seznamJde": [],
+    "seznamNejde": []
+  },
+  {
+    "jmenoUdalosti": "a",
+    "datumUdalosti": "01.01.2023",
+    "lokaceUdalosti": "b",
+    "seznamJde": [],
+    "seznamNejde": []
+  },
+  {
+    "jmenoUdalosti": "a",
+    "datumUdalosti": "01.01.2023",
+    "lokaceUdalosti": "asdf",
+    "seznamJde": [],
+    "seznamNejde": []
+  },
+  {
+    "jmenoUdalosti": "a",
+    "datumUdalosti": "29.01.2023",
+    "lokaceUdalosti": "a",
+    "seznamJde": [],
+    "seznamNejde": []
+  },
+  {
+    "jmenoUdalosti": "a",
+    "datumUdalosti": "21.01.2023",
+    "lokaceUdalosti": "a",
+    "seznamJde": [],
+    "seznamNejde": []
+  }
+]
