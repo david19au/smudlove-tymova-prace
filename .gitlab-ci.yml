@@ -2,7 +2,7 @@ image: maven:3.8
 
 fatjar:
   script:
-    - echo "Buildím fat jar."
+    - echo "Buildím fat jar"
     - "mvn -Dtest='!SpravaUdalostiTest,!ChatTest' package -B"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
