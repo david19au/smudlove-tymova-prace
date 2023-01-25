@@ -7,7 +7,7 @@
 
     <groupId>cz.vse.tymovanicko</groupId>
     <artifactId>tymovanicko</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>tymovanicko</name>
 
     <properties>
