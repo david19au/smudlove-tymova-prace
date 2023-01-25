@@ -217,7 +217,7 @@ start_aplikace --> [*] : abbort
 start_aplikace -> zadej_email
 zadej_email : emailová adresa
 
-zadej_email --> zadej_heslo : proced
+zadej_email --> zadej_heslo : proceed
 zadej_heslo : heslo uživatele
 
 zadej_heslo --> zadej_email : špatné heslo
@@ -227,7 +227,45 @@ zadej_heslo --> [*]
 ```
 
   - Objektový diagram (object diagram)
-  - Diagram spolupráce (collaboration diagram) / diagram komponent (component diagram)
+```plantuml
+scale 700 width
+map Uživatel {
+krestniJmeno => Magdalena
+prijmeni => Hájková
+e-mail => hajkova.majda@gmail.com
+}
+
+map Uživatel2{
+krestniJmeno => Hana
+prijmeni => Žahourová
+e-mail => zahourova.hana@gmail.com
+}
+
+map Zpráva {
+text => No já teda nevím, no...
+text2 => Přijdu, asi pozdě, ale přijdu...
+}
+
+map Chat {
+timestamp => 25.01.2023, 15:21
+uzivatel => Magdalena Hájková
+text => No já teda nevím, no...
+timestamp2 => 25.01.2023, 15:22
+uzivatel2 => Hana Žahourová
+text2 => Přijdu, asi pozdě, ale přijdu...
+}
+
+class Chatlog
+
+Uživatel2 --> Zpráva :poslat
+Uživatel2 <-- Zpráva :obdržet
+Zpráva --> Uživatel :obdržet 
+Uživatel --> Zpráva :poslat
+Chat <- Zpráva
+Chat --> Chatlog
+
+```
+  - Diagram komponent (component diagram)
 
 
 ### Návrh úložiště
