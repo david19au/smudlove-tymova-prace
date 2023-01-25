@@ -186,7 +186,7 @@ class  "Nastaveni" <<ui>> {}
 - pro naši aplikaci budem využívat strukturu souborů s JSON soubory
 - budeme mít jednotlivé JSON soubory, kde každý bude obsahovat všechny informace k danému tématu
     - Uživatel (obsahuje všechny základní údaje všech registrovaných uživatelů)
-    - Tým (obsahuje základní data o všech týmech)
+    - Chat (obsahuje zprávy v chatu)
     - Událost (obsahuje základní data všech vytvořených událostí)
 
 ## Prototyp aplikace

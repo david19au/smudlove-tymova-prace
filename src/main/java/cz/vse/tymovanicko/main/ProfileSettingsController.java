@@ -37,7 +37,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Třída  ProfileSettingsController je hlavní třídou okna,
+ * Třída ProfileSettingsController je hlavní třídou okna,
  * které představuje obrazovku pro úpravu profilu
  *
  * @author ?

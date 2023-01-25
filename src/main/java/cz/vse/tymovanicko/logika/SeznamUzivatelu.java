@@ -58,7 +58,8 @@ public class SeznamUzivatelu {
         }
         return heslo;
     }
-    public int getPocetUzivatelu(){
+
+    public int getPocetUzivatelu() {
         return uzivatele.size();
     }
 
