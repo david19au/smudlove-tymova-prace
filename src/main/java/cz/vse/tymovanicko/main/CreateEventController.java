@@ -208,63 +208,7 @@ public class CreateEventController {
         Matcher jeValidniJmeno = patternJmeno.matcher(stringJmeno);
 
         if (jeValidniJmeno.matches()) {
-            String regexLokace = ".+";
-            Pattern patternLokace = Pattern.compile(regexLokace);
-            String stringLokace = lokaceUdalosti.getCharacters().toString();
-            Matcher jeValidniLokace = patternLokace.matcher(stringLokace);
-
-            if (jeValidniLokace.matches()) {
-                String pocatecniUdalost = datumUdalosti.getValue().toString();
-                SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-                SimpleDateFormat outputFormat = new SimpleDateFormat("dd.MM.yyyy");
-                Date datum = inputFormat.parse(pocatecniUdalost);
-                String konecnaUdalost = outputFormat.format(datum);
-                boolean cilovaUdalost = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getUdalosti().stream().anyMatch(udalost -> udalost.getJmenoUdalosti().equals(jmenoUdalosti.getCharacters().toString()) && udalost.getLokaceUdalosti().equals(lokaceUdalosti.getCharacters().toString()) && udalost.getDatumUdalosti().equals(konecnaUdalost));
-                if (cilovaUdalost) {
-                    final Stage dialog = new Stage();
-                    dialog.initModality(Modality.APPLICATION_MODAL);
-                    dialog.initOwner(stage);
-                    VBox dialogVbox = new VBox(20);
-                    dialogVbox.setAlignment(Pos.CENTER);
-                    dialogVbox.setStyle("-fx-background: #37598e;");
-                    HBox hBox = new HBox(20);
-                    hBox.setAlignment(Pos.CENTER);
-                    ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
-                    imageView.setFitHeight(50);
-                    imageView.setPreserveRatio(true);
-                    final Text text = new Text("Nelze vytvořit událost, která již existuje.");
-                    text.setStyle("-fx-font: 14 arial;");
-                    text.setFill(Color.WHITE);
-                    Button button = new Button("OK");
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent actionEvent) {
-                            dialog.close();
-                        }
-                    });
-                    hBox.getChildren().add(imageView);
-                    hBox.getChildren().add(text);
-                    dialogVbox.getChildren().add(hBox);
-                    dialogVbox.getChildren().add(button);
-                    Scene dialogScene = new Scene(dialogVbox, 340, 120);
-                    dialog.setScene(dialogScene);
-                    dialog.setTitle("Upozornění");
-                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
-                    dialog.show();
-                } else {
-                    String jmeno = jmenoUdalosti.getCharacters().toString();
-                    String lokace = lokaceUdalosti.getCharacters().toString();
-                    LocalDate date = datumUdalosti.getValue();
-                    Date datumJava = java.sql.Date.valueOf(date);
-                    Tymovanicko.TYMOVANICKO.getSpravaUdalosti().vytvorUdalost(jmeno, datumJava, lokace);
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/events.fxml")));
-                    stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setTitle("Týmováníčko - Události");
-                    stage.show();
-                }
-            } else {
+            if (datumUdalosti.getValue() == null) {
                 final Stage dialog = new Stage();
                 dialog.initModality(Modality.APPLICATION_MODAL);
                 dialog.initOwner(stage);
@@ -276,7 +220,7 @@ public class CreateEventController {
                 ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
                 imageView.setFitHeight(50);
                 imageView.setPreserveRatio(true);
-                final Text text = new Text("Není validní lokace události.");
+                final Text text = new Text("Nebylo zvoleno datum události.");
                 text.setStyle("-fx-font: 14 arial;");
                 text.setFill(Color.WHITE);
                 Button button = new Button("OK");
@@ -295,6 +239,95 @@ public class CreateEventController {
                 dialog.setTitle("Upozornění");
                 dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
                 dialog.show();
+            } else {
+                String regexLokace = ".+";
+                Pattern patternLokace = Pattern.compile(regexLokace);
+                String stringLokace = lokaceUdalosti.getCharacters().toString();
+                Matcher jeValidniLokace = patternLokace.matcher(stringLokace);
+
+                if (jeValidniLokace.matches()) {
+                    String pocatecniUdalost = datumUdalosti.getValue().toString();
+                    SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat outputFormat = new SimpleDateFormat("dd.MM.yyyy");
+                    Date datum = inputFormat.parse(pocatecniUdalost);
+                    String konecnaUdalost = outputFormat.format(datum);
+                    boolean cilovaUdalost = Tymovanicko.TYMOVANICKO.getSpravaUdalosti().getUdalosti().stream().anyMatch(udalost -> udalost.getJmenoUdalosti().equals(jmenoUdalosti.getCharacters().toString()) && udalost.getLokaceUdalosti().equals(lokaceUdalosti.getCharacters().toString()) && udalost.getDatumUdalosti().equals(konecnaUdalost));
+                    if (cilovaUdalost) {
+                        final Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        dialog.initOwner(stage);
+                        VBox dialogVbox = new VBox(20);
+                        dialogVbox.setAlignment(Pos.CENTER);
+                        dialogVbox.setStyle("-fx-background: #37598e;");
+                        HBox hBox = new HBox(20);
+                        hBox.setAlignment(Pos.CENTER);
+                        ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
+                        imageView.setFitHeight(50);
+                        imageView.setPreserveRatio(true);
+                        final Text text = new Text("Nelze vytvořit událost, která již existuje.");
+                        text.setStyle("-fx-font: 14 arial;");
+                        text.setFill(Color.WHITE);
+                        Button button = new Button("OK");
+                        button.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                dialog.close();
+                            }
+                        });
+                        hBox.getChildren().add(imageView);
+                        hBox.getChildren().add(text);
+                        dialogVbox.getChildren().add(hBox);
+                        dialogVbox.getChildren().add(button);
+                        Scene dialogScene = new Scene(dialogVbox, 340, 120);
+                        dialog.setScene(dialogScene);
+                        dialog.setTitle("Upozornění");
+                        dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
+                        dialog.show();
+                    } else {
+                        String jmeno = jmenoUdalosti.getCharacters().toString();
+                        String lokace = lokaceUdalosti.getCharacters().toString();
+                        LocalDate date = datumUdalosti.getValue();
+                        Date datumJava = java.sql.Date.valueOf(date);
+                        Tymovanicko.TYMOVANICKO.getSpravaUdalosti().vytvorUdalost(jmeno, datumJava, lokace);
+                        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/events.fxml")));
+                        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Týmováníčko - Události");
+                        stage.show();
+                    }
+                } else {
+                    final Stage dialog = new Stage();
+                    dialog.initModality(Modality.APPLICATION_MODAL);
+                    dialog.initOwner(stage);
+                    VBox dialogVbox = new VBox(20);
+                    dialogVbox.setAlignment(Pos.CENTER);
+                    dialogVbox.setStyle("-fx-background: #37598e;");
+                    HBox hBox = new HBox(20);
+                    hBox.setAlignment(Pos.CENTER);
+                    ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("other/x-mark-white.png")).toString());
+                    imageView.setFitHeight(50);
+                    imageView.setPreserveRatio(true);
+                    final Text text = new Text("Není validní lokace události.");
+                    text.setStyle("-fx-font: 14 arial;");
+                    text.setFill(Color.WHITE);
+                    Button button = new Button("OK");
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            dialog.close();
+                        }
+                    });
+                    hBox.getChildren().add(imageView);
+                    hBox.getChildren().add(text);
+                    dialogVbox.getChildren().add(hBox);
+                    dialogVbox.getChildren().add(button);
+                    Scene dialogScene = new Scene(dialogVbox, 300, 120);
+                    dialog.setScene(dialogScene);
+                    dialog.setTitle("Upozornění");
+                    dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("other/logo.jpg"))));
+                    dialog.show();
+                }
             }
         } else {
             final Stage dialog = new Stage();
