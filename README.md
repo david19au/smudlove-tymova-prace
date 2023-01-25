@@ -183,6 +183,26 @@ class  "Nastaveni" <<ui>> {}
   - Diagram aktivit (activity diagram)
   - Sekvenční diagram (sequence diagram)
   - Stavový diagram (state machine diagram)
+```plantuml
+scale 300 width
+state Přihlásení_zaregistrovaného_uživatele {
+[*] --> start_aplikace
+start_aplikace : uživatelské údaje
+
+start_aplikace --> [*] : abbort
+
+start_aplikace -> zadej_email
+zadej_email : emailová adresa
+
+zadej_email --> zadej_heslo : proced
+zadej_heslo : heslo uživatele
+
+zadej_heslo --> zadej_email : špatné heslo
+
+zadej_heslo --> [*]
+}
+```
+
   - Objektový diagram (object diagram)
   - Diagram spolupráce (collaboration diagram) / diagram komponent (component diagram)
 
