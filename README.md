@@ -457,6 +457,7 @@ class  "RegisterController" <<ui>> {
 ```
 - další UML modely
   - **Diagram aktivit (activity diagram)** -> *DIAGRAM CHOVÁNÍ*
+    - 🐻 Trong Dat Luu (luut02)
     - Diagram aktivit se používá pro popis dynamických aspektů systému. Znázorňuje tok řízení z aktivity do aktivity. Diagram aktivit se soustřeďuje spíše na proces výpočtu než na objekty účastnící se výpočtu.
 ```plantuml
   (*) --> if "Login / registrace" then
@@ -509,6 +510,7 @@ endif
 endif
  ```
   - **Sekvenční diagram (sequence diagram)** -> *DIAGRAM INTERAKCE*
+    - 🐧 Adam Schindler (scha28)
     - Sekvenční diagram se používá v případech, kde jsou důležité časové souvislosti interakcí, ovšem nevidíme v něm zobrazené vztahy mezi objekty. Objekty si mohou posílat zprávy.
     - Sekvenční diagram zobrazuje časovou posloupnost
    
@@ -539,6 +541,7 @@ Login --> Uživatel : vstup do aplikace
 
     
   - **Stavový diagram (state machine diagram)** -> *DIAGRAM CHOVÁNÍ*
+    - 🐼 Hana Žahourová (zahh00)
     - Stavový diagram obsahuje tzv. stavový stroj (state machine) -> vyjadřuje stavy určitého objektu a přechody mezi těmito stavy.
 ```plantuml
 scale 300 width
@@ -558,6 +561,7 @@ zadej_heslo --> [*]
 ```
 
   - **Objektový diagram (object diagram)** -> *STRUKTURNÍ DIAGRAM*
+    - 🪲 Jakub Kafka (kafj03)
     - Diagram objektů ukazuje objekty a jejich vztahy v jistém časovém okamžiku.
 ```plantuml
 scale 500 width
@@ -598,6 +602,7 @@ Chat --> Chatlog
 
 ```
   - **Diagram komponent (component diagram)** -> *STRUKTURNÍ DIAGRAM*
+    - 🐸 Magdalena Hájková (hajm17)
     - Diagram komponent ukazuje závislost mezi SW komponentami a jejich implementací. Komponenta v UML reprezentuje modulární část systému, která zapouzdřuje svůj obsah a jejíž projev je nahraditelný v jejím okolí
     - Chování je plně definováno jejími poskytovanými a požadovanými rozhraními
 ```plantuml
