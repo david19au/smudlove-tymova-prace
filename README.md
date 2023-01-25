@@ -114,21 +114,33 @@ trainer -[#red,thickness=2]-> delegateCaptain
 - diagram tříd na designové úrovni
 
 ```plantuml
+
 package "Logika" {
-Uzivatel<|-- SeznamUzivatelu : obsahuje
-KategorieUzivatele<|-- Uzivatel 
-Tym<|-- Uzivatel
-Chat<|--Tym
+Uzivatel *-- SeznamUzivatelu 
+Udalost *-- SpravaUdalosti
+Chat	o-- ChatLog : obsahuje
+Tymovanicko<|-- Uzivatel
+Tymovanicko <|-- Udalost
+Tymovanicko <|-- Chat
+
+
+
 
 class "Uzivatel" {
- +id: string
-+jmeno: string
++email: string
++krestniJmeno: string
 +prijmeni: string
-+tym: tym
 -heslo: string
-+boolean prihlaseni()
-+void potvrdit()
-+boolean chat()
++role: string
++getKrestniJmeno() : string
++setKrestniJmeno() : void
++getPrijmeni() : string
++setPrijmeni() : void
++getEmail() : String
++setEmail() : void
++getHeslo() : string
++getRole() : string
++setRole() : void
 }
 class "SeznamUzivatelu" {
 -uzivatel: SeznamUzivatelu
@@ -138,47 +150,288 @@ class "SeznamUzivatelu" {
 +collection zobrazSeznamUzivatel()
 
 }
-class "KategorieUzivatele"{
-+nazev: string
-+vlastnosti: string
 
-}
-class "Tym" {
-+nazev: string
-+pocetClenu: int
-
-+void pridatClena(uzivatel : Uzivatel)
-+void odebratClena(uzivatel : Uzivatel)
-+collection zobrazSeznamClenu()
-}
 
 class "Chat" {
-+zprava: string
-+boolean odeslatZpravu()
+-chatLog: chatLog
++odeslatZpravu() : void
++pridatZpravu() : void
+-ulozitZpravyDoJSON() : void
++nactiZpravyZJSON() : void
 
 }
+
+class "ChatLog" {
++zpravy: ArrayList
++ getZpravy() : ArrayList<String>
+
 }
+
+class "Tymovanicko" {
+-seznamUzivatelu: seznamUzivatelu
+-uzivatel: uzivatel
+-chat: chat
+-chatLog: chatLog
+-id: string
+-spravaUdalosti: spravaUdalosti
+-udalost: udalost
+-udalosti: List<Udalost>
+-zalozTymovanicko() : void
++getSeznamUzivatelu() : SeznamUzivatelu
++setSeznamUzivatelu(SeznamUzivatelu seznamUzivatelu) : void
++getChat() : Chat
++setChat(Chat chat) : void
++getChatLog() : chatLog
++setChatLog(ChatLog chatLog) : void
++getId() : string
++setItd(String id) : void
++getJmeno(String stringEmailu) : string
++getSpravaUdalosti() : spravaUdalosti
++getUdalosti() : List<Udalost>
++setUdalosti(List<Udalost> udalosti) : void
+}
+
+class "Udalost" {
+-jmenoUdalosti : string
+-datumUdalosti : string
+-lokaceUdalosti : string
+-seznamJde : List<String>
+-seznamNejde : List<String>
++ getJmenoUdalosti() : string
++getDatumUdalosti() : string
++setDatumUdalosti (Date datumUdalosti) : void
++getLokaceUdalosti : string
++getSeznamJde : List<String>
++setSeznamJde(List<String> seznamJde) : void
++getSeznamNejde() : List<String>
++setSeznamNejde(List<String> seznamNejde) : void
+
+}
+
+class "SpravaUdalosti" {
+- gson : gson
+- udalosti : ArrayList<Udalost>
++ vytvorUdalost(String jmenoUdalosti, Date datumUdalosti, String lokaceUdalosti) : void
++ smazUdalost (String jmenoUdalosti) : void
++ pridatUdalost (Udalost udalost) : void
++ getUdalosti() : list<Udalost>
++ setUdalosti(ArrayList<Udalost> udalosti) : void
++ zmenRSVP (Udalost jmenoUdalosti, String jmenoClena, String status) : void
++ ulozUdalostiDoJSON() : void
++ getJde(Udalost jmenoUdalosti) : collection<String>
++getNejde(Udalost jmenoUdalosti) : collection<string>
+
+}
+
+
+
+
 package "Main" {
+HomeController <|-- RegisterController
+HomeController <|-- LoginController
+HomeController <|-- EventsController
+HomeController <|-- ChatController
+HomeController <|-- ProfileSettings
+ProfileSettings <|-- ChangePassword
+
+EventsController <|-- CreateEventController
 class "Start" {
-+main (args[] : String)():void
++{static} main (String[] args) : void
++ start(Stage stage) : void
 
 }
+class "ChangePassword" <<ui>>  {
+-home : Label
+-zmenHeslo : Button
+-zpet : ImageView
+-stage : Stage
+-scene : Scene
+-udalosti : ImageView
+- chat : ImageView
+- stareHeslo : PasswordField
+- noveHeslo : PasswordField
+- noveHesloZnovu : PasswordField
+-zpracujZmenuHesla(ActionEvent actionEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
+-ztmavni (MouseEvent mouseEvent) : void
+-zesvetlej(MouseEvent mouseEvent) : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-zpracujNaUdalost(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+
+
+}
+class "ChatController" <<ui>> {
+-vstupZprava : textField
+-home : label
+-zpravyChatu : textArea
+-udalosti : imageView
+-nastaveni : imageView
+-stage : stage
+-scene : scene
+-zpet : imageView
++nactiStareZpravy() : void
+-zpracujPoslani(Actionevent actionEvent) : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
+-ztmavniNastaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
+-ztmavni(MouseEvent mouseEvent) : void
+-zesvetlej(MouseEvent mouseEvent) : void
+-zpracujNaUdalosti(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+
+}
+class "CreateEventController" <<ui>> {
+-jmenoUdalosti : textField
+-datumUdalosti : datePicker
+-lokaceUdalosti : textField
+-nastaveni : imageView
+-chat : imageView
+-zpet : imageView
+-stage : stage
+-scene: scene
+-home: label
+-pattern : string
+-dateTimeFormatter : DateTimeFormatter
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-ztmavniNatstaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
++zpracujZpatky(MouseEvent mouseEvent) : void
++ztmavni(MouseEvent mouseEvent) : void
++zesvetlej(MouseEvent mouseEvent) : void
+-vytvorUdalost(ActionEvent actionEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+-
+}
+class "EventsController" <<ui>>  {
+-home : label
+-vytvorUdalost : button
+-panelUdalosti : listView<Udalost>
+-nastaveni : imageView
+-chat : imageView
+- zpet : imageView
+-stage : stage
+-scene : scene
+-initialize() : void
+-naplneniPaneluUdalosti() : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-ztmavniNastaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
++zpracujZpatky(MouseEvent mouseEvent) : void
++ztmavni(MouseEvent mouseEvent) : void
++zesvetlej(MouseEvent mouseEvent) : void
+-zpracujNaVytvoreniUdalosti(ActionEvent actionEvent) : void
+-klikPanelUdalosti(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
+
+
+
+}
+class "HomeController" <<ui>> {
+-udalosti : imageView
+-chat : imageView
+-nastaveni : imageView
+- stage : stage
+-scene : scene
+-panelClenu : listView
++initialize() : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-ztmavniNastaveni(MouseEvent mouseEvent) : void
+-zesvetlejNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaNastaveni(MouseEvent mouseEvent) : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-zpracujNaUdalosti(MouseEvent mouseEvent) : void
+-naplneniPaneluClenu() : void
++klikPanelClenu(MouseEvent mouseEvent) : void
+
+}
+class "LoginController" <<ui>> {
+-prihlasit : button
+-zaregistrovat : button
+-stage : stage
+-scene: scene
+-email : textField
+-password : passwordField
+-zpracujPrihlaseni(ActionEvent actionEvent) : void
+-zpracujNaZaregistrovani (ActionEvent actionEvent) : void
 }
 
-package "uzivatelskeRozhrani" {
-class "Menu" <<ui>>  {
+class "ProfileSettings" <<ui>> {
+-zmenTym : button
+-zmenHeslo : button
+-odhlas : button
+-uloz : button
+-udalosti : imageView
+-chat : imageView
+-stage : stage
+-scene : scene
+-zpet : imageView
+-jmeno : textField
+-prijmeni : textField
+-email : textField
+-heslo : passwordField
+-home : label
+-role : textField
+-initialize() : void
+-zpracujUlozeni(ActionEvent actionEvent) : void
+-zpracujOdhlaseni(ActionEvent actionEvent) : void
+-zpracujNaZmenuHesla(ActionEvent actionEvent) : void
+-ztmavniKalendar(MouseEvent mouseEvent) : void
+-zesvetlejKalendar(MouseEvent mouseEvent) : void
+-ztmavniChat(MouseEvent mouseEvent) : void
+-zesvetlejChat(MouseEvent mouseEvent) : void
+-zpracujNaChat(MouseEvent mouseEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
++ztmavni(MouseEvent mouseEvent) : void
++zesvetlej(MouseEvent mouseEvent) : void
+-zpracujNaUdalosti(MouseEvent mouseEvent) : void
+-zpracujNaHome(MouseEvent mouseEvent) : void
+-ztmavniHome(MouseEvent mouseEvent) : void
+-zesvetlejHome(MouseEvent mouseEvent) : void
 
 }
-class "HlavniObrazovka" <<ui>> {
-}
-class " ZalozeniUzivatele" <<ui>> {}
-class "Hledat" <<ui>>  {}
-class "Kalendar" <<ui>> {}
-class "Chatovani" <<ui>> {}
+class  "RegisterController" <<ui>> {
+-zaregistruj : button
+-zpet : ImageView
+-stage : stage
+-scene: scene
+-email : textField
+-jmeno : textField
+-heslo : passwordField
+-potvrzeniHesla : passwordField
+- prijmeni : textField
+-zpracujZaregistrovani(ActionEvent actionEvent) : void
+-ztmavni(MouseEvent mouseEvent) : void
+-zesvetlej(MouseEvent mouseEvent) : void
+-zpracujZpatky(MouseEvent mouseEvent) : void
 
-class "ZalozkaUzivatele" <<ui>> {}
-class  "Nastaveni" <<ui>> {} 
+} 
 }
+
 ```
 
 ### Návrh úložiště
