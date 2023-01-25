@@ -110,7 +110,6 @@ trainer -[#red,thickness=2]-> modifyEvent
 trainer -[#red,thickness=2]-> delegateCaptain
 ```
 
-- další UML modely za každého člena týmu (individuální práce)
 - diagram tříd na designové úrovni
 
 ```plantuml
@@ -180,6 +179,13 @@ class "ZalozkaUzivatele" <<ui>> {}
 class  "Nastaveni" <<ui>> {} 
 }
 ```
+- další UML modely
+  - Diagram aktivit (activity diagram)
+  - Sekvenční diagram (sequence diagram)
+  - Stavový diagram (state machine diagram)
+  - Objektový diagram (object diagram)
+  - Diagram spolupráce (collaboration diagram) / diagram komponent (component diagram)
+
 
 ### Návrh úložiště
 
