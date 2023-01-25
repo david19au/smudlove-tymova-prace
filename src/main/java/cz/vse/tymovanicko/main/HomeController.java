@@ -242,7 +242,7 @@ public class HomeController {
         for (Uzivatel uzivatel : Tymovanicko.TYMOVANICKO.getSeznamUzivatelu().getUzivatele()) {
             if (uzivatel.getEmail().equals(Tymovanicko.TYMOVANICKO.getId())) {
                 if (uzivatel.getRole().equals("Trenér")) {
-                    if (!cilovyUzivatel.getRole().equals("Trenér")) {
+                    if (!uzivatel.getEmail().equals(cilovyUzivatel.getEmail())) {
                         final Stage dialog = new Stage();
                         dialog.initModality(Modality.APPLICATION_MODAL);
                         dialog.initOwner(stage);
