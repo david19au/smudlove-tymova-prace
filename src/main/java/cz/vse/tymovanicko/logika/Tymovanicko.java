@@ -16,7 +16,7 @@ import java.util.List;
  * Tato třída inicializuje prvky ze kterých se aplikace skládá.
  * Tato třída je enum a aplikuje se zde Singleton.
  *
- * @author ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
  * @version 1.0.0
  */
 public enum Tymovanicko {

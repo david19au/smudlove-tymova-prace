@@ -36,7 +36,7 @@ import java.util.Objects;
  * Třída  EventController je hlavní třídou okna,
  * které představuje události
  *
- * @author ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
  * @version 1.0.0
  */
 public class EventsController {

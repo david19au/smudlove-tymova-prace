@@ -13,7 +13,7 @@ import java.util.Objects;
  * který představuje správu týmů.
  * Třída by default zapíná své grafické rozhraní, textové rozhraní k dispozici není.
  *
- * @author ?
+ * @author Magdalena Hájková (hajm17), Trong Dat Luu (luut02), Jakub Kafka (kafj03), Adam Schindler (scha28), Hana Žahourová (zahh00)
  * @version 1.0.0
  */
 public class Start extends Application {
