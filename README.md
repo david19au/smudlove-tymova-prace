@@ -511,6 +511,32 @@ endif
   - Sekvenční diagram (sequence diagram) -> DIAGRAM INTERAKCE
     - Sekvenční diagram se používá v případech, kde jsou důležité časové souvislosti interakcí, ovšem nevidíme v něm zobrazené vztahy mezi objekty. Objekty si mohou posílat zprávy.
     - Sekvenční diagram zobrazuje časovou posloupnost
+   
+    ```plantuml
+    actor Uživatel #skyblue
+
+participant Registrace
+participant Login
+participant Validace
+participant JSON
+
+
+Uživatel -> Registrace : kliknutí na tlačítko "zaregistrujte se"
+Registrace --> Uživatel : zobrazení registračního formuláře
+Uživatel -> Registrace : zadání údajů
+Registrace -> Validace : validace zadaných údajů
+Validace -> JSON : zapsání uživatele do JSONu
+Validace -->Registrace : úspěšná registrace
+Registrace --> Uživatel: přesměrování na login
+Uživatel -> Login : zadání přihlašovacích údajů
+Login -> Validace : validace zadaných údajů (email, heslo)
+Validace -> JSON : hledání zadané kombinace údajů
+JSON --> Validace : zadané údaje nalezeny
+Validace--> Login : úspěšné přihlášení
+Login --> Uživatel : vstup do aplikace
+
+     ```
+
     
   - Stavový diagram (state machine diagram) -> DIAGRAM CHOVÁNÍ
     - Stavový diagram obsahuje tzv. stavový stroj (state machine) -> vyjadřuje stavy určitého objektu a přechody mezi těmito stavy.
