@@ -4,6 +4,8 @@ module cz.vse.tymovanicko {
     requires com.google.gson;
     requires jbcrypt;
     requires java.sql;
+    requires java.mail;
+    requires activation;
 
 
     opens cz.vse.tymovanicko.main to javafx.fxml, com.google.gson;
